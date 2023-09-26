@@ -27,14 +27,12 @@
     text-transform: uppercase;
     border-radius: 0px 16px 0px 16px;
     color: #FFFFFF;
-    /* background-color: transparent; */
     background: linear-gradient(to right, #FF003A, #F29400);
     font-weight: 700;
     line-height: 19.2px;
     font-size: 0.9rem;
     padding: 18px 40px;
     margin-right: 20px;
-    /* width: 100%; */
 }
 
 
