@@ -1,0 +1,343 @@
+/* .carousel-caption {
+    position: absolute !important;
+    bottom: 11.5rem !important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+    color: #fff !important;
+    text-align: center !important;
+    left: 3% !important;
+    right: 0 !important;
+}
+
+.carousel-caption-two {
+    position: absolute !important;
+    bottom: 7rem !important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+    color: #fff !important;
+    text-align: center !important;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+} */
+
+/* .shop-carousel-edit {
+    position: absolute !important;
+    bottom: 7rem !important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+    color: #fff !important;
+    text-align: center !important;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+} */
+/* 
+.banner {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+} */
+
+/* .banner_text {
+    font-size: 3.5rem;
+    text-align: start;
+    font-weight: 800;
+    font-family: 'Dancing Script', cursive;
+    letter-spacing: 2px;
+} */
+
+/* .banner__description {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: start;
+    font-family: 'Neuton', serif;
+    letter-spacing: 2px;
+    width: 45%;
+} */
+
+/* .banner__description-two {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+    /* font-family: 'Ysabeau SC', sans-serif !important; */
+/* font-family: 'Neuton', serif;
+    letter-spacing: 2px;
+    width: 45%; */
+/* color: #7DB9B6;  */
+/* color: #9F73AB; */
+/* }
+
+.banner_text-three {
+    font-size: 3.5rem;
+    text-align: start;
+    font-weight: 800;
+    font-family: 'Great Vibes', cursive; */
+/* font-family: 'Dancing Script', cursive; */
+/* color: #7DB9B6;  */
+/* color: #9F73AB; */
+/* animation: fadeInUp 0.9s ease-in-out 0.3s 1 both; */
+/* } */
+*/
+/* .contact-banner_text-three {
+    font-size: 3.5rem;
+    text-align: start;
+    font-weight: 800;
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+} */
+/* 
+.banner__description-three {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: start;
+    font-family: 'Neuton', serif;
+    color: #9F73AB;
+    width: 45%;
+} */
+
+.contact-banner__description-three {
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-align: start;
+    font-family: 'Neuton', serif;
+    /* font-family: 'Ysabeau SC', sans-serif !important; */
+    /* font-family: 'Dancing Script', cursive !important; */
+    color: #fff;
+    width: 45%;
+}
+
+.email {
+    color: #9F73AB;
+    font-weight: 700;
+
+}
+
+.shop_now-button {
+    font-size: 0.8rem !important;
+    line-height: 45px !important;
+    padding: 0 40px !important;
+    margin: 20px 0px !important;
+    border-radius: 50px !important;
+    border: none !important;
+    background-color: #9F73AB !important;
+    color: #fff !important;
+}
+
+.slider {
+    width: 300px;
+    height: 300px
+}
+
+.card-div {
+    margin: 30px;
+}
+
+
+.slider_img {
+    object-fit: contain;
+    transition: .3s;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.price_text {
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    line-height: 36px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.product_text {
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    line-height: 33.6px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    max-width: 300px;
+    /* Adjust this value as needed */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product_descrp-text {
+    color: #DDDDDDDD;
+    font-family: 'Poppins', sans-serif;
+    line-height: 30px;
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: start;
+}
+
+/* .product_text:hover,
+.price_text:hover,
+.price_text svg:hover {
+    color: #74959A;
+} */
+
+.card {
+    transition: box-shadow 0.3s ease !important;
+    background-color: transparent !important;
+    border: 1px solid #EE1826 !important;
+    border-radius: 0px 24px 0px 24px !important;
+    padding: 20px 20px 20px 20px !important;
+}
+
+.card:hover .card_content {
+    border: none !important;
+    background: transparent !important;
+}
+
+
+.card-div-home-new-product {
+    position: relative;
+    margin: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+}
+
+.card-div-home-new-product:hover .card-img {
+    transform: scale(1.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+
+.card_content {
+    transition: transform 0.3s ease;
+    background: transparent;
+    padding: 0px !important;
+}
+
+.card_content:hover {
+    background: transparent !important;
+}
+
+.hover-icons {
+    position: absolute;
+    bottom: 25%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.card-div-home-new-product:hover .hover-icons {
+    opacity: 1;
+}
+
+.left:hover,
+.right:hover {
+    color: #74959A
+}
+
+
+
+.card-div-home-new-product-featured {
+    position: relative;
+    margin: 15px;
+    overflow: hidden;
+    box-shadow: 4px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-featured {
+    transform: scale(0.8);
+    margin: 20px 0px;
+    object-fit: initial !important;
+}
+
+/* .card-div-home-new-product-featured :hover .card-img-featured {
+    transform: scale(0.8);
+    transition: 0.5s ease-in-out;
+} */
+
+
+
+/* 
+@media (min-width: 768px) and (max-width: 900px) {
+    .carousel-caption-two{
+        bottom: 0rem !important;
+    }
+} */
+
+
+/* @media (min-width: 320px) and (max-width: 767px) {
+    .carousel-caption {
+        bottom: 5rem !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .carousel-caption-two {
+        bottom: 0rem !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .shop-carousel-edit {
+        bottom: 2rem !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .banner__description-three {
+        width: 100% !important;
+    }
+
+    .banner__description,
+    .banner__description-two,
+    .contact-banner__description-three {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .banner_text,
+    .banner_text-three,
+    .banner__description-three,
+    .banner__description,
+    .banner__description-two,
+    .contact-banner__description-three {
+        text-align: center !important;
+    }
+
+    .banner_text-three ,  .banner_text ,
+    .contact-banner_text-three{
+        font-size: 3rem;
+    }
+
+    .banner__description-three,
+    .banner__description,
+    .banner__description-two,
+    .contact-banner__description-three{
+        font-size: 1.3rem;
+    }
+
+}
+ */
+
+.card_content .addToCart_button {
+    text-transform: uppercase;
+    border-radius: 0px 16px 0px 16px;
+    color: #FFFFFF;
+    /* background-color: transparent; */
+    background: linear-gradient(to right, #FF003A, #F29400);
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 0.8rem;
+    padding: 10px 20px;
+    /* width: 100%; */
+}
+
+
+.cardActionArea:hover {
+    /* background-color: red !important; */
+}

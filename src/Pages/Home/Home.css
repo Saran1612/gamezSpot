@@ -1,0 +1,86 @@
+.home-heading_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 60.4px;
+    font-weight: 700;
+    font-size: 3rem;
+    color: #FFFFFF;
+}
+
+.home-heading_redtext {
+    color: #FD0238;
+    font-family: 'Poppins', sans-serif;
+    line-height: 60.4px;
+    font-weight: 700;
+    font-size: 3rem
+}
+
+.home-description_text {
+    color: #DDDDDDDD;
+    font-family: 'Poppins', sans-serif;
+    line-height: 32.4px;
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 18px 0px;
+}
+
+.home-button_container .show-product_button {
+    text-transform: uppercase;
+    border-radius: 0px 16px 0px 16px;
+    color: #FFFFFF;
+    /* background-color: transparent; */
+    background: linear-gradient(to right, #FF003A, #F29400);
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 0.9rem;
+    padding: 18px 40px;
+    margin-right: 20px;
+    /* width: 100%; */
+}
+
+
+
+.home-button_container .show-controller_button {
+    text-transform: uppercase;
+    border-radius: 0px 16px 0px 16px;
+    border: 1px solid #FF003A;
+    color: #FFFFFF;
+    background-color: transparent;
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 0.9rem;
+    padding: 18px 30px;
+}
+
+.newestProduct_text {
+    color: #FD0337;
+    font-family: 'Architects Daughter', cursive;
+    line-height: 33.35px;
+    font-weight: 400;
+    font-size: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.preOrder_text {
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    line-height: 43.2px;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.home_tabs-box .PrivateTabIndicator-colorSecondary-3 {
+    background: linear-gradient(to right, #FF003A, #F29400);
+
+}
+
+.home_tabs-box .tab-heading_text {
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    line-height: 36px;
+    font-weight: 600;
+    font-size: 1.125rem;
+    text-transform: capitalize;
+    opacity: 1;
+}

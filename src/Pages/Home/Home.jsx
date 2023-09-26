@@ -1,0 +1,178 @@
+import React from "react";
+import "./Home.css";
+import Header from "../../Components/Header/Header";
+import { Box, Grid } from "@mui/material";
+import HomeBanner from "../../assests/homeBanner.svg";
+import ReusableButton from "../../Components/Button/Button";
+import {
+  PreOrder,
+  HotOnSale,
+  ComingSoon,
+} from "../../Components/Carousel/Carousel";
+import Tab from "@mui/material/Tab";
+import TabContext from "@material-ui/lab/TabContext";
+import TabList from "@material-ui/lab/TabList";
+import TabPanel from "@material-ui/lab/TabPanel";
+import { Headphones, PlayStation, Xbox } from "./Tabs";
+
+const Home = () => {
+  const [value, setValue] = React.useState("1");
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <Box className="app-bg_img">
+      <Box>
+        <Header />
+      </Box>
+
+      <Box className="home_wrapper">
+        <Box>
+          <Grid container spacing={2}>
+            <Grid item xs={1.5}></Grid>
+            <Grid item xs={5}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "",
+                  flexDirection: "column",
+                  padding: "35px 0px",
+                }}
+              >
+                <span className="home-heading_text">
+                  Best <b className="home-heading_redtext">Pro Gaming</b>
+                </span>
+                <span className="home-heading_text">Accessories</span>
+                <span className="home-description_text">
+                  Gaming accessories include gear such as headsets, extra
+                  controllers, charging station, memory devices, carrying cases
+                  and much more.
+                </span>
+
+                <Box
+                  className="home-button_container"
+                  sx={{ display: "flex", marginTop: "15px" }}
+                >
+                  <ReusableButton
+                    buttonName="Show product"
+                    size="small"
+                    className="show-product_button"
+                    // onClick={handleLoginClick}
+                  />
+                  <ReusableButton
+                    buttonName="Show controllers"
+                    size="small"
+                    className="show-controller_button"
+                    // onClick={handleLoginClick}
+                  />
+                </Box>
+              </Box>
+            </Grid>
+
+            <Grid item xs={4.5}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "50px",
+                }}
+              >
+                <img
+                  src={HomeBanner}
+                  alt="HomeBanner"
+                  width="300"
+                  height="300"
+                />
+              </Box>
+            </Grid>
+            <Grid item xs={1}></Grid>
+          </Grid>
+        </Box>
+
+        <Box sx={{ margin: "40px 0px 20px 0px" }}>
+          <span className="newestProduct_text">
+            Be the first to try our newest product
+          </span>
+          <Box sx={{ textAlign: "center", marginTop: "10px" }}>
+            <span className="preOrder_text">Pre Order</span>
+            <Box sx={{ marginTop: "20px" }}>
+              <PreOrder />
+            </Box>
+          </Box>
+        </Box>
+
+        <Box sx={{ margin: "40px 0px 20px 0px" }}>
+          <span className="newestProduct_text">
+            Hurry before stock runs out
+          </span>
+          <Box sx={{ textAlign: "center", marginTop: "10px" }}>
+            <span className="preOrder_text">Hot On Sale</span>
+            <Box sx={{ marginTop: "20px" }}>
+              <HotOnSale />
+            </Box>
+          </Box>
+        </Box>
+
+        <Box sx={{ margin: "40px 0px 20px 0px" }}>
+          <span className="newestProduct_text">The wait is almost over</span>
+          <Box sx={{ textAlign: "center", marginTop: "10px" }}>
+            <span className="preOrder_text">Coming Soon</span>
+            <Box sx={{ marginTop: "20px" }}>
+              <ComingSoon />
+            </Box>
+          </Box>
+        </Box>
+
+        <Box
+          sx={{
+            width: "100%",
+            typography: "body1",
+            margin: "40px 0px 0px 0px",
+          }}
+        >
+          <TabContext value={value}>
+            <Box className="home_tabs-box">
+              <TabList
+                onChange={handleChange}
+                aria-label="lab API tabs example"
+                centered
+              >
+                <Tab label="Xbox" className="tab-heading_text" value="1" />
+                <Tab label="Headphone" className="tab-heading_text" value="2" />
+                <Tab
+                  label="Playstation"
+                  className="tab-heading_text"
+                  value="3"
+                />
+              </TabList>
+            </Box>
+
+            <TabPanel value="1">
+              <Xbox />
+            </TabPanel>
+
+            <TabPanel value="2">
+              <Headphones />
+            </TabPanel>
+
+            <TabPanel value="3">
+              <PlayStation />
+            </TabPanel>
+          </TabContext>
+        </Box>
+
+        <Box className="people-trust-us_conatiner">
+          <span>What people say about us</span>
+          <span>PEOPLE TRUST US</span>
+
+          <Box className="trust-us_carousel-wrapper">
+            
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+export default Home;

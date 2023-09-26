@@ -1,5 +1,13 @@
-.bg_img {
-  background-image: url(../assests/Group\ 1000002646.png);
+/* @import url('https://fonts.googleapis.com/css2?family=Neuton:wght@400;700&family=Poppins:wght@300;400&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Neuton:wght@400;700&family=Poppins:wght@300;400&display=swap');
+* {
+  font-family: 'Neuton', serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Architects Daughter', cursive; */
+}
+
+.app-bg_img {
+  background-image: url(./assests/Group\ 1000002646.png);
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;

@@ -1,0 +1,101 @@
+.login_bgContainer {
+    background-image: url(../../assests/login-bg-slides.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    width: 102%;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_formContainer {
+    background-color: #0F0F0F;
+    height: 100vh;
+    padding: 0% 18%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login_header-text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 48px;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    text-align: start;
+    width: 100%;
+
+}
+
+.login_header-descp {
+    font-family: 'Poppins', sans-serif;
+    line-height: 27.52px;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #FFFFFF;
+    width: 289px;
+    margin-top: 10px;
+    padding-right: 12px;
+}
+
+.login_inputFields {
+    background-color: #1E1E1E;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.login_inputFields .MuiInputBase-root {
+    padding: 10px 18px;
+}
+
+.login_inputFields input {
+    color: #FFFFFF;
+}
+
+.login-hello_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 38.4px;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #FFFFFF;
+}
+
+.login-descpt {
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #FFFFFF;
+    margin-top: 10px;
+}
+
+.login-button_container .login_button {
+    background: #E10033;
+    color: #FFFFFF;
+    width: 100%;
+    font-weight: 700;
+    line-height: 21.6px;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    padding: 15px 0px;
+}
+
+.login-button_container .login_button:hover {
+    background: #E10033;
+    color: #FFFFFF;
+    width: 100%;
+}
+
+.forgot-pass_container .forgot-password_text {
+    display: block;
+    width: 100%;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 400;
+    line-height: 25.8px;
+    font-size: 0.9375rem;
+}

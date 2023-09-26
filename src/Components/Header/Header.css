@@ -1,0 +1,36 @@
+.my-cart_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #DDDDDDDD;
+}
+
+.my-cart-value_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #FFFFFF;
+}
+
+.usd_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #FFFFFF;
+}
+
+.cart_icon .MuiBadge-badge {
+    border-radius: 4px;
+    background: linear-gradient(to right, #FF003A, #F29400);
+}
+
+.search-bar_text input {
+    color: #FFFFFF;
+}
+
+.header_appbar .MuiToolbar-root {
+    padding: 0px;
+}

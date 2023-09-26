@@ -1,0 +1,212 @@
+.cart-bg_img {
+    background-image: url(../../assests/cart_bg.svg);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #000;
+}
+
+.cart-title_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 28.8px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+}
+
+.cart_table {
+    color: #FFFFFF !important;
+    border: none !important;
+}
+
+.delete-button svg {
+    color: #FFFFFF !important;
+}
+
+.cart_table .MuiDataGrid-columnSeparator.MuiDataGrid-columnSeparator--sideRight {
+    display: none;
+}
+
+.cart_table .MuiDataGrid-cell {
+    border-bottom: 1px solid #2D2D2D !important;
+}
+
+.cart_table .MuiDataGrid-columnHeaders {
+    border: 1px solid #2D2D2D;
+    background-color: #00000080 !important;
+}
+
+.quality-picker_container button,
+.quality-picker_container input {
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+}
+
+
+.quality-picker_container div {
+    border: 1px solid #fff;
+    border-radius: 4px;
+    /* padding: 5px 6px; */
+}
+
+.shopping-button_container .shopping_button {
+    text-transform: uppercase;
+    border-radius: 0px 16px 0px 16px;
+    border: 1px solid #FF003A;
+    color: #FFFFFF;
+    background-color: transparent;
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 1rem;
+    padding: 18px 40px;
+}
+
+.shopping-button_container {
+    margin: 35px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.details-text {
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 1.125rem;
+    color: #FFFFFF;
+}
+
+.postal-code_fields {
+    width: 100%;
+    border: 1px solid #777777 !important;
+    border-radius: 4px;
+}
+
+.quote-button_container .quote_button {
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: 1px solid #FF003A;
+    color: #FFFFFF;
+    background-color: transparent;
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 1rem;
+    padding: 18px 60px;
+}
+
+.quote-button_container {
+    margin-top: 40px;
+}
+
+.estimate_text {
+    font-weight: 400;
+    line-height: 21px;
+    font-size: 0.875rem;
+    font-family: 'Poppins', sans-serif;
+    color: #DDDDDDDD;
+    margin: 20px 0px;
+}
+
+.shipping-tax_text {
+    font-weight: 700;
+    line-height: 24px;
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+}
+
+.details_select {
+    border: 1px solid #777777 !important;
+    border-radius: 4px;
+}
+
+.details_select svg {
+    color: #DDDDDDDD;
+}
+
+/* .hr-lines {
+    position: relative;
+    max-width: 100%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.hr-lines:after {
+    content: " ";
+    height: 2px;
+    width: 60px;
+    background: #2D2D2D;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -50%;
+    transform: translateX(50%);
+}
+
+@media screen and (max-width: 768px) {
+    .hr-lines {
+        margin: 50px auto;
+    }
+} */
+
+.cart_checkbox .MuiTypography-root {
+    color: #DDDDDDDD;
+    font-size: 0.875rem;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cart_checkbox svg {
+    color: #FFFFFF;
+}
+
+.cart-price_text {
+    color: #FFFFFF;
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    line-height: 21px;
+}
+
+.cart-checkbox_box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.total-shipping_text {
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+}
+
+.total-product-text {
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+}
+
+.total-price_text {
+    color: #FF003A;
+    font-size: 1.125rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    line-height: 27px;
+}
+
+.proceed-checkout_container .proceed_button {
+    text-transform: uppercase;
+    border-radius: 0px 16px 0px 16px;
+    color: #FFFFFF;
+    /* background-color: transparent; */
+    background: linear-gradient(to right, #FF003A, #F29400);
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 1rem;
+    padding: 18px 40px;
+    width: 100%;
+}
