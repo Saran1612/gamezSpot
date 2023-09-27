@@ -161,14 +161,19 @@ function Header(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{
+              mr: 2,
+              display: { md: "none" },
+              marginLeft: { xs: "0px", sm: "20px" },
+              fontSize: "2rem",
+            }}
           >
-            <MenuIcon />
+            <MenuIcon fontSize="1.8rem" />
           </IconButton>
 
           <Box
             sx={{
-              display: { xs: "none", sm: "flex" },
+              display: { xs: "none", sm: "none", md: "block" },
               flexDirection: "column",
               width: "100%",
             }}
@@ -184,6 +189,8 @@ function Header(props) {
               <Grid
                 item
                 xs={5}
+                sm={4}
+                md={5}
                 sx={{
                   display: "flex",
                   justifyContent: "end",
@@ -296,6 +303,8 @@ function Header(props) {
               <Grid
                 item
                 xs={2}
+                sm={1}
+                md={2}
                 sx={{
                   display: "flex",
                   justifyContent: "center",
@@ -313,6 +322,8 @@ function Header(props) {
               <Grid
                 item
                 xs={5}
+                sm={5}
+                md={5}
                 sx={{
                   display: "flex",
                   justifyContent: "start",
@@ -417,7 +428,6 @@ function Header(props) {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  // borderTop: "1px solid #5B5969",
                 }}
               >
                 <Search
@@ -446,6 +456,24 @@ function Header(props) {
               </Grid>
             </Grid>
           </Box>
+
+          <Box
+            sx={{
+              display: { xs: "flex", md: "none" },
+              width: "100%",
+              justifyContent: "center",
+              marginRight: "50px",
+              marginTop: "10px",
+            }}
+          >
+            <img
+              src={Logo}
+              alt="Logo"
+              height="70px"
+              onClick={handleLogoClick}
+              style={{ cursor: "pointer" }}
+            />
+          </Box>
         </Toolbar>
       </AppBar>
 
@@ -460,7 +488,7 @@ function Header(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { xs: "block", md: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,

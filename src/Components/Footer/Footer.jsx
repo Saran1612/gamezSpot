@@ -8,9 +8,14 @@ import Twitter from "../../assests/Group 1000002714.svg";
 
 const Footer = () => {
   return (
-    <Box className="footer_container" sx={{ padding: "50px 100px 40px 80px" }}>
+    <Box
+      className="footer_container"
+      sx={{
+        padding: { xs: "25px 50px 20px 40px", md: "50px 100px 40px 80px" },
+      }}
+    >
       <Grid container spacing={2}>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={3} md={3}>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             <img src={Logo} alt="logo" width="124" height="72" />
             <span className="level-up_text">
@@ -45,7 +50,7 @@ const Footer = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={3} md={3}>
           <Box>
             <Box>
               <span className="footer_heading-text">About Us</span>
@@ -68,7 +73,7 @@ const Footer = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={3} md={3}>
           <Box>
             <Box>
               <span className="footer_heading-text">Navigation</span>
@@ -100,7 +105,7 @@ const Footer = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={3} md={3}>
           <Box>
             <Box>
               <span className="footer_heading-text">Contact Us</span>
@@ -122,7 +127,7 @@ const Footer = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={3}></Grid>
+        <Grid item xs={12} sm={3} md={3}></Grid>
         <Grid item xs={3}>
           <span>Privacy Policy</span>
         </Grid>

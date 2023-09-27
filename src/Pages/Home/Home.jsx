@@ -27,11 +27,12 @@ const Home = () => {
         <Header />
       </Box>
 
-      <Box className="home_wrapper">
+      <Box className="home_wrapper" sx={{ padding: { xs: "30px", md: "0px" } }}>
         <Box>
           <Grid container spacing={2}>
-            <Grid item xs={1.5}></Grid>
-            <Grid item xs={5}>
+            <Grid item xs={0} sm={0.5} md={1.5}></Grid>
+
+            <Grid item xs={12} sm={6} md={5}>
               <Box
                 sx={{
                   display: "flex",
@@ -70,7 +71,7 @@ const Home = () => {
               </Box>
             </Grid>
 
-            <Grid item xs={4.5}>
+            <Grid item xs={12} sm={4.5} md={4.5}>
               <Box
                 sx={{
                   display: "flex",
@@ -86,7 +87,7 @@ const Home = () => {
                 />
               </Box>
             </Grid>
-            <Grid item xs={1}></Grid>
+            <Grid item xs={0} sm={1} md={1}></Grid>
           </Grid>
         </Box>
 
@@ -132,7 +133,7 @@ const Home = () => {
           }}
         >
           <TabContext value={value}>
-            <Box className="home_tabs-box">
+            <Box className="home_tabs-box" sx={{ padding: { xs: "20px" } }}>
               <TabList
                 onChange={handleChange}
                 aria-label="lab API tabs example"
@@ -166,9 +167,7 @@ const Home = () => {
           <span>What people say about us</span>
           <span>PEOPLE TRUST US</span>
 
-          <Box className="trust-us_carousel-wrapper">
-            
-          </Box>
+          <Box className="trust-us_carousel-wrapper"></Box>
         </Box>
       </Box>
     </Box>

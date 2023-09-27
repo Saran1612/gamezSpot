@@ -19,7 +19,13 @@ const Login = () => {
   return (
     <Box>
       <Grid container spacing={0}>
-        <Grid item xs={7}>
+        <Grid
+          item
+          xs={7}
+          sm={7}
+          md={7}
+          sx={{ display: { xs: "none", sm: "block" } }}
+        >
           <Box className="login_bgContainer">
             <Box
               sx={{
@@ -49,7 +55,7 @@ const Login = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={5}>
+        <Grid item xs={12} sm={5} md={5}>
           <Box className="login_formContainer">
             <Box
               sx={{

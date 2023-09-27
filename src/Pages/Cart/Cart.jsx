@@ -67,7 +67,7 @@ const Cart = () => {
       renderCell: (params) => (
         <>
           <span className="delete-button">
-            <img src={CartImg} alt="CartImg" width="104" height="74" />
+            <img src={CartImg} alt="CartImg" width="100%" height="74" />
           </span>
         </>
       ),
@@ -161,7 +161,11 @@ const Cart = () => {
         <Header />
       </Box>
 
-      <Box sx={{ padding: "40px 100px 40px 80px" }}>
+      <Box
+        sx={{
+          padding: { xs: "25px 50px 20px 40px", md: "50px 100px 40px 80px" },
+        }}
+      >
         <Box>
           <span className="cart-title_text">Your Cart Items</span>
         </Box>
@@ -187,7 +191,14 @@ const Cart = () => {
           />
         </Box>
 
-        <Box sx={{ width: "100%" }} className="shopping-button_container">
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: { xs: "center", sm: "center", md: "end" },
+          }}
+          className="shopping-button_container"
+        >
           <ReusableButton
             buttonName="Continue Shopping"
             size="large"
@@ -197,7 +208,7 @@ const Cart = () => {
 
         <Box sx={{ padding: "30px 0px" }}>
           <Grid container spacing={4}>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={6} md={4}>
               <Box>
                 <Box sx={{}}>
                   <span className="shipping-tax_text hr-lines">
@@ -269,7 +280,7 @@ const Cart = () => {
               </Box>
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={6} md={4}>
               <Box>
                 <Box sx={{}}>
                   <Box>
@@ -301,7 +312,7 @@ const Cart = () => {
               </Box>
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={6} md={4}>
               <Box
                 sx={{
                   border: "1px solid #2D2D2D",
@@ -391,7 +402,7 @@ const Cart = () => {
       </Box>
 
       <Box>
-        <Footer/>
+        <Footer />
       </Box>
     </Box>
   );

@@ -30,9 +30,9 @@ export const Xbox = () => {
   return (
     <>
       <Grid container spacing={2}>
-        <Grid item xs={1.5}></Grid>
+        <Grid item xs={12} sm={0.75} md={1.5}></Grid>
         {XboxData.map((items) => (
-          <Grid item xs={3}>
+          <Grid item xs={12} sm={3.5} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
               <Link to="#" style={{ textDecoration: "none" }}>
                 <Card className="card">
@@ -76,7 +76,7 @@ export const Xbox = () => {
             </div>
           </Grid>
         ))}
-        <Grid item xs={1.5}></Grid>
+        <Grid item xs={12} sm={0.75} md={1.5}></Grid>
       </Grid>
     </>
   );
@@ -110,9 +110,9 @@ export const Headphones = () => {
   return (
     <>
       <Grid container spacing={2}>
-        <Grid item xs={1.5}></Grid>
+        <Grid itemxs={12} sm={0.75} md={1.5}></Grid>
         {HeadPhones.map((items) => (
-          <Grid item xs={3}>
+          <Grid item xs={12} sm={3.5} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
               <Link to="#" style={{ textDecoration: "none" }}>
                 <Card className="card">
@@ -156,7 +156,7 @@ export const Headphones = () => {
             </div>
           </Grid>
         ))}
-        <Grid item xs={1.5}></Grid>
+        <Grid item xs={12} sm={0.75} md={1.5}></Grid>
       </Grid>
     </>
   );
@@ -172,9 +172,9 @@ export const PlayStation = () => {
   return (
     <>
       <Grid container spacing={2}>
-        <Grid item xs={1.5}></Grid>
+        <Grid item xs={12} sm={0.75} md={1.5}></Grid>
         {Playstation.map((items) => (
-          <Grid item xs={3}>
+          <Grid item xs={12} sm={3.5} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
               <Link to="#" style={{ textDecoration: "none" }}>
                 <Card className="card">
@@ -218,13 +218,10 @@ export const PlayStation = () => {
             </div>
           </Grid>
         ))}
-        <Grid item xs={1.5}></Grid>
+        <Grid item xs={12} sm={0.75} md={1.5}></Grid>
       </Grid>
     </>
   );
 };
 
-
-export const TrustUsData = () => {
-    
-}
+export const TrustUsData = () => {};
