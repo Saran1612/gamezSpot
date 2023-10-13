@@ -1,0 +1,27 @@
+.policy_header-text {
+    font-weight: 700;
+    line-height: 33.6px;
+    font-size: 1.3rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+}
+
+.terms-points_text li {
+    font-weight: 400;
+    line-height: 28px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #DDDDDD;
+}
+
+.terms-header_points {
+    font-weight: 600;
+    line-height: 30px;
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+}
+
+.terms-points_text ul {
+    list-style: none;
+}

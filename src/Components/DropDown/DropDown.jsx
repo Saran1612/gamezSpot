@@ -6,22 +6,6 @@ import {
   MenuItem,
   FormHelperText,
 } from "@mui/material";
-// import { makeStyles } from "@mui/styles";
-// const styles = makeStyles((theme) => ({
-//   main: {
-//     //   '& .MuiInputLabel-formControl': {
-//     //  top:"-8px"
-//     //   },
-//     "& .MuiInputLabel-outlined.MuiInputLabel-shrink": {
-//       transform: "translate(14px, -6px) scale(0.75)",
-//     },
-
-//     "& .MuiInputLabel-outlined": {
-//       transform: "translate(14px,10px) scale(1)",
-//     },
-//   },
-// }));
-
 export default function ResuableDropdown(props) {
   const {
     name,
@@ -66,19 +50,7 @@ export default function ResuableDropdown(props) {
           selected
           hidden
           disabled="disabled"
-        >
-          <em
-            style={{
-              color: "#a2a2a2",
-              fontWeight: "100",
-              fontFamily: "sans-serif",
-              fontStyle: "initial",
-            }}
-          >
-            {spanText}
-          </em>
-          {/* <span style={{opacity:"0.5"}}>{spanText}</span> */}
-        </MenuItem>
+        ></MenuItem>
 
         {options.map((item) => (
           <MenuItem key={item.id} value={item.id}>

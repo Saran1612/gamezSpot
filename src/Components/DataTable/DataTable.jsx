@@ -15,6 +15,7 @@ export const DataTable = ({
   rowsPerPageOptions,
   getRowClassName,
   disableColumnMenu,
+  getCellClassName,
 }) => {
   return (
     <>
@@ -28,6 +29,7 @@ export const DataTable = ({
         sx={sx}
         getRowClassName={getRowClassName}
         disableColumnMenu={disableColumnMenu}
+        getCellClassName={getCellClassName}
         className={`${className}`}
         hideFooter={hideFooter}
         hideFooterPagination={hideFooterPagination}

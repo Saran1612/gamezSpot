@@ -66,6 +66,9 @@
     line-height: 43.2px;
     font-weight: 700;
     font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .home_tabs-box .PrivateTabIndicator-colorSecondary-3 {
@@ -81,4 +84,8 @@
     font-size: 1.125rem;
     text-transform: capitalize;
     opacity: 1;
+}
+
+.people-trust-us_conatiner {
+    background: #0D0D0D;
 }

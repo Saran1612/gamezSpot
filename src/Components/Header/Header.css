@@ -34,3 +34,89 @@
 .header_appbar .MuiToolbar-root {
     padding: 0px;
 }
+
+.shoping-cart-header_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #151515;
+}
+
+.list-primary_text .MuiListItemText-primary {
+    font-family: 'Poppins', sans-serif;
+    line-height: 21.6px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #151515;
+    padding-bottom: 6px;
+}
+
+.list-secondary_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 21px;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: #414141;
+}
+
+.header-drawer_list li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.product_avatar {
+    border-radius: 0px !important;
+}
+
+
+.subtotal_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #414141;
+}
+
+
+.subtotal_price-text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 20px;
+    font-weight: 900;
+    font-size: 1.125rem;
+    color: #FF003A;
+}
+
+
+.sideDrawer-holder {
+    padding: 25px;
+    margin-top: 16px;
+}
+
+
+.sideDrawer-holder .viewCart_button {
+    background: #fff;
+    color: #151515;
+    width: 100%;
+    font-weight: 700;
+    line-height: 21.6px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 12px 0px;
+    border: 1px solid #DBDBDB;
+}
+
+
+.sideDrawer-holder .checkout_button {
+    text-transform: uppercase;
+    border-radius: 0px 16px 0px 16px;
+    color: #FFFFFF;
+    /* background-color: transparent; */
+    background: linear-gradient(to right, #FF003A, #F29400);
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 1rem;
+    padding: 12px 20px;
+    width: 100%;
+    margin-top: 20px;
+}

@@ -1,0 +1,204 @@
+.billing-bg_img {
+    background-image: url(../../assests/cart_bg.svg);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #000;
+}
+
+.billing_inputFields {
+    background: transparent;
+    border: 1px solid #B0B0B0 !important;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 25px !important;
+}
+
+.billing_inputFields .MuiInputBase-root {
+    padding: 10px 18px;
+}
+
+.billing_inputFields input {
+    color: #FFFFFF;
+}
+
+.couple_container .applyCoupon_button {
+    /* text-transform: uppercase; */
+    border-radius: 0px 16px 0px 16px;
+    border: 1px solid #FF003A;
+    color: #FFFFFF;
+    background-color: transparent;
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 0.9rem;
+    padding: 12px 40px;
+    background-color: #FF003A;
+    margin-top: 30px;
+}
+
+.couple_container .applyCoupon_button:hover {
+    /* text-transform: uppercase; */
+    border-radius: 0px 16px 0px 16px;
+    border: 1px solid #FF003A;
+    color: #FFFFFF;
+    background-color: transparent;
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 0.9rem;
+    padding: 12px 40px;
+    background-color: #FF003A;
+    margin-top: 30px;
+}
+
+.coupon_text {
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #DDDDDDDD;
+}
+
+.billing-form_inputFields {
+    background: transparent;
+    border: 1px solid #B0B0B0 !important;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 12px !important;
+}
+
+.billing-label_text {
+    font-weight: 500;
+    line-height: 24px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+}
+
+.billing-details_text {
+    font-weight: 700;
+    line-height: 28.8px;
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+}
+
+.billing-form_inputFields input,
+.billing-form_inputFields textarea {
+    color: #FFFFFF;
+    padding: 12px;
+}
+
+.product-details_text {
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #DDDDDD;
+}
+
+.shipping_text {
+    font-weight: 700;
+    line-height: 24px;
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+}
+
+.billing-bg_img .shipping-radio_buttons .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
+    color: #FF003A;
+}
+
+.billing-product_text {
+    font-weight: 600;
+    line-height: 24px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+}
+
+.product-details_text-red {
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FF003A;
+}
+
+.shipping-radio_buttons .css-j204z7-MuiFormControlLabel-root .MuiFormControlLabel-label {
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #DDDDDD;
+}
+
+.shipping-radio_buttons svg {
+    color: #B0B0B0;
+}
+
+.shipping-radio_buttons .direct-bank_label {
+    align-items: start;
+}
+
+.privacy_text {
+    font-weight: 400;
+    line-height: 21px;
+    font-size: 0.875rem;
+    font-family: 'Poppins', sans-serif;
+    color: #DDDDDD;
+}
+
+.privacy-container .privacy_text-anchor {
+    font-weight: 400;
+    line-height: 21px;
+    font-size: 0.875rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FF003A;
+    text-decoration: none;
+}
+
+.placeOrder-container .placeOrder_button {
+    /* text-transform: uppercase; */
+    border-radius: 0px 16px 0px 16px;
+    border: 1px solid #FF003A;
+    color: #FFFFFF;
+    background-color: transparent;
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 0.9rem;
+    padding: 12px 40px;
+    background-color: #FF003A;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.placeOrder-container .placeOrder_button:hover {
+    /* text-transform: uppercase; */
+    border-radius: 0px 16px 0px 16px;
+    border: 1px solid #FF003A;
+    color: #FFFFFF;
+    background-color: transparent;
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 0.9rem;
+    padding: 12px 40px;
+    background-color: #FF003A;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.directBank_text {
+    font-weight: 500;
+    line-height: 24px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+}
+
+.directBank_subtext {
+    font-weight: 400;
+    line-height: 21px;
+    font-size: 0.875rem;
+    font-family: 'Poppins', sans-serif;
+    color: #DDDDDD;
+}

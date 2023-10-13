@@ -29,6 +29,12 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
+import CloseIcon from "@mui/icons-material/Close";
+import ProdOne from "../../assests/Group 1000002799.png";
+import ProdTwo from "../../assests/Group 1000002774.png";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import ReusableButton from "../Button/Button";
 
 const drawerWidth = 240;
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -97,13 +103,137 @@ function Header(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const handleCartClick = () => {
-    navigate("/cart");
-  };
+  // const handleCartClick = () => {
+  //   navigate("/billing");
+  // };
 
   const handleLogoClick = () => {
     navigate("/home");
   };
+
+  const Data = [
+    {
+      id: 1,
+      name: "Game Triger Finger New",
+      price: "$12.00",
+      quality: "1",
+      img: ProdOne,
+    },
+    {
+      id: 2,
+      name: "Android Smart Watch XAD0",
+      price: "$59.00",
+      quality: "1",
+      img: ProdTwo,
+    },
+  ];
+
+  const [state, setState] = React.useState({
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const list = (anchor) => (
+    <Box
+      sx={{
+        width: anchor === "top" || anchor === "bottom" ? "auto" : 400,
+        // padding: "20px",
+      }}
+      role="presentation"
+      // onClick={toggleDrawer(anchor, false)}
+      // onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          // paddingBottom: "14px",
+          padding: "16px",
+        }}
+      >
+        <span className="shoping-cart-header_text">SHOPPING CART</span>
+
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          edge="start"
+          onClick={toggleDrawer(anchor, false)}
+          sx={{
+            fontSize: "1.5rem",
+          }}
+        >
+          <CloseIcon fontSize="1rem" />
+        </IconButton>
+      </Box>
+
+      <Divider sx={{ borderTop: "1px solid #D2D2D2" }} />
+
+      <List className="header-drawer_list">
+        {Data.map((items) => (
+          <ListItem alignItems="flex-start">
+            <ListItemAvatar>
+              <Avatar
+                alt="Remy Sharp"
+                src={items.img}
+                className="product_avatar"
+              />
+            </ListItemAvatar>
+            <ListItemText
+              className="list-primary_text"
+              primary={items.name}
+              secondary={
+                <span className="list-secondary_text">
+                  {`${items.quality}*${items.price}`}
+                </span>
+              }
+            />
+          </ListItem>
+        ))}
+      </List>
+
+      {/* <Divider /> */}
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "20px",
+          borderTop: "1px dotted #DDDDDD",
+          borderBottom: "1px dotted #DDDDDD",
+        }}
+      >
+        <span className="subtotal_text">Subtotal:</span>
+        <span className="subtotal_price-text">$71.90</span>
+      </Box>
+
+      <Box className="sideDrawer-holder">
+        <ReusableButton
+          buttonName="VIEW CART"
+          size="large"
+          className="viewCart_button"
+          // onClick={handleLoginClick}
+        />
+
+        <ReusableButton
+          buttonName="CHECKOUT"
+          size="large"
+          className="checkout_button"
+          // onClick={handleLoginClick}
+        />
+      </Box>
+    </Box>
+  );
 
   const drawer = (
     <div>
@@ -395,7 +525,11 @@ function Header(props) {
                   </Box>
 
                   <Box sx={{ display: "flex", alignItems: "end" }}>
-                    <IconButton aria-label="cart" onClick={handleCartClick}>
+                    <IconButton
+                      aria-label="cart"
+                      // onClick={handleCartClick
+                      onClick={toggleDrawer("right", true)}
+                    >
                       <StyledBadge
                         badgeContent={1}
                         color="secondary"
@@ -404,6 +538,14 @@ function Header(props) {
                         <ShoppingCartIcon sx={{ color: "#fff" }} />
                       </StyledBadge>
                     </IconButton>
+
+                    <Drawer
+                      anchor={"right"}
+                      open={state["right"]}
+                      onClose={toggleDrawer("right", false)}
+                    >
+                      {list("right")}
+                    </Drawer>
                   </Box>
                 </Box>
               </Grid>

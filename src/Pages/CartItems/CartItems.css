@@ -1,0 +1,11 @@
+.table-action .coupon_button {
+    background: #FF003A;
+    color: #FFFFFF;
+    width: 100%;
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    padding: 12px 25px;
+    border-radius: 0px 12px 0px 12px;
+}

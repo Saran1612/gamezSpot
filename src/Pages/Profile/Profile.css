@@ -1,0 +1,267 @@
+.profile-tabs .profile-tabs_text {
+    color: #FFFFFF;
+    font-size: 1rem;
+    line-height: 24px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding: 0px 30px;
+    min-height: 60px;
+}
+
+.profile-tabs .profile-tabs_text.Mui-selected {
+    color: #FFFFFF;
+    text-transform: capitalize;
+    background: #FF003A;
+    border-radius: 8px;
+    padding: 0px 30px;
+    min-height: 60px;
+}
+
+.profile-tabs .MuiTabs-indicator {
+    display: none;
+}
+
+.profile-tabs {
+    background: #0E0E0E80;
+}
+
+.tabs_pics {
+    margin-right: 5px;
+    margin-bottom: 0px !important;
+}
+
+.profile-logout-container .profile-logout_button,
+.profile-logout-container .profile-logout_button:hover {
+    text-transform: capitalize;
+    border-radius: 4px;
+    color: #FFFFFF;
+    background-color: #FF003A;
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 1rem;
+    padding: 12px 30px;
+}
+
+.file-upload-button .MuiButton-startIcon {
+    margin: 0px !important;
+}
+
+.profile-heading-text {
+    font-weight: 700;
+    line-height: 28px;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+
+.profile-subheading-text {
+    font-weight: 400;
+    line-height: 28px;
+    font-size: 0.875rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+}
+
+.profile-cards-text {
+    font-weight: 600;
+    line-height: 24px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    margin-top: 10px
+}
+
+.profile-tabpanel .MuiBox-root {
+    background: #0E0E0E80;
+    border-radius: 8px;
+}
+
+.profile_badge .MuiBadge-badge {
+    background: #FF003A;
+}
+
+/* .profile-inputfields .css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+
+} */
+
+.profile-inputfields {
+    border: 1px solid #BEBBCD !important;
+    border-radius: 5px !important;
+    width: 100% !important;
+}
+
+.profile-inputfields input {
+    color: #DDDDDD !important;
+}
+
+.profile_select {
+    height: 100% !important;
+    border: 1px solid #BEBBCD !important;
+    border-radius: 4px;
+
+}
+
+.profile_select svg {
+    color: #DDDDDDDD;
+}
+
+.profile_select .MuiInputBase-root {
+    height: 100%;
+}
+
+
+.profile_select .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input.MuiInputBase-inputSizeSmall {
+    color: #DDDDDD;
+}
+
+
+.profile-textArea-inputfields {
+    background: transparent;
+    border: 1px solid #B0B0B0 !important;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 12px !important;
+}
+
+.profile-textArea-inputfields input,
+.profile-textArea-inputfields textarea {
+    color: #FFFFFF;
+    padding: 12px;
+}
+
+.orders-table {
+    color: #FFFFFF !important;
+    border-radius: 0px !important;
+}
+
+.orderId-header .MuiDataGrid-columnHeaderTitle.css-1jbbcbn-MuiDataGrid-columnHeaderTitle {
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #FFFFFF;
+}
+
+.OrderId {
+    color: #FF003A;
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.classPending {
+    color: #F29400;
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.classCancel {
+    color: #FF003A;
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.classDelivered {
+    color: #40F800;
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.notify-switch-group .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+    background: #FF003A;
+    opacity: 1;
+}
+
+.notify-switch-group .css-jsexje-MuiSwitch-thumb {
+    background-color: #FFFFFF;
+    width: 19px;
+    height: 19px;
+}
+
+.notify-switch-group .css-1yjjitx-MuiSwitch-track {
+    background: #FF003A;
+    opacity: 1;
+}
+
+.notify-header_text {
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    line-height: 28.8px;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.notify-subheading_text {
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 0.875rem;
+}
+
+.notify-switch-group .css-ahj2mt-MuiTypography-root {
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.notify-switch-group label {
+    margin: 6px 0px;
+}
+
+.profile-tabpanel .css-19kzrtu {
+    padding: 40px;
+}
+
+.password-inputfields {
+    border-radius: 5px !important;
+    width: 100% !important;
+}
+
+.password-inputfields input {
+    color: #DDDDDD !important;
+}
+
+.password-inputfields .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+    color: #FFFFFF !important;
+}
+
+.password-inputfields .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+    border-color: #BEBBCD;
+}
+
+.password-inputfields .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root,
+.password-inputfields .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    color: #BEBBCD !important;
+}
+
+.password-inputfields .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #BEBBCD !important;
+}
+
+.passwordTab-uploadButton .Update_button {
+    text-transform: capitalize;
+    border-radius: 0px 12px 0px 12px;
+    color: #FFFFFF;
+    background-color: #FF003A;
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 1rem;
+    padding: 12px 40px;
+}

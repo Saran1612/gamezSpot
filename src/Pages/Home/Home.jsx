@@ -13,7 +13,7 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@material-ui/lab/TabContext";
 import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
-import { Headphones, PlayStation, Xbox } from "./Tabs";
+import { Headphones, PlayStation, TrustUsData, Xbox } from "./Tabs";
 
 const Home = () => {
   const [value, setValue] = React.useState("1");
@@ -164,10 +164,12 @@ const Home = () => {
         </Box>
 
         <Box className="people-trust-us_conatiner">
-          <span>What people say about us</span>
-          <span>PEOPLE TRUST US</span>
+          <span className="newestProduct_text">What people say about us</span>
+          <span className="preOrder_text">PEOPLE TRUST US</span>
 
-          <Box className="trust-us_carousel-wrapper"></Box>
+          <Box className="trust-us_carousel-wrapper">
+            <TrustUsData />
+          </Box>
         </Box>
       </Box>
     </Box>

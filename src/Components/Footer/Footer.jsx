@@ -68,6 +68,9 @@ const Footer = () => {
                 <a href="#/" className="list-text_aText">
                   <li>FAQ's</li>
                 </a>
+                <a href="#/" className="list-text_aText">
+                  <li>Privacy Policy</li>
+                </a>
               </ul>
             </Box>
           </Box>
@@ -100,6 +103,13 @@ const Footer = () => {
                     All Products
                   </a>
                 </li>
+
+                <li>
+                  {" "}
+                  <a href="#/" className="list-text_aText">
+                    Article Page
+                  </a>
+                </li>
               </ul>
             </Box>
           </Box>
@@ -122,20 +132,12 @@ const Footer = () => {
                 <li>
                   <span className="list-text_aText">+1 (123) 456 7890</span>
                 </li>
+                <li>
+                  <span className="list-text_aText">gamesports@gmail.com</span>
+                </li>
               </ul>
             </Box>
           </Box>
-        </Grid>
-
-        <Grid item xs={12} sm={3} md={3}></Grid>
-        <Grid item xs={3}>
-          <span>Privacy Policy</span>
-        </Grid>
-        <Grid item xs={3}>
-          <span>Article Page</span>
-        </Grid>
-        <Grid item xs={3}>
-          <span>gamesports@gmail.com</span>
         </Grid>
       </Grid>
     </Box>

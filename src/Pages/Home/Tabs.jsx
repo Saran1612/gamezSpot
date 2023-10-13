@@ -1,4 +1,5 @@
 import React from "react";
+import Carousel from "react-multi-carousel";
 import ReusableButton from "../../Components/Button/Button";
 import Joystick from "../../assests/joystick.svg";
 import HeadphoneImg from "../../assests/headphones.svg";
@@ -13,6 +14,10 @@ import {
   CardMedia,
   Grid,
 } from "@mui/material";
+
+import ReviewOne from "../../assests/Ellipse 13.png";
+import ReviewTwo from "../../assests/Ellipse 20.png";
+import ReviewThree from "../../assests/Ellipse 21.png";
 
 export const Xbox = () => {
   const XboxData = [
@@ -30,9 +35,9 @@ export const Xbox = () => {
   return (
     <>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={0.75} md={1.5}></Grid>
+        <Grid item xs={12} sm={0} md={1.5}></Grid>
         {XboxData.map((items) => (
-          <Grid item xs={12} sm={3.5} md={3}>
+          <Grid item xs={12} sm={4} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
               <Link to="#" style={{ textDecoration: "none" }}>
                 <Card className="card">
@@ -76,7 +81,7 @@ export const Xbox = () => {
             </div>
           </Grid>
         ))}
-        <Grid item xs={12} sm={0.75} md={1.5}></Grid>
+        <Grid item xs={12} sm={0} md={1.5}></Grid>
       </Grid>
     </>
   );
@@ -110,9 +115,9 @@ export const Headphones = () => {
   return (
     <>
       <Grid container spacing={2}>
-        <Grid itemxs={12} sm={0.75} md={1.5}></Grid>
+        <Grid itemxs={12} sm={0} md={1.5}></Grid>
         {HeadPhones.map((items) => (
-          <Grid item xs={12} sm={3.5} md={3}>
+          <Grid item xs={12} sm={4} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
               <Link to="#" style={{ textDecoration: "none" }}>
                 <Card className="card">
@@ -156,7 +161,7 @@ export const Headphones = () => {
             </div>
           </Grid>
         ))}
-        <Grid item xs={12} sm={0.75} md={1.5}></Grid>
+        <Grid item xs={12} sm={0} md={1.5}></Grid>
       </Grid>
     </>
   );
@@ -172,9 +177,9 @@ export const PlayStation = () => {
   return (
     <>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={0.75} md={1.5}></Grid>
+        <Grid item xs={12} sm={0} md={1.5}></Grid>
         {Playstation.map((items) => (
-          <Grid item xs={12} sm={3.5} md={3}>
+          <Grid item xs={12} sm={4} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
               <Link to="#" style={{ textDecoration: "none" }}>
                 <Card className="card">
@@ -218,10 +223,146 @@ export const PlayStation = () => {
             </div>
           </Grid>
         ))}
-        <Grid item xs={12} sm={0.75} md={1.5}></Grid>
+        <Grid item xs={12} sm={0} md={1.5}></Grid>
       </Grid>
     </>
   );
 };
 
-export const TrustUsData = () => {};
+export const TrustUsData = () => {
+  const newProducts = [
+    {
+      id: 1,
+      img: ReviewOne,
+      name: "Alexander Walt",
+      role: "GAMER",
+      description:
+        "Joining my local gym was the best decision I made for my health and fitness. The trainers were knowledgeable and supportive, guiding me through personalized workout",
+    },
+    {
+      id: 2,
+      img: ReviewTwo,
+      name: "Dharmasena Finch",
+      role: "GAMER",
+      description:
+        "Joining my local gym was the best decision I made for my health and fitness. The trainers were knowledgeable and supportive, guiding me through personalized workout",
+    },
+    {
+      id: 3,
+      img: ReviewThree,
+      name: "Muhammed Aslam",
+      role: "GAMER",
+      description:
+        "Joining my local gym was the best decision I made for my health and fitness. The trainers were knowledgeable and supportive, guiding me through personalized workout",
+    },
+    {
+      id: 4,
+      img: ReviewTwo,
+      name: "Walt",
+      role: "GAMER",
+      description:
+        "Joining my local gym was the best decision I made for my health and fitness. The trainers were knowledgeable and supportive, guiding me through personalized workout",
+    },
+    {
+      id: 5,
+      img: ReviewThree,
+      name: "Finch",
+      role: "GAMER",
+      description:
+        "Joining my local gym was the best decision I made for my health and fitness. The trainers were knowledgeable and supportive, guiding me through personalized workout",
+    },
+    {
+      id: 6,
+      img: ReviewOne,
+      name: "Aslam",
+      role: "GAMER",
+      description:
+        "Joining my local gym was the best decision I made for my health and fitness. The trainers were knowledgeable and supportive, guiding me through personalized workout",
+    },
+  ];
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1280 },
+      items: 3,
+    },
+    desktop: {
+      breakpoint: { max: 1280, min: 1024 },
+      items: 3,
+    },
+    laptop: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 768, min: 425 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 425, min: 0 },
+      items: 1,
+    },
+  };
+
+  return (
+    <Carousel
+      additionalTransfrom={0}
+      arrows={false}
+      shouldResetAutoplay
+      slidesToSlide={1}
+      autoPlay
+      // customLeftArrow={<ChevronLeftIcon />}
+      // customRightArrow={<ChevronRightIcon />}
+      autoPlaySpeed={3000000}
+      infinite={true}
+      customTransition="transform 1000ms ease-in-out"
+      pauseOnHover={false}
+      transitionDuration={100000000}
+      responsive={responsive}
+      // className='slider_carousel'
+    >
+      {newProducts.map((items) => (
+        // <div className="trust-card-container" >
+        <Link to="#" style={{ textDecoration: "none" }} key={items.id}>
+          <Card sx={{ maxWidth: 345 }} className="trust_card">
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                className=""
+                sx={{ width: "initial", margin: "auto" }}
+                height="100"
+                image={items.img}
+                alt={items.name}
+              />
+              <CardContent className="card_content">
+                <Box sx={{ width: "100%" }}>
+                  <span className="product_text">{items.name}</span>
+                </Box>
+                <Box
+                  sx={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginTop: "5px",
+                    alignItems: "center",
+                  }}
+                >
+                  <span className="price_text">${items.price}</span>
+                  {/* <span className="price_text">
+                                          {items.star}
+                                          <StarIcon style={{ color: "#9F73AB", fontSize: "1rem" }} />
+                                      </span> */}
+                </Box>
+              </CardContent>
+              {/* <div className="hover-icons">
+                                  <ShoppingCartOutlinedIcon className="add-to-cart-icon left" sx={{ color: "#9F73AB" }} />
+                                  <FavoriteBorderIcon className="add-to-cart-icon right" sx={{ color: "#9F73AB" }} />
+                              </div> */}
+            </CardActionArea>
+          </Card>
+        </Link>
+        // </div>
+      ))}
+    </Carousel>
+  );
+};
