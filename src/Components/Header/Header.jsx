@@ -20,6 +20,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Global from "../../assests/ph_globe.svg";
+import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import Logo from "../../assests/Mask group.svg";
 import Account from "../../assests/Vector.svg";
 import Badge from "@mui/material/Badge";
@@ -27,7 +28,7 @@ import { styled } from "@mui/material/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import CloseIcon from "@mui/icons-material/Close";
 import ProdOne from "../../assests/Group 1000002799.png";
@@ -222,6 +223,7 @@ function Header(props) {
           buttonName="VIEW CART"
           size="large"
           className="viewCart_button"
+          href="/cart"
           // onClick={handleLoginClick}
         />
 
@@ -240,30 +242,249 @@ function Header(props) {
       <Toolbar />
       <Divider />
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <Box sx={{ marginRight: "15px" }}>
+                <Button
+                  id="basic-button"
+                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
+                  sx={{
+                    color: "#ffffff",
+                    fontFamily: "Poppins ,sans-serif",
+                    lineHeight: "24px",
+                    fontWeight: "400",
+                    fontSize: "1rem",
+                    textTransform: "capitalize",
+                  }}
+                  endIcon={<KeyboardArrowDownIcon />}
+                >
+                  Gaming Accessories
+                </Button>
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    "aria-labelledby": "basic-button",
+                  }}
+                >
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                </Menu>
+              </Box>
+            </ListItemIcon>
+            <ListItemText />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <Box sx={{ marginRight: "15px" }}>
+                <Button
+                  id="basic-button"
+                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
+                  sx={{
+                    color: "#ffffff",
+                    fontFamily: "Poppins ,sans-serif",
+                    lineHeight: "24px",
+                    fontWeight: "400",
+                    fontSize: "1rem",
+                    textTransform: "capitalize",
+                  }}
+                  endIcon={<KeyboardArrowDownIcon />}
+                >
+                  Pages
+                </Button>
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    "aria-labelledby": "basic-button",
+                  }}
+                >
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                </Menu>
+              </Box>
+            </ListItemIcon>
+            <ListItemText />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <Box sx={{ marginRight: "15px" }}>
+                <Button
+                  id="basic-button"
+                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
+                  sx={{
+                    color: "#ffffff",
+                    fontFamily: "Poppins ,sans-serif",
+                    lineHeight: "24px",
+                    fontWeight: "400",
+                    fontSize: "1rem",
+                    textTransform: "capitalize",
+                  }}
+                  endIcon={<KeyboardArrowDownIcon />}
+                >
+                  Blogs
+                </Button>
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    "aria-labelledby": "basic-button",
+                  }}
+                >
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                </Menu>
+              </Box>
+            </ListItemIcon>
+            <ListItemText />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <Box sx={{ marginRight: "30px", display: "flex" }}>
+                <Link to="/profile" style={{ textDecoration: "none" }}>
+                  <img
+                    src={Account}
+                    alt="account"
+                    className="header-menu_icons"
+                  />
+                </Link>
+              </Box>
+            </ListItemIcon>
+            <ListItemText />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <Box sx={{ marginRight: "30px" }}>
+                <Link to="/" style={{ textDecoration: "none" }}>
+                  <LanguageOutlinedIcon
+                    sx={{ color: "#fff", fontSize: "1.8rem" }}
+                  />
+                </Link>
+              </Box>
+            </ListItemIcon>
+            <ListItemText />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <Box sx={{ marginRight: "30px" }}>
+                <Button
+                  id="basic-button"
+                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
+                  sx={{
+                    color: "#FFFFFF",
+                    borderRadius: "0px 18px 0px 18px",
+                    border: "1px solid #ABABAB",
+                    fontFamily: "Poppins ,sans-serif",
+                    lineHeight: "24px",
+                    fontWeight: "400",
+                    fontSize: "1rem",
+                  }}
+                  endIcon={<KeyboardArrowDownIcon />}
+                  className="usd_text"
+                >
+                  USD
+                </Button>
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    "aria-labelledby": "basic-button",
+                  }}
+                >
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                </Menu>
+              </Box>
+            </ListItemIcon>
+            <ListItemText />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <Box sx={{ display: "flex", marginRight: "30px" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginRight: "15px",
+                  }}
+                >
+                  <span className="my-cart_text">My Cart:</span>
+                  <span className="my-cart-value_text">0.00USD</span>
+                </Box>
+
+                <Box sx={{ display: "flex", alignItems: "end" }}>
+                  <IconButton
+                    aria-label="cart"
+                    // onClick={handleCartClick
+                    onClick={toggleDrawer("right", true)}
+                  >
+                    <StyledBadge
+                      badgeContent={1}
+                      color="secondary"
+                      className="cart_icon"
+                    >
+                      <ShoppingCartIcon sx={{ color: "#fff" }} />
+                    </StyledBadge>
+                  </IconButton>
+
+                  <Drawer
+                    anchor={"right"}
+                    open={state["right"]}
+                    onClose={toggleDrawer("right", false)}
+                  >
+                    {list("right")}
+                  </Drawer>
+                </Box>
+              </Box>
+            </ListItemIcon>
+            <ListItemText />
+          </ListItemButton>
+        </ListItem>
       </List>
       <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
     </div>
   );
 
@@ -460,20 +681,22 @@ function Header(props) {
                   alignItems: "center",
                 }}
               >
-                <Box sx={{ marginRight: "30px" }}>
-                  <img
-                    src={Account}
-                    alt="account"
-                    className="header-menu_icons"
-                  />
+                <Box sx={{ marginRight: "30px", display: "flex" }}>
+                  <Link to="/profile" style={{ textDecoration: "none" }}>
+                    <img
+                      src={Account}
+                      alt="account"
+                      className="header-menu_icons"
+                    />
+                  </Link>
                 </Box>
 
                 <Box sx={{ marginRight: "30px" }}>
-                  <img
-                    src={Global}
-                    alt="global"
-                    className="header-menu_icons"
-                  />
+                  <Link to="/" style={{ textDecoration: "none" }}>
+                    <LanguageOutlinedIcon
+                      sx={{ color: "#fff", fontSize: "1.8rem" }}
+                    />
+                  </Link>
                 </Box>
 
                 <Box sx={{ marginRight: "30px" }}>
@@ -634,6 +857,7 @@ function Header(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              background: "#000",
             },
           }}
         >

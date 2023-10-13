@@ -226,7 +226,7 @@
 }
 
 .profile-tabpanel .css-19kzrtu {
-    padding: 40px;
+    /* padding: 40px; */
 }
 
 .password-inputfields {
@@ -260,6 +260,58 @@
     border-radius: 0px 12px 0px 12px;
     color: #FFFFFF;
     background-color: #FF003A;
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 1rem;
+    padding: 12px 40px;
+}
+
+.address-button_wrapper .address_button {
+    text-transform: capitalize;
+    border-radius: 4px;
+    color: #FF003A;
+    border: 1px solid #BEBBCD;
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 1rem;
+    padding: 12px 40px;
+}
+
+.personal-heading_text {
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    line-height: 28.8px;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.default-add_text {
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    line-height: 28.8px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.address-panel span {
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    line-height: 28.8px;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.address-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.address-edit-wrapper .address-edit_button{
+    text-transform: capitalize;
+    border-radius: 4px;
+    color: #FF003A;
+    /* border: 1px solid #BEBBCD; */
     font-weight: 700;
     line-height: 19.2px;
     font-size: 1rem;

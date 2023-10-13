@@ -25,13 +25,13 @@ const TermsCondition = () => {
         <Box
           sx={{
             background: "#000000",
-            padding: "40px",
+            padding: { xs: "30px 20px", md: "40px" },
             transform: {
               xs: "translateY( -1% )",
               sm: "translateY( -2% )",
               md: "translateY( -3% )",
             },
-            margin: { xs: "0px 50px 0px 40px", md: "0px 125px 0px 110px" },
+            margin: { xs: "0px 20px 0px 20px", md: "0px 125px 0px 110px" },
           }}
         >
           <Box className="terms-points_text">

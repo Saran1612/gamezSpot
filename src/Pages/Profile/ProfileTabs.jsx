@@ -72,11 +72,70 @@ const ProfileTabs = () => {
           bgcolor: "transparent",
           display: "flex",
           color: "#FFFFFF",
-          padding: { xs: "25px 50px 20px 40px", md: "50px 100px 40px 80px" },
+          padding: { xs: "5px 20px 5px 20px", md: "50px 100px 40px 80px" },
         }}
       >
         <Grid container spacing={2}>
-          <Grid item xs={4}>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{ display: { xs: "block", md: "none" } }}
+          >
+            <Tabs
+              // orientation="vertical"
+              variant="scrollable"
+              value={value}
+              onChange={handleChange}
+              aria-label="Vertical tabs example"
+              className="profile-tabs"
+              sx={{ borderRight: 1, borderColor: "divider" }}
+            >
+              <Tab
+                className="profile-tabs_text"
+                icon={<img className="tabs_pics" src={ProfilePic} alt="" />}
+                label="Profile"
+                {...a11yProps(0)}
+              />
+              <Tab
+                className="profile-tabs_text"
+                icon={<img className="tabs_pics" src={InfoPic} alt="" />}
+                label="Information"
+                {...a11yProps(1)}
+              />
+              <Tab
+                className="profile-tabs_text"
+                icon={<img className="tabs_pics" src={HomePic} alt="" />}
+                label="Address"
+                {...a11yProps(2)}
+              />
+              <Tab
+                className="profile-tabs_text"
+                icon={<img className="tabs_pics" src={OrderPic} alt="" />}
+                label="My Orders"
+                {...a11yProps(3)}
+              />
+              <Tab
+                className="profile-tabs_text"
+                icon={<img className="tabs_pics" src={NotifyPic} alt="" />}
+                label="Notification"
+                {...a11yProps(4)}
+              />
+              <Tab
+                className="profile-tabs_text"
+                icon={<img className="tabs_pics" src={LockPic} alt="" />}
+                label="Change Password"
+                {...a11yProps(5)}
+              />
+            </Tabs>
+          </Grid>
+
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{ display: { xs: "none", md: "block" } }}
+          >
             <Tabs
               orientation="vertical"
               variant="scrollable"
@@ -125,14 +184,14 @@ const ProfileTabs = () => {
             </Tabs>
           </Grid>
 
-          <Grid item xs={8}>
+          <Grid item xs={12} md={8}>
             <TabPanel value={value} index={0} className="profile-tabpanel">
               <ProfileTab />
             </TabPanel>
             <TabPanel value={value} index={1} className="profile-tabpanel">
               <InfoTab />
             </TabPanel>
-            <TabPanel value={value} index={2} className="profile-tabpanel">
+            <TabPanel value={value} index={2} className="">
               <AddressTab />
             </TabPanel>
             <TabPanel value={value} index={3} className="profile-tabpanel">

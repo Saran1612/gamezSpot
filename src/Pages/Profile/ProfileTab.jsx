@@ -38,11 +38,18 @@ const ProfileTab = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          flexDirection: { xs: "column", md: "row" },
         }}
       >
-        <Box sx={{ display: "flex" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: { xs: "center" },
+          }}
+        >
           <Box>
-            <img src={ProfilePic} alt="" />
+            <img src={ProfilePic} alt="profilePic" />
             <Button
               component="label"
               variant="contained"
@@ -73,7 +80,7 @@ const ProfileTab = () => {
             sx={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "start",
+              alignItems: { xs: "center", md: "start" },
               justifyContent: "center",
             }}
           >
@@ -96,7 +103,7 @@ const ProfileTab = () => {
       <Box sx={{ display: "flex", marginTop: "30px" }}>
         <Grid container spacing={2}>
           {profileData.map((items, index) => (
-            <Grid item xs={3} key={index}>
+            <Grid item xs={6} md={3} key={index}>
               <Box
                 sx={{
                   display: "flex",
@@ -104,8 +111,8 @@ const ProfileTab = () => {
                   border: "1px solid #B0B0B0",
                   alignItems: "center",
                   justifyContent: "center",
-                  height: "135px", // Set a fixed height
-                  width: "100%", // Set a fixed width to occupy the entire grid cell
+                  height: "135px",
+                  width: "100%",
                 }}
               >
                 <Badge

@@ -83,7 +83,7 @@ const Cart = () => {
     },
     {
       field: "originalPrice",
-      headerName: "Original Price",
+      headerName: "ORIGINAL PRICE",
       flex: 1,
       headerClassName: "super-app-theme--header",
       headerAlign: "center",
@@ -163,7 +163,7 @@ const Cart = () => {
 
       <Box
         sx={{
-          padding: { xs: "25px 50px 20px 40px", md: "50px 100px 40px 80px" },
+          padding: { xs: "15px 20px 10px 20px", md: "50px 100px 40px 80px" },
         }}
       >
         <Box>

@@ -69,11 +69,6 @@ const Products = () => {
     { id: "AMERICA", full_name: "America" },
   ];
 
-  // function randomNumberInRange(min, max) {
-  //   // get number between min (inclusive) and max (inclusive)
-  //   return Math.floor(Math.random() * (max - min + 1)) + min;
-  // }
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -94,7 +89,8 @@ const Products = () => {
 
           <Grid
             item
-            xs={3}
+            xs={12}
+            md={3}
             sx={{
               display: "flex",
               justifyContent: "center",
@@ -105,7 +101,8 @@ const Products = () => {
               <span className="filter-result_text">Showing all 6 results</span>
             </Box>
           </Grid>
-          <Grid item xs={2}>
+
+          <Grid item xs={12} md={2}>
             <Box sx={{ display: "flex", justifyContent: "end" }}>
               <ResuableDropdown
                 size="small"
@@ -124,7 +121,7 @@ const Products = () => {
         </Grid>
 
         <Grid container spacing={3}>
-          <Grid item xs={3}>
+          <Grid item xs={12} md={3}>
             <Box>
               <Box>
                 <Accordion className="product_accordion">
@@ -309,10 +306,10 @@ const Products = () => {
             </Box>
           </Grid>
 
-          <Grid item xs={9}>
+          <Grid item xs={12} md={9}>
             <Grid container spacing={2} sx={{}}>
               {featuredProducts.map((items, index) => (
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                   <div className="" key={items.id} style={{ margin: "8px" }}>
                     <Link to="#" style={{ textDecoration: "none" }}>
                       <Card className="product-card">

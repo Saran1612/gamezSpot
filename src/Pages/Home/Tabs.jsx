@@ -305,6 +305,7 @@ export const TrustUsData = () => {
   };
 
   return (
+    
     <Carousel
       additionalTransfrom={0}
       arrows={false}
@@ -322,7 +323,6 @@ export const TrustUsData = () => {
       // className='slider_carousel'
     >
       {newProducts.map((items) => (
-        // <div className="trust-card-container" >
         <Link to="#" style={{ textDecoration: "none" }} key={items.id}>
           <Card sx={{ maxWidth: 345 }} className="trust_card">
             <CardActionArea>
@@ -361,7 +361,6 @@ export const TrustUsData = () => {
             </CardActionArea>
           </Card>
         </Link>
-        // </div>
       ))}
     </Carousel>
   );
