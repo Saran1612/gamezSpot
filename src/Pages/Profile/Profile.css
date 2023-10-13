@@ -234,6 +234,15 @@
     width: 100% !important;
 }
 
+.password-inputfields label {
+    color: #DDDDDD;
+}
+
+.password-inputfields fieldset {
+    color: #DDDDDD;
+    border-color: #DDDDDD;
+}
+
 .password-inputfields input {
     color: #DDDDDD !important;
 }
@@ -307,7 +316,7 @@
 }
 
 
-.address-edit-wrapper .address-edit_button{
+.address-edit-wrapper .address-edit_button {
     text-transform: capitalize;
     border-radius: 4px;
     color: #FF003A;
