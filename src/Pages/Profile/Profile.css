@@ -181,18 +181,21 @@
     font-size: 1rem;
 }
 
-.notify-switch-group .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+.notify-switch-group .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track,
+.notify-switch-group .css-1nr2wod.Mui-checked+.MuiSwitch-track,
+.notify-switch-group .MuiSwitch-track.css-1ju1kxc,
+.notify-switch-group .css-1yjjitx-MuiSwitch-track {
     background: #FF003A;
     opacity: 1;
 }
 
-.notify-switch-group .css-jsexje-MuiSwitch-thumb {
+.notify-switch-group .MuiSwitch-thumb {
     background-color: #FFFFFF;
     width: 19px;
     height: 19px;
 }
 
-.notify-switch-group .css-1yjjitx-MuiSwitch-track {
+.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track .notify-switch-group .css-1yjjitx-MuiSwitch-track {
     background: #FF003A;
     opacity: 1;
 }
