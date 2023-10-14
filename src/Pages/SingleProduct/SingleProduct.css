@@ -1,0 +1,107 @@
+.singleProd-heading_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 33px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+}
+
+.singleProd-price_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 33px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #FF003A;
+    margin: 4px 0px;
+}
+
+.singleProd-desc_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 28px;
+    font-weight: 400;
+    font-size: 0.9375rem;
+    color: #FFFFFF;
+}
+
+.singleProd-sale_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #FF003A;
+}
+
+.singleProd-button-wrapper .addToCart_button,
+.singleProd-button-wrapper .addToCart_button:hover {
+    text-transform: uppercase;
+    border-radius: 0px 16px 0px 16px;
+    border: 1px solid #FF003A;
+    color: #FFFFFF;
+    background-color: #FF003A;
+    font-weight: 700;
+    line-height: 19.2px;
+    font-size: 1rem;
+    padding: 14px 40px;
+}
+
+.singleProd-icons .single-icon {
+    color: #FF003A;
+}
+
+.singleProd-icons .single-icon-text {
+    color: #FFFFFF;
+}
+
+.singleProd-TabList .singleProd-tab_Text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #9C9C9C;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
+.singleProd-TabList .singleProd-tab_Text.Mui-selected {
+    font-family: 'Poppins', sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
+.singleProd-description_Text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 28px;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #FFFFFF;
+    text-transform: capitalize;
+}
+
+.review-header_text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 28px;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #FFFFFF;
+    margin-top: 4px;
+}
+
+.vl {
+    border-left: 2px solid #9C9C9C;
+    height: 26px;
+    margin: 0px 15px;
+}
+
+.singleProd-Review-span_Text {
+    font-family: 'Poppins', sans-serif;
+    line-height: 28px;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    margin-top: 20px;
+}

@@ -1,5 +1,4 @@
 import './App.css';
-import Footer from './Components/Footer/Footer';
 import BillingPage from './Pages/BillingPage/BillingPage';
 import Cart from './Pages/Cart/Cart';
 import Home from './Pages/Home/Home';
@@ -11,6 +10,7 @@ import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 import CartItems from './Pages/CartItems/CartItems';
 import Products from './Pages/Products/Products';
 import ProfileTabs from './Pages/Profile/ProfileTabs';
+import SingleProduct from './Pages/SingleProduct/SingleProduct';
 
 function App() {
   return (
@@ -27,6 +27,7 @@ function App() {
           <Route path="/cartItems" element={<CartItems />} />
           <Route path="/products" element={<Products />} />
           <Route path="/profile" element={<ProfileTabs />} />
+          <Route path="/singleProducts" element={<SingleProduct />} />
         </Routes>
       </Router>
     </div>

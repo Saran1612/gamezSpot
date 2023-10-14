@@ -469,6 +469,7 @@ function Header(props) {
                       <ShoppingCartIcon sx={{ color: "#fff" }} />
                     </StyledBadge>
                   </IconButton>
+                  
 
                   <Drawer
                     anchor={"right"}
