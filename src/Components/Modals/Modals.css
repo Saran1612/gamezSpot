@@ -1,0 +1,71 @@
+.login-modal_header {
+    font-weight: 700;
+    line-height: 38px;
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+}
+
+.login-modal_subheader {
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #DDDDDD;
+    margin-top: 4px;
+}
+
+.modal-input input {
+    color: #DDDDDD;
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 0.9375rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.Modal-signIn_text {
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+}
+
+.Modal-signIn_text.red {
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #E10033;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.login-modal_otp .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-formControl.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+    border: 1px solid #6F6F6F;
+}
+
+.login-modal_otp input {
+    color: #FFFFFF;
+}
+
+.modal-resend_text {
+    font-weight: 400;
+    line-height: 21px;
+    font-size: 0.875rem;
+    font-family: 'Poppins', sans-serif;
+    color: #E10033;
+    text-align: end;
+    width: 100%;
+    display: block;
+    margin-top: 4px;
+    text-decoration: none;
+}
+
+.box-modal:focus-visible {
+    outline: none;
+}
+
+.main-modal-container .MuiBackdrop-root.MuiModal-backdrop {
+    background: #000000cc;
+}

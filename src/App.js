@@ -1,21 +1,12 @@
+import { Box } from '@mui/material';
 import './App.css';
-import BillingPage from './Pages/BillingPage/BillingPage';
-import Cart from './Pages/Cart/Cart';
-import Home from './Pages/Home/Home';
-import Login from './Pages/Login/Login';
-import Register from './Pages/Register/Register';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import TermsCondition from './Pages/Terms&Condition/Terms&Condition';
-import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
-import CartItems from './Pages/CartItems/CartItems';
-import Products from './Pages/Products/Products';
-import ProfileTabs from './Pages/Profile/ProfileTabs';
-import SingleProduct from './Pages/SingleProduct/SingleProduct';
+import Routers from './Routers/Routers';
+
 
 function App() {
   return (
-    <div>
-      <Router>
+    <Box>
+      {/* <Router>
         <Routes>
           <Route exact path="/" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
@@ -29,8 +20,9 @@ function App() {
           <Route path="/profile" element={<ProfileTabs />} />
           <Route path="/singleProducts" element={<SingleProduct />} />
         </Routes>
-      </Router>
-    </div>
+      </Router> */}
+      <Routers />
+    </Box>
   );
 }
 

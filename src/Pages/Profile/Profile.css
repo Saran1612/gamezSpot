@@ -267,7 +267,8 @@
     border-color: #BEBBCD !important;
 }
 
-.passwordTab-uploadButton .Update_button {
+.passwordTab-uploadButton .Update_button,
+.passwordTab-uploadButton .Update_button:hover {
     text-transform: capitalize;
     border-radius: 0px 12px 0px 12px;
     color: #FFFFFF;

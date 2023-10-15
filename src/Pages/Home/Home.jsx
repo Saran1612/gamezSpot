@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
 import Header from "../../Components/Header/Header";
 import { Box, Grid } from "@mui/material";
@@ -14,12 +14,21 @@ import TabContext from "@material-ui/lab/TabContext";
 import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
 import { Headphones, PlayStation, TrustUsData, Xbox } from "./Tabs";
+import { useState } from "react";
+import { SignUpModals, LoginModals } from "../../Components/Modals/Modals";
 
 const Home = () => {
   const [value, setValue] = React.useState("1");
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const [callSignModal, setCallSignModal] = useState(false);
+  const [loginInModalopen, setLoginModalOpen] = useState(false);
+
+  useEffect(() => {
+    // setCallSignModal(true);
+    setLoginModalOpen(true);
+  }, []);
 
   return (
     <Box className="app-bg_img">
@@ -28,6 +37,21 @@ const Home = () => {
       </Box>
 
       <Box className="home_wrapper" sx={{ padding: { xs: "30px", md: "0px" } }}>
+        {loginInModalopen ? (
+          <>
+            <LoginModals
+              setOpen={setLoginModalOpen}
+              open={loginInModalopen}
+              setCallSignModal={setCallSignModal}
+            />
+          </>
+        ) : null}
+
+        {/* {callSignModal ? (
+          <>
+            <SignUpModals />
+          </>
+        ) : null} */}
         <Box>
           <Grid container spacing={2}>
             <Grid item xs={0} sm={0.5} md={1.5}></Grid>
