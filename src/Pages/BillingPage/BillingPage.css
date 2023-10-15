@@ -108,6 +108,7 @@
     color: #FF003A;
 }
 
+
 .billing-product_text {
     font-weight: 600;
     line-height: 24px;
@@ -133,7 +134,7 @@
 }
 
 .shipping-radio_buttons svg {
-    color: #B0B0B0;
+    color: #FF003A;
 }
 
 .shipping-radio_buttons .direct-bank_label {

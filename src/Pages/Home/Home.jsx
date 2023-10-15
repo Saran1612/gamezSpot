@@ -17,8 +17,10 @@ import { Headphones, PlayStation, TrustUsData, Xbox } from "./Tabs";
 import { useState } from "react";
 import Footer from "../../Components/Footer/Footer";
 import { SignUpModals, LoginModals } from "../../Components/Modals/Modals";
+import { useNavigate } from "react-router";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [value, setValue] = React.useState("1");
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -78,13 +80,12 @@ const Home = () => {
                     buttonName="Show product"
                     size="small"
                     className="show-product_button"
-                    // onClick={handleLoginClick}
+                    onClick={() => navigate("/products")}
                   />
                   <ReusableButton
                     buttonName="Show controllers"
                     size="small"
                     className="show-controller_button"
-                    // onClick={handleLoginClick}
                   />
                 </Box>
               </Box>

@@ -89,16 +89,42 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 function Header(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const [anchorElAcc, setAnchorElAcc] = React.useState(null);
+  const [anchorElPages, setAnchorElPages] = React.useState(null);
+  const [anchorElBlogs, setAnchorElBlogs] = React.useState(null);
+
   const navigate = useNavigate();
 
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const GamingAccopen = Boolean(anchorElAcc);
+  const Pagesopen = Boolean(anchorElPages);
+  const Blogsopen = Boolean(anchorElBlogs);
+
+  const handleAccClick = (event) => {
+    setAnchorElAcc(event.currentTarget);
   };
-  const handleClose = () => {
-    setAnchorEl(null);
+
+  const handleBlogsClick = (event) => {
+    setAnchorElBlogs(event.currentTarget);
   };
+
+  const handlePagesClick = (event) => {
+    setAnchorElPages(event.currentTarget);
+  };
+
+  const handleBlogsClose = () => {
+    setAnchorElBlogs(null);
+  };
+  const handleAccClose = () => {
+    setAnchorElAcc(null);
+  };
+  const handlePagesClose = () => {
+    setAnchorElPages(null);
+  };
+
+  // const handleDrawerAccClose = () => {
+  //   setAnchorEl(null);
+  // };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -231,7 +257,7 @@ function Header(props) {
           buttonName="CHECKOUT"
           size="large"
           className="checkout_button"
-          // onClick={handleLoginClick}
+          onClick={() => navigate("/billing")}
         />
       </Box>
     </Box>
@@ -248,10 +274,10 @@ function Header(props) {
               <Box sx={{ marginRight: "15px" }}>
                 <Button
                   id="basic-button"
-                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-controls={GamingAccopen ? "basic-menu" : undefined}
                   aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onClick={handleClick}
+                  aria-expanded={GamingAccopen ? "true" : undefined}
+                  onClick={handleAccClick}
                   sx={{
                     color: "#ffffff",
                     fontFamily: "Poppins ,sans-serif",
@@ -266,16 +292,17 @@ function Header(props) {
                 </Button>
                 <Menu
                   id="basic-menu"
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={handleClose}
+                  anchorEl={anchorElAcc}
+                  open={GamingAccopen}
+                  onClose={handleAccClose}
                   MenuListProps={{
                     "aria-labelledby": "basic-button",
                   }}
                 >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
-                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                  <MenuItem onClick={handleAccClose}>XBox</MenuItem>
+                  <MenuItem onClick={handleAccClose}>PS5</MenuItem>
+                  <MenuItem onClick={handleAccClose}>PS4</MenuItem>
+                  <MenuItem onClick={handleAccClose}>Nintendo Switch</MenuItem>
                 </Menu>
               </Box>
             </ListItemIcon>
@@ -289,12 +316,12 @@ function Header(props) {
               <Box sx={{ marginRight: "15px" }}>
                 <Button
                   id="basic-button"
-                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-controls={Pagesopen ? "basic-menu" : undefined}
                   aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onClick={handleClick}
+                  aria-expanded={Pagesopen ? "true" : undefined}
+                  onClick={handlePagesClick}
                   sx={{
-                    color: "#ffffff",
+                    color: "#FFFFFF",
                     fontFamily: "Poppins ,sans-serif",
                     lineHeight: "24px",
                     fontWeight: "400",
@@ -307,16 +334,16 @@ function Header(props) {
                 </Button>
                 <Menu
                   id="basic-menu"
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={handleClose}
+                  anchorEl={anchorElPages}
+                  open={Pagesopen}
+                  onClose={handlePagesClose}
                   MenuListProps={{
                     "aria-labelledby": "basic-button",
                   }}
                 >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
-                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                  <MenuItem onClick={handlePagesClose}>Pages One</MenuItem>
+                  <MenuItem onClick={handlePagesClose}>Pages Two</MenuItem>
+                  <MenuItem onClick={handlePagesClose}>Pages Three</MenuItem>
                 </Menu>
               </Box>
             </ListItemIcon>
@@ -330,12 +357,12 @@ function Header(props) {
               <Box sx={{ marginRight: "15px" }}>
                 <Button
                   id="basic-button"
-                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-controls={Blogsopen ? "basic-menu" : undefined}
                   aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onClick={handleClick}
+                  aria-expanded={Blogsopen ? "true" : undefined}
+                  onClick={handleBlogsClick}
                   sx={{
-                    color: "#ffffff",
+                    color: "#FFFFFF",
                     fontFamily: "Poppins ,sans-serif",
                     lineHeight: "24px",
                     fontWeight: "400",
@@ -348,16 +375,16 @@ function Header(props) {
                 </Button>
                 <Menu
                   id="basic-menu"
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={handleClose}
+                  anchorEl={anchorElBlogs}
+                  open={Blogsopen}
+                  onClose={handleBlogsClose}
                   MenuListProps={{
                     "aria-labelledby": "basic-button",
                   }}
                 >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
-                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                  <MenuItem onClick={handleBlogsClose}>Blogs One</MenuItem>
+                  <MenuItem onClick={handleBlogsClose}>Blogs Two</MenuItem>
+                  <MenuItem onClick={handleBlogsClose}>Blogs Three</MenuItem>
                 </Menu>
               </Box>
             </ListItemIcon>
@@ -469,7 +496,6 @@ function Header(props) {
                       <ShoppingCartIcon sx={{ color: "#fff" }} />
                     </StyledBadge>
                   </IconButton>
-                  
 
                   <Drawer
                     anchor={"right"}
@@ -552,10 +578,10 @@ function Header(props) {
                 <Box sx={{ marginRight: "15px" }}>
                   <Button
                     id="basic-button"
-                    aria-controls={open ? "basic-menu" : undefined}
+                    aria-controls={GamingAccopen ? "basic-menu" : undefined}
                     aria-haspopup="true"
-                    aria-expanded={open ? "true" : undefined}
-                    onClick={handleClick}
+                    aria-expanded={GamingAccopen ? "true" : undefined}
+                    onClick={handleAccClick}
                     sx={{
                       color: "#FFFFFF",
                       fontFamily: "Poppins ,sans-serif",
@@ -570,26 +596,29 @@ function Header(props) {
                   </Button>
                   <Menu
                     id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
+                    anchorEl={anchorElAcc}
+                    open={GamingAccopen}
+                    onClose={handleAccClose}
                     MenuListProps={{
                       "aria-labelledby": "basic-button",
                     }}
                   >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={handleAccClose}>XBox</MenuItem>
+                    <MenuItem onClick={handleAccClose}>PS5</MenuItem>
+                    <MenuItem onClick={handleAccClose}>PS4</MenuItem>
+                    <MenuItem onClick={handleAccClose}>
+                      Nintendo Switch
+                    </MenuItem>
                   </Menu>
                 </Box>
 
                 <Box sx={{ marginRight: "15px" }}>
                   <Button
                     id="basic-button"
-                    aria-controls={open ? "basic-menu" : undefined}
+                    aria-controls={Pagesopen ? "basic-menu" : undefined}
                     aria-haspopup="true"
-                    aria-expanded={open ? "true" : undefined}
-                    onClick={handleClick}
+                    aria-expanded={Pagesopen ? "true" : undefined}
+                    onClick={handlePagesClick}
                     sx={{
                       color: "#FFFFFF",
                       fontFamily: "Poppins ,sans-serif",
@@ -604,26 +633,26 @@ function Header(props) {
                   </Button>
                   <Menu
                     id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
+                    anchorEl={anchorElPages}
+                    open={Pagesopen}
+                    onClose={handlePagesClose}
                     MenuListProps={{
                       "aria-labelledby": "basic-button",
                     }}
                   >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={handlePagesClose}>Pages One</MenuItem>
+                    <MenuItem onClick={handlePagesClose}>Pages Two</MenuItem>
+                    <MenuItem onClick={handlePagesClose}>Pages Three</MenuItem>
                   </Menu>
                 </Box>
 
                 <Box sx={{ marginRight: "15px" }}>
                   <Button
                     id="basic-button"
-                    aria-controls={open ? "basic-menu" : undefined}
+                    aria-controls={Blogsopen ? "basic-menu" : undefined}
                     aria-haspopup="true"
-                    aria-expanded={open ? "true" : undefined}
-                    onClick={handleClick}
+                    aria-expanded={Blogsopen ? "true" : undefined}
+                    onClick={handleBlogsClick}
                     sx={{
                       color: "#FFFFFF",
                       fontFamily: "Poppins ,sans-serif",
@@ -638,16 +667,16 @@ function Header(props) {
                   </Button>
                   <Menu
                     id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
+                    anchorEl={anchorElBlogs}
+                    open={Blogsopen}
+                    onClose={handleBlogsClose}
                     MenuListProps={{
                       "aria-labelledby": "basic-button",
                     }}
                   >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={handleBlogsClose}>Blogs One</MenuItem>
+                    <MenuItem onClick={handleBlogsClose}>Blogs Two</MenuItem>
+                    <MenuItem onClick={handleBlogsClose}>Blogs Three</MenuItem>
                   </Menu>
                 </Box>
               </Grid>

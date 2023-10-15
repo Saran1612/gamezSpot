@@ -71,7 +71,7 @@ export const PreOrder = () => {
       autoPlay
       customLeftArrow={<ChevronLeftIcon />}
       customRightArrow={<ChevronRightIcon />}
-      autoPlaySpeed={10000000}
+      autoPlaySpeed={1000}
       infinite={true}
       customTransition="transform 1000ms ease-in-out"
       pauseOnHover={false}
@@ -180,7 +180,7 @@ export const HotOnSale = () => {
       autoPlay
       customLeftArrow={<ChevronLeftIcon />}
       customRightArrow={<ChevronRightIcon />}
-      autoPlaySpeed={10000000}
+      autoPlaySpeed={3000}
       infinite={true}
       customTransition="transform 1000ms ease-in-out"
       pauseOnHover={false}
@@ -292,7 +292,7 @@ export const ComingSoon = () => {
       autoPlay
       customLeftArrow={<ChevronLeftIcon />}
       customRightArrow={<ChevronRightIcon />}
-      autoPlaySpeed={10000000}
+      autoPlaySpeed={6000}
       infinite={true}
       customTransition="transform 1000ms ease-in-out"
       pauseOnHover={false}

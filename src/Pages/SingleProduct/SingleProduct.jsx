@@ -366,7 +366,10 @@ const SingleProduct = () => {
               {featuredProducts.map((items, index) => (
                 <Grid item xs={12} sm={6} md={3}>
                   <div className="" key={items.id} style={{ margin: "8px" }}>
-                    <Link to="#" style={{ textDecoration: "none" }}>
+                    <Link
+                      to="/singleProducts"
+                      style={{ textDecoration: "none" }}
+                    >
                       <Card className="product-card">
                         <CardActionArea className="cardActionArea">
                           <Box className="product-img">

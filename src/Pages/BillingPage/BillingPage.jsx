@@ -10,8 +10,10 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import Footer from "../../Components/Footer/Footer";
+import { useNavigate } from "react-router";
 
 const BillingPage = () => {
+  const navigate = useNavigate();
   return (
     <Box className="billing-bg_img">
       <Box>
@@ -263,6 +265,7 @@ const BillingPage = () => {
                       aria-labelledby="demo-radio-buttons-group-label"
                       defaultValue="female"
                       name="radio-buttons-group"
+                      className="billing-page-radio-buttons"
                     >
                       <FormControlLabel
                         value="Free shipping"
@@ -373,6 +376,7 @@ const BillingPage = () => {
                     buttonName="PLACE ORDER"
                     size="medium"
                     className="placeOrder_button"
+                    onClick={() => navigate("/cartItems")}
                   />
                 </Box>
               </Box>

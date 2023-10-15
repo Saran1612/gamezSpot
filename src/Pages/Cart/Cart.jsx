@@ -13,6 +13,7 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Footer from "../../Components/Footer/Footer";
+import { useNavigate } from "react-router";
 
 const Cart = () => {
   const { clickedValue, setClickedValue } = useState([]);
@@ -155,6 +156,8 @@ const Cart = () => {
     { id: "AMERICA", full_name: "America" },
   ];
 
+  const navigate = useNavigate();
+
   return (
     <Box className="cart-bg_img">
       <Box>
@@ -203,6 +206,7 @@ const Cart = () => {
             buttonName="Continue Shopping"
             size="large"
             className="shopping_button"
+            onClick={() => navigate("/products")}
           />
         </Box>
 
@@ -393,6 +397,7 @@ const Cart = () => {
                     buttonName="PROCEED TO CHECKOUT"
                     size="large"
                     className="proceed_button"
+                    onClick={() => navigate("/billing")}
                   />
                 </Box>
               </Box>
