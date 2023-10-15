@@ -15,6 +15,7 @@ import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
 import { Headphones, PlayStation, TrustUsData, Xbox } from "./Tabs";
 import { useState } from "react";
+import Footer from "../../Components/Footer/Footer";
 import { SignUpModals, LoginModals } from "../../Components/Modals/Modals";
 
 const Home = () => {
@@ -46,12 +47,6 @@ const Home = () => {
             />
           </>
         ) : null}
-
-        {/* {callSignModal ? (
-          <>
-            <SignUpModals />
-          </>
-        ) : null} */}
         <Box>
           <Grid container spacing={2}>
             <Grid item xs={0} sm={0.5} md={1.5}></Grid>
@@ -187,14 +182,24 @@ const Home = () => {
           </TabContext>
         </Box>
 
-        <Box className="people-trust-us_conatiner">
+        <Box className="people-trust-us_conatiner" sx={{}}>
           <span className="newestProduct_text">What people say about us</span>
           <span className="preOrder_text">PEOPLE TRUST US</span>
 
-          <Box className="trust-us_carousel-wrapper">
-            <TrustUsData />
-          </Box>
+          <Grid container spacing={2}>
+            <Grid item xs={0} md={1.5}></Grid>
+            <Grid item xs={12} md={9}>
+              <Box className="trust-us_carousel-wrapper">
+                <TrustUsData />
+              </Box>
+            </Grid>
+            <Grid item xs={0} md={1.5}></Grid>
+          </Grid>
         </Box>
+      </Box>
+
+      <Box>
+        <Footer />
       </Box>
     </Box>
   );

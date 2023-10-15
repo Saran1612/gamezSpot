@@ -88,4 +88,10 @@
 
 .people-trust-us_conatiner {
     background: #0D0D0D;
+    padding: 30px 0px 20px 0px;
+    margin-bottom: 70px;
+}
+
+.trust-us_carousel-wrapper {
+    padding: 30px 0px;
 }

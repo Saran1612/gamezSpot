@@ -266,7 +266,7 @@ export const TrustUsData = () => {
     {
       id: 5,
       img: ReviewThree,
-      name: "Finch",
+      name: "iessm",
       role: "GAMER",
       description:
         "Joining my local gym was the best decision I made for my health and fitness. The trainers were knowledgeable and supportive, guiding me through personalized workout",
@@ -274,7 +274,7 @@ export const TrustUsData = () => {
     {
       id: 6,
       img: ReviewOne,
-      name: "Aslam",
+      name: "Psfdsgdgd",
       role: "GAMER",
       description:
         "Joining my local gym was the best decision I made for my health and fitness. The trainers were knowledgeable and supportive, guiding me through personalized workout",
@@ -305,62 +305,68 @@ export const TrustUsData = () => {
   };
 
   return (
-    
     <Carousel
       additionalTransfrom={0}
       arrows={false}
+      showDots={false}
       shouldResetAutoplay
       slidesToSlide={1}
       autoPlay
       // customLeftArrow={<ChevronLeftIcon />}
       // customRightArrow={<ChevronRightIcon />}
-      autoPlaySpeed={3000000}
+      autoPlaySpeed={3000}
       infinite={true}
       customTransition="transform 1000ms ease-in-out"
       pauseOnHover={false}
-      transitionDuration={100000000}
+      transitionDuration={10000}
       responsive={responsive}
       // className='slider_carousel'
     >
       {newProducts.map((items) => (
-        <Link to="#" style={{ textDecoration: "none" }} key={items.id}>
-          <Card sx={{ maxWidth: 345 }} className="trust_card">
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                className=""
-                sx={{ width: "initial", margin: "auto" }}
-                height="100"
-                image={items.img}
-                alt={items.name}
-              />
-              <CardContent className="card_content">
-                <Box sx={{ width: "100%" }}>
-                  <span className="product_text">{items.name}</span>
-                </Box>
-                <Box
-                  sx={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    marginTop: "5px",
-                    alignItems: "center",
-                  }}
-                >
-                  <span className="price_text">${items.price}</span>
-                  {/* <span className="price_text">
-                                          {items.star}
-                                          <StarIcon style={{ color: "#9F73AB", fontSize: "1rem" }} />
-                                      </span> */}
-                </Box>
-              </CardContent>
-              {/* <div className="hover-icons">
-                                  <ShoppingCartOutlinedIcon className="add-to-cart-icon left" sx={{ color: "#9F73AB" }} />
-                                  <FavoriteBorderIcon className="add-to-cart-icon right" sx={{ color: "#9F73AB" }} />
-                              </div> */}
-            </CardActionArea>
-          </Card>
-        </Link>
+        // <Link
+        //   to="#"
+        //   style={{ textDecoration: "none", margin: "12px" }}
+        //   key={items.id}
+        // >
+        <Card sx={{ maxWidth: { xs: 400, md: 300 } }} className="trust_card">
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              className=""
+              sx={{ width: "initial", margin: "auto", padding: "8px" }}
+              height="100"
+              image={items.img}
+              alt={items.name}
+            />
+            <CardContent className="card_content">
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginTop: "10px",
+                }}
+              >
+                <span className="trustUs_text">{items.name}</span>
+                <span className="trustUs-role_text">{items.role}</span>
+              </Box>
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginTop: "14px",
+                  alignItems: "center",
+                }}
+              >
+                <span className="trustUs-descp_text">{items.description}</span>
+              </Box>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+        // </Link>
       ))}
     </Carousel>
   );

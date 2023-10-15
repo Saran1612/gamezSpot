@@ -397,7 +397,7 @@ function Header(props) {
           </ListItemButton>
         </ListItem>
 
-        <ListItem disablePadding>
+        {/* <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
               <Box sx={{ marginRight: "30px" }}>
@@ -438,7 +438,7 @@ function Header(props) {
             </ListItemIcon>
             <ListItemText />
           </ListItemButton>
-        </ListItem>
+        </ListItem> */}
 
         <ListItem disablePadding>
           <ListItemButton>
@@ -700,7 +700,7 @@ function Header(props) {
                   </Link>
                 </Box>
 
-                <Box sx={{ marginRight: "30px" }}>
+                {/* <Box sx={{ marginRight: "30px" }}>
                   <Button
                     id="basic-button"
                     aria-controls={open ? "basic-menu" : undefined}
@@ -734,7 +734,7 @@ function Header(props) {
                     <MenuItem onClick={handleClose}>My account</MenuItem>
                     <MenuItem onClick={handleClose}>Logout</MenuItem>
                   </Menu>
-                </Box>
+                </Box> */}
 
                 <Box sx={{ display: "flex", marginRight: "30px" }}>
                   <Box
