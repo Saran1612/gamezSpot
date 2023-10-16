@@ -8,8 +8,40 @@ import ReusableButton from "../../Components/Button/Button";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import ProdOne from "../../assests/Group 1000002799.png";
 import CloseIcon from "@mui/icons-material/Close";
+import { AuthContext } from "../../Components/useContext/useContext";
+import { useContext } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const CartItems = () => {
+  const { data, setData, count, setCount, setFilteredData } =
+    useContext(AuthContext);
+  const [cartData, setCartData] = useState([]);
+
+  const uniqueIds = {};
+  const filteredData = data.filter((item) => {
+    if (!uniqueIds[item.id]) {
+      uniqueIds[item.id] = true;
+      return true;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    if (filteredData.length > 0) {
+      const formattedData = filteredData.map((each) => ({
+        id: each.id,
+        productImg: each.img,
+        productName: each.name,
+        unitPrice: each.price,
+        Quantity: each?.quantity,
+        discountPrice: each.price,
+        stockStatus: "Active",
+      }));
+      setCartData(formattedData);
+    }
+  }, []);
+
   const rows = [
     {
       id: 1,
@@ -69,7 +101,12 @@ const CartItems = () => {
       renderCell: (params) => (
         <>
           <span className="delete-button">
-            <img src={ProdOne} alt="CartImg" width="100%" height="74" />
+            <img
+              src={params.row.productImg}
+              alt="CartImg"
+              width="100%"
+              height="74"
+            />
           </span>
         </>
       ),
@@ -124,9 +161,7 @@ const CartItems = () => {
 
   return (
     <Box className="cart-bg_img">
-      <Box>
-        <Header />
-      </Box>
+      <Box>{/* <Header /> */}</Box>
 
       <Box
         sx={{
@@ -141,7 +176,7 @@ const CartItems = () => {
             marginRight: "12px",
           }}
           className="cart_table"
-          rows={rows}
+          rows={cartData}
           columns={column}
           autoHeight
           rowHeight={100}

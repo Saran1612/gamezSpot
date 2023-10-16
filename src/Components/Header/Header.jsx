@@ -28,7 +28,7 @@ import { styled } from "@mui/material/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 import CloseIcon from "@mui/icons-material/Close";
 import ProdOne from "../../assests/Group 1000002799.png";
@@ -36,6 +36,9 @@ import ProdTwo from "../../assests/Group 1000002774.png";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import ReusableButton from "../Button/Button";
+import { AuthContext } from "../useContext/useContext";
+import { useContext } from "react";
+import { useEffect } from "react";
 
 const drawerWidth = 240;
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -87,7 +90,25 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 function Header(props) {
+  const { data, setData, count, setCount, setFilteredData } =
+    useContext(AuthContext);
   const { window } = props;
+  console.log(data, "updatedData");
+
+  const uniqueIds = {};
+
+  // useEffect(()=>{},[])
+
+  const filteredData = data.filter((item) => {
+    if (!uniqueIds[item.id]) {
+      uniqueIds[item.id] = true;
+      return true;
+    }
+    return false;
+  });
+
+  console.log(filteredData, "filteredData");
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const [anchorElAcc, setAnchorElAcc] = React.useState(null);
@@ -170,6 +191,15 @@ function Header(props) {
     setState({ ...state, [anchor]: open });
   };
 
+  const getTotalPrice = (data) => {
+    let countValue = 0;
+    data.forEach((items) => {
+      countValue = countValue + Number(items.price);
+    });
+    setCount(countValue);
+    return `$${countValue}`;
+  };
+
   const list = (anchor) => (
     <Box
       sx={{
@@ -206,57 +236,72 @@ function Header(props) {
 
       <Divider sx={{ borderTop: "1px solid #D2D2D2" }} />
 
-      <List className="header-drawer_list">
-        {Data.map((items) => (
-          <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-              <Avatar
-                alt="Remy Sharp"
-                src={items.img}
-                className="product_avatar"
-              />
-            </ListItemAvatar>
-            <ListItemText
-              className="list-primary_text"
-              primary={items.name}
-              secondary={
-                <span className="list-secondary_text">
-                  {`${items.quality}*${items.price}`}
-                </span>
-              }
-            />
-          </ListItem>
-        ))}
-      </List>
+      {filteredData?.length !== 0 ? (
+        <>
+          <List className="header-drawer_list">
+            {filteredData.map((items) => (
+              <ListItem alignItems="flex-start">
+                <ListItemAvatar>
+                  <Avatar
+                    alt="Remy Sharp"
+                    src={items.img}
+                    className="product_avatar"
+                  />
+                </ListItemAvatar>
+                <ListItemText
+                  className="list-primary_text"
+                  primary={items.name}
+                  secondary={
+                    <span className="list-secondary_text">
+                      {`1*${items.price}`}
+                    </span>
+                  }
+                />
+              </ListItem>
+            ))}
+          </List>
 
-      {/* <Divider /> */}
-
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "20px",
-          borderTop: "1px dotted #DDDDDD",
-          borderBottom: "1px dotted #DDDDDD",
-        }}
-      >
-        <span className="subtotal_text">Subtotal:</span>
-        <span className="subtotal_price-text">$71.90</span>
-      </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              padding: "20px",
+              borderTop: "1px dotted #DDDDDD",
+              borderBottom: "1px dotted #DDDDDD",
+            }}
+          >
+            <span className="subtotal_text">Subtotal:</span>
+            <span className="subtotal_price-text">
+              {getTotalPrice(filteredData)}
+            </span>
+          </Box>
+        </>
+      ) : (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "10vh",
+          }}
+        >
+          <strong>Cart Empty!</strong>
+        </Box>
+      )}
 
       <Box className="sideDrawer-holder">
         <ReusableButton
           buttonName="VIEW CART"
           size="large"
           className="viewCart_button"
-          onClick={() => navigate("/cart")}
+          onClick={() => navigate("/home/cart")}
         />
 
         <ReusableButton
           buttonName="CHECKOUT"
           size="large"
           className="checkout_button"
-          onClick={() => navigate("/billing")}
+          onClick={() => navigate("/home/billing")}
         />
       </Box>
     </Box>
@@ -395,7 +440,7 @@ function Header(props) {
           <ListItemButton>
             <ListItemIcon>
               <Box sx={{ marginRight: "30px", display: "flex" }}>
-                <Link to="/profile" style={{ textDecoration: "none" }}>
+                <Link to="/home/profile" style={{ textDecoration: "none" }}>
                   <img
                     src={Account}
                     alt="account"
@@ -488,7 +533,7 @@ function Header(props) {
                     onClick={toggleDrawer("right", true)}
                   >
                     <StyledBadge
-                      badgeContent={1}
+                      badgeContent={filteredData.length}
                       color="secondary"
                       className="cart_icon"
                     >
@@ -517,8 +562,17 @@ function Header(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  const location = useLocation();
+
   return (
-    <Box sx={{}}>
+    <Box
+      sx={{}}
+      className={
+        location.pathname === "/home"
+          ? "app-bg_img-home header-box"
+          : "app-bg_img header-box"
+      }
+    >
       <CssBaseline />
       <AppBar
         // position="fixed"
@@ -711,7 +765,7 @@ function Header(props) {
                 }}
               >
                 <Box sx={{ marginRight: "30px", display: "flex" }}>
-                  <Link to="/profile" style={{ textDecoration: "none" }}>
+                  <Link to="/home/profile" style={{ textDecoration: "none" }}>
                     <img
                       src={Account}
                       alt="account"
@@ -783,7 +837,7 @@ function Header(props) {
                       onClick={toggleDrawer("right", true)}
                     >
                       <StyledBadge
-                        badgeContent={1}
+                        badgeContent={filteredData.length}
                         color="secondary"
                         className="cart_icon"
                       >
@@ -849,6 +903,10 @@ function Header(props) {
                 </Search>
               </Grid>
             </Grid>
+
+            <Box className="outletBox">
+              <Outlet />
+            </Box>
           </Box>
 
           <Box

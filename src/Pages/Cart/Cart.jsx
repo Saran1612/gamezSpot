@@ -14,9 +14,50 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Footer from "../../Components/Footer/Footer";
 import { useNavigate } from "react-router";
+import { AuthContext } from "../../Components/useContext/useContext";
+import { useContext } from "react";
+import { useEffect } from "react";
 
 const Cart = () => {
-  const { clickedValue, setClickedValue } = useState([]);
+  const { data, setData, count, setCount, setFilteredData } =
+    useContext(AuthContext);
+  const [cartData, setCartData] = useState([]);
+
+  const uniqueIds = {};
+  const filteredData = data.filter((item) => {
+    if (!uniqueIds[item.id]) {
+      uniqueIds[item.id] = true;
+      return true;
+    }
+    return false;
+  });
+
+  console.log(filteredData, "filteredData IN CART");
+
+  const getTotalPrice = (data) => {
+    let countValue = 0;
+    data.forEach((items) => {
+      countValue = countValue + Number(items.price);
+    });
+    setCount(countValue);
+    return `$${countValue}`;
+  };
+
+  useEffect(() => {
+    if (filteredData.length > 0) {
+      const formattedData = filteredData.map((each) => ({
+        id: each.id,
+        productImg: each.img,
+        productName: each.name,
+        originalPrice: each.price,
+        Quantity: each?.quantity,
+        discountPrice: each.price,
+      }));
+      setCartData(formattedData);
+    }
+  }, []);
+
+  console.log(cartData, "cartData");
   const handleDelete = () => {};
 
   const handleQuantityChange = (index, value) => {
@@ -29,28 +70,28 @@ const Cart = () => {
   const rows = [
     {
       id: 1,
-      // productImg: "Snow",
+      productImg: "Snow",
       productName: "Electrobot Xtreme Gaming 2023",
       originalPrice: "$35.00",
       discountPrice: "$35.00",
     },
     {
       id: 2,
-      // productImg: "Lannister",
+      productImg: "Lannister",
       productName: "Electrobot Xtreme Gaming 2023",
       originalPrice: "$42.00",
       discountPrice: "$42.00",
     },
     {
       id: 3,
-      // productImg: "Lannister",
+      productImg: "Lannister",
       productName: "Electrobot Xtreme Gaming 2023",
       originalPrice: "$45.00",
       discountPrice: "$45.00",
     },
     {
       id: 4,
-      // productImg: "Stark",
+      productImg: "Stark",
       productName: "Electrobot Xtreme Gaming 2023",
       originalPrice: "$16.00",
       discountPrice: "$16.00",
@@ -67,8 +108,14 @@ const Cart = () => {
       align: "center",
       renderCell: (params) => (
         <>
+          {console.log(params, "paramshs")}
           <span className="delete-button">
-            <img src={CartImg} alt="CartImg" width="100%" height="74" />
+            <img
+              src={params.row.productImg}
+              alt="CartImg"
+              width="100%"
+              height="74"
+            />
           </span>
         </>
       ),
@@ -160,9 +207,7 @@ const Cart = () => {
 
   return (
     <Box className="cart-bg_img">
-      <Box>
-        <Header />
-      </Box>
+      <Box>{/* <Header /> */}</Box>
 
       <Box
         sx={{
@@ -182,7 +227,7 @@ const Cart = () => {
               marginRight: "12px",
             }}
             className="cart_table"
-            rows={rows}
+            rows={cartData}
             columns={column}
             autoHeight
             rowHeight={110}
@@ -206,7 +251,7 @@ const Cart = () => {
             buttonName="Continue Shopping"
             size="large"
             className="shopping_button"
-            onClick={() => navigate("/products")}
+            onClick={() => navigate("/home/products")}
           />
         </Box>
 
@@ -390,14 +435,16 @@ const Cart = () => {
                     }}
                   >
                     <span className="total-shipping_text">Grand Total</span>
-                    <span className="total-price_text">$260.20</span>
+                    <span className="total-price_text">
+                      {getTotalPrice(filteredData)}
+                    </span>
                   </Box>
 
                   <ReusableButton
                     buttonName="PROCEED TO CHECKOUT"
                     size="large"
                     className="proceed_button"
-                    onClick={() => navigate("/billing")}
+                    onClick={() => navigate("/home/billing")}
                   />
                 </Box>
               </Box>

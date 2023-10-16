@@ -1,9 +1,9 @@
 .billing-bg_img {
-    background-image: url(../../assests/cart_bg.svg);
-    min-height: 100vh;
+    /* background-image: url(../../assests/cart_bg.svg); */
+    /* min-height: 100vh;
     background-repeat: no-repeat;
     background-size: contain;
-    background-color: #000;
+    background-color: #000; */
 }
 
 .billing_inputFields {

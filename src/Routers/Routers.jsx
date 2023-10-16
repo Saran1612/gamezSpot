@@ -12,25 +12,45 @@ import CartItems from "../Pages/CartItems/CartItems";
 import Products from "../Pages/Products/Products";
 import ProfileTabs from "../Pages/Profile/ProfileTabs";
 import SingleProduct from "../Pages/SingleProduct/SingleProduct";
+import { AuthContext } from "../Components/useContext/useContext";
+import { useState } from "react";
+import Header from "../Components/Header/Header";
 
 const Routers = () => {
+  const [filteredData, setFilteredData] = useState([]);
+  const [count, setCount] = useState(0);
+  const [data, setData] = useState([]);
+
   return (
     <Box>
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<Login />} />
-          <Route exact path="/register" element={<Register />} />
-          <Route exact path="home" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/billing" element={<BillingPage />} />
-          <Route path="/termsCondition" element={<TermsCondition />} />
-          <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
-          <Route path="/cartItems" element={<CartItems />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/profile" element={<ProfileTabs />} />
-          <Route path="/singleProducts" element={<SingleProduct />} />
-        </Routes>
-      </Router>
+      <AuthContext.Provider
+        value={{
+          filteredData,
+          setFilteredData,
+          count,
+          setCount,
+          data,
+          setData,
+        }}
+      >
+        <Router>
+          <Routes>
+            <Route exact path="/" element={<Login />} />
+            <Route exact path="/register" element={<Register />} />
+            <Route exact path="/home" element={<Header />}>
+              <Route exact path="/home" element={<Home />} />
+              <Route path="/home/cart" element={<Cart />} />
+              <Route path="/home/billing" element={<BillingPage />} />
+              <Route path="/home/termsCondition" element={<TermsCondition />} />
+              <Route path="/home/privacyPolicy" element={<PrivacyPolicy />} />
+              <Route path="/home/cartItems" element={<CartItems />} />
+              <Route path="/home/products" element={<Products />} />
+              <Route path="/home/profile" element={<ProfileTabs />} />
+              <Route path="/home/singleProducts" element={<SingleProduct />} />
+            </Route>
+          </Routes>
+        </Router>
+      </AuthContext.Provider>
     </Box>
   );
 };

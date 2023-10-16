@@ -18,8 +18,12 @@ import { useState } from "react";
 import Footer from "../../Components/Footer/Footer";
 import { SignUpModals, LoginModals } from "../../Components/Modals/Modals";
 import { useNavigate } from "react-router";
+import { AuthContext } from "../../Components/useContext/useContext";
+import { useContext } from "react";
 
 const Home = () => {
+  const { data, setData, count, setCount } = useContext(AuthContext);
+
   const navigate = useNavigate();
   const [value, setValue] = React.useState("1");
   const handleChange = (event, newValue) => {
@@ -30,15 +34,13 @@ const Home = () => {
 
   useEffect(() => {
     // setCallSignModal(true);
-    setLoginModalOpen(true);
+    // setLoginModalOpen(true);
   }, []);
 
-  return (
-    <Box className="app-bg_img">
-      <Box>
-        <Header />
-      </Box>
+  console.log(data, "data");
 
+  return (
+    <Box>
       <Box className="home_wrapper" sx={{ padding: { xs: "30px", md: "0px" } }}>
         {loginInModalopen ? (
           <>
@@ -80,7 +82,7 @@ const Home = () => {
                     buttonName="Show product"
                     size="small"
                     className="show-product_button"
-                    onClick={() => navigate("/products")}
+                    onClick={() => navigate("/home/products")}
                   />
                   <ReusableButton
                     buttonName="Show controllers"
@@ -118,7 +120,11 @@ const Home = () => {
           <Box sx={{ textAlign: "center", marginTop: "10px" }}>
             <span className="preOrder_text">Pre Order</span>
             <Box sx={{ marginTop: "20px" }}>
-              <PreOrder />
+              <PreOrder
+                setData={(product) =>
+                  setData((prevData) => [...prevData, product])
+                }
+              />
             </Box>
           </Box>
         </Box>
@@ -130,7 +136,11 @@ const Home = () => {
           <Box sx={{ textAlign: "center", marginTop: "10px" }}>
             <span className="preOrder_text">Hot On Sale</span>
             <Box sx={{ marginTop: "20px" }}>
-              <HotOnSale />
+              <HotOnSale
+                setData={(product) =>
+                  setData((prevData) => [...prevData, product])
+                }
+              />
             </Box>
           </Box>
         </Box>
@@ -140,7 +150,11 @@ const Home = () => {
           <Box sx={{ textAlign: "center", marginTop: "10px" }}>
             <span className="preOrder_text">Coming Soon</span>
             <Box sx={{ marginTop: "20px" }}>
-              <ComingSoon />
+              <ComingSoon
+                setData={(product) =>
+                  setData((prevData) => [...prevData, product])
+                }
+              />
             </Box>
           </Box>
         </Box>
@@ -170,15 +184,27 @@ const Home = () => {
             </Box>
 
             <TabPanel value="1">
-              <Xbox />
+              <Xbox
+                setData={(product) =>
+                  setData((prevData) => [...prevData, product])
+                }
+              />
             </TabPanel>
 
             <TabPanel value="2">
-              <Headphones />
+              <Headphones
+                setData={(product) =>
+                  setData((prevData) => [...prevData, product])
+                }
+              />
             </TabPanel>
 
             <TabPanel value="3">
-              <PlayStation />
+              <PlayStation
+                setData={(product) =>
+                  setData((prevData) => [...prevData, product])
+                }
+              />
             </TabPanel>
           </TabContext>
         </Box>

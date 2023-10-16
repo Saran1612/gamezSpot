@@ -1,4 +1,5 @@
-.table-action .coupon_button {
+.table-action .coupon_button,
+.table-action .coupon_button:hover {
     background: #FF003A;
     color: #FFFFFF;
     width: 100%;

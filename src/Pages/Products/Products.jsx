@@ -76,7 +76,7 @@ const Products = () => {
   return (
     <Box className="cart-bg_img">
       <Box>
-        <Header />
+        {/* <Header /> */}
       </Box>
 
       <Box

@@ -17,7 +17,7 @@ const BillingPage = () => {
   return (
     <Box className="billing-bg_img">
       <Box>
-        <Header />
+        {/* <Header /> */}
       </Box>
 
       <Box
@@ -376,7 +376,7 @@ const BillingPage = () => {
                     buttonName="PLACE ORDER"
                     size="medium"
                     className="placeOrder_button"
-                    onClick={() => navigate("/cartItems")}
+                    onClick={() => navigate("/home/cartItems")}
                   />
                 </Box>
               </Box>

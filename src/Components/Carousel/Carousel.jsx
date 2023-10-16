@@ -4,6 +4,7 @@ import ReusableButton from "../Button/Button";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Joystick from "../../assests/joystick.svg";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./Carousel.css";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
@@ -14,29 +15,73 @@ import {
   CardContent,
   CardMedia,
 } from "@mui/material";
+import { Handshake } from "@mui/icons-material";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useMemo } from "react";
 
-export const PreOrder = () => {
+export const PreOrder = (props) => {
+  const { setData } = props;
+
+  const [selectedProducts, setSelectedProducts] = useState([]);
+
   const featuredProducts = [
     {
-      id: 1,
+      id: 3001,
       img: Joystick,
-      name: "Brilliance Bead",
-      price: "130",
+      name: "Electrobot Xtreme Gaming One",
+      price: "130.00",
       star: "4.5",
     },
-    { id: 2, img: Joystick, name: "Bulova Jewelry", price: "150", star: "4" },
-    { id: 3, img: Joystick, name: "Cultured Pearl", price: "190", star: "4.7" },
-    { id: 4, img: Joystick, name: "Gemstone Ring", price: "70", star: "4.2" },
-    { id: 5, img: Joystick, name: "Diamond Oval", price: "200", star: "4.6" },
     {
-      id: 6,
+      id: 3002,
       img: Joystick,
-      name: "Diamond Octagonal",
-      price: "170",
+      name: "Electrobot Xtreme Gaming Two",
+      price: "150.00",
+      star: "4",
+    },
+    {
+      id: 3003,
+      img: Joystick,
+      name: "Electrobot Xtreme Gaming Three",
+      price: "190.00",
+      star: "4.7",
+    },
+    {
+      id: 3004,
+      img: Joystick,
+      name: "Electrobot Xtreme Gaming Four",
+      price: "70.00",
+      star: "4.2",
+    },
+    {
+      id: 3005,
+      img: Joystick,
+      name: "Electrobot Xtreme Gaming Five",
+      price: "200.00",
+      star: "4.6",
+    },
+    {
+      id: 3006,
+      img: Joystick,
+      name: "Electrobot Xtreme Gaming Six",
+      price: "170.00",
       star: "3.9",
     },
-    { id: 7, img: Joystick, name: "Enchanted Disney", price: "110", star: "4" },
-    { id: 8, img: Joystick, name: "Platinum Oval", price: "90", star: "4.8" },
+    {
+      id: 3007,
+      img: Joystick,
+      name: "Electrobot Xtreme Gaming Seven",
+      price: "110.00",
+      star: "4",
+    },
+    {
+      id: 3008,
+      img: Joystick,
+      name: "Electrobot Xtreme Gaming Eight",
+      price: "90.00",
+      star: "4.8",
+    },
   ];
 
   const responsive = {
@@ -62,6 +107,31 @@ export const PreOrder = () => {
     },
   };
 
+  const arrayOne = [];
+
+  const handlePreOrderCartClick = (product) => {
+    const isProductInArrayOne = arrayOne.some((item) => item.id === product.id);
+
+    if (!isProductInArrayOne) {
+      arrayOne.push(product);
+      setData(...arrayOne);
+    }
+  };
+
+  // const updatedDatsa = data.map((item) => item.product);
+  // console.log(updatedDatsa, "updatedDatsa");
+
+  // const uniqueItems = new Map();
+
+  // updatedDatsa.forEach((item) => {
+  //   uniqueItems.set(item.id, item);
+  // });
+
+  // const uniqueData = [...uniqueItems.values()];
+  // // setData(uniqueData);
+
+  // console.log(data, "dataafterFiltering");
+
   return (
     <Carousel
       additionalTransfrom={0}
@@ -81,13 +151,14 @@ export const PreOrder = () => {
     >
       {featuredProducts.map((items) => (
         <div className="card-div-home-new-product-featured" key={items.id}>
-          <Link to="/singleProducts" style={{ textDecoration: "none" }}>
-            <Card className="card" sx={{ margin: "10px" }}>
-              <CardActionArea className="cardActionArea">
+          <Card className="card" sx={{ margin: "10px" }}>
+            <CardActionArea className="cardActionArea">
+              <Link
+                to="/home/singleProducts"
+                style={{ textDecoration: "none" }}
+              >
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
-                  <span className="product_text">
-                    Electrobot Xtreme Gaming Electrobot Xtreme Gaming
-                  </span>
+                  <span className="product_text">Electrobot Xtreme Gaming</span>
                   <span className="product_descrp-text">TYPE: Electrobot </span>
                 </Box>
                 <CardMedia
@@ -97,55 +168,95 @@ export const PreOrder = () => {
                   image={items.img}
                   alt={items.name}
                 />
-                <CardContent className="card_content">
-                  <Box
-                    sx={{
-                      width: "100%",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      marginTop: "5px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <span className="price_text">468.00</span>
-                    <ReusableButton
-                      buttonName="Add to Cart"
-                      size="small"
-                      className="addToCart_button"
-                    />
-                  </Box>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Link>
+              </Link>
+              <CardContent className="card_content">
+                <Box
+                  sx={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginTop: "5px",
+                    alignItems: "center",
+                  }}
+                >
+                  <span className="price_text">{items.price}</span>
+                  <FavoriteIcon sx={{ color: "#FF003A" }} />
+                  <ReusableButton
+                    buttonName="Add to Cart"
+                    size="small"
+                    className="addToCart_button"
+                    onClick={() => handlePreOrderCartClick(items)}
+                  />
+                </Box>
+              </CardContent>
+            </CardActionArea>
+          </Card>
         </div>
       ))}
     </Carousel>
   );
 };
 
-export const HotOnSale = () => {
+export const HotOnSale = (props) => {
+  const { setData } = props;
+
   const featuredProducts = [
     {
-      id: 1,
+      id: 2001,
       img: Joystick,
       name: "Brilliance Bead",
-      price: "130",
+      price: "130.00",
       star: "4.5",
     },
-    { id: 2, img: Joystick, name: "Bulova Jewelry", price: "150", star: "4" },
-    { id: 3, img: Joystick, name: "Cultured Pearl", price: "190", star: "4.7" },
-    { id: 4, img: Joystick, name: "Gemstone Ring", price: "70", star: "4.2" },
-    { id: 5, img: Joystick, name: "Diamond Oval", price: "200", star: "4.6" },
     {
-      id: 6,
+      id: 2002,
+      img: Joystick,
+      name: "Bulova Jewelry",
+      price: "150.00",
+      star: "4",
+    },
+    {
+      id: 2003,
+      img: Joystick,
+      name: "Cultured Pearl",
+      price: "190.00",
+      star: "4.7",
+    },
+    {
+      id: 2004,
+      img: Joystick,
+      name: "Gemstone Ring",
+      price: "70.00",
+      star: "4.2",
+    },
+    {
+      id: 2005,
+      img: Joystick,
+      name: "Diamond Oval",
+      price: "200.00",
+      star: "4.6",
+    },
+    {
+      id: 2006,
       img: Joystick,
       name: "Diamond Octagonal",
-      price: "170",
+      price: "170.00",
       star: "3.9",
     },
-    { id: 7, img: Joystick, name: "Enchanted Disney", price: "110", star: "4" },
-    { id: 8, img: Joystick, name: "Platinum Oval", price: "90", star: "4.8" },
+    {
+      id: 2007,
+      img: Joystick,
+      name: "Enchanted Disney",
+      price: "110.00",
+      star: "4",
+    },
+    {
+      id: 2008,
+      img: Joystick,
+      name: "Platinum Oval",
+      price: "90.00",
+      star: "4.8",
+    },
   ];
 
   const responsive = {
@@ -169,6 +280,17 @@ export const HotOnSale = () => {
       breakpoint: { max: 425, min: 0 },
       items: 1,
     },
+  };
+
+  const arrayOne = [];
+
+  const handleHotSaleCartClick = (product) => {
+    const isProductInArrayOne = arrayOne.some((item) => item.id === product.id);
+
+    if (!isProductInArrayOne) {
+      arrayOne.push(product);
+      setData(...arrayOne);
+    }
   };
 
   return (
@@ -190,12 +312,15 @@ export const HotOnSale = () => {
     >
       {featuredProducts.map((items) => (
         <div className="card-div-home-new-product-featured" key={items.id}>
-          <Link to="/singleProducts" style={{ textDecoration: "none" }}>
-            <Card className="card" sx={{ margin: "10px" }}>
-              <CardActionArea className="cardActionArea">
+          <Card className="card" sx={{ margin: "10px" }}>
+            <CardActionArea className="cardActionArea">
+              <Link
+                to="/home/singleProducts"
+                style={{ textDecoration: "none" }}
+              >
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
-                  <span className="product_text">
-                    Electrobot Xtreme Gaming Electrobot Xtreme Gaming
+                  <span className="product_text" style={{ textAlign: "start" }}>
+                    {items.name}
                   </span>
                   <span className="product_descrp-text">TYPE: Electrobot </span>
                 </Box>
@@ -206,58 +331,98 @@ export const HotOnSale = () => {
                   image={items.img}
                   alt={items.name}
                 />
-                <CardContent className="card_content">
-                  {/* <Box sx={{ width: "100%" }}>
+              </Link>
+              <CardContent className="card_content">
+                {/* <Box sx={{ width: "100%" }}>
                       <span className="product_text">{items.name}</span>
                     </Box> */}
-                  <Box
-                    sx={{
-                      width: "100%",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      marginTop: "5px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <span className="price_text">468.00</span>
-                    <ReusableButton
-                      buttonName="Add to Cart"
-                      size="small"
-                      className="addToCart_button"
-                    />
-                  </Box>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Link>
+                <Box
+                  sx={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginTop: "5px",
+                    alignItems: "center",
+                  }}
+                >
+                  <span className="price_text">{items.price}</span>
+                  <FavoriteIcon sx={{ color: "#FF003A" }} />
+                  <ReusableButton
+                    buttonName="Add to Cart"
+                    size="small"
+                    className="addToCart_button"
+                    onClick={() => handleHotSaleCartClick(items)}
+                  />
+                </Box>
+              </CardContent>
+            </CardActionArea>
+          </Card>
         </div>
       ))}
     </Carousel>
   );
 };
 
-export const ComingSoon = () => {
+export const ComingSoon = (props) => {
+  const { setData } = props;
+
   const featuredProducts = [
     {
-      id: 1,
+      id: 1001,
       img: Joystick,
-      name: "Brilliance Bead",
-      price: "130",
+      name: "Coming Soon",
+      price: "130.00",
       star: "4.5",
     },
-    { id: 2, img: Joystick, name: "Bulova Jewelry", price: "150", star: "4" },
-    { id: 3, img: Joystick, name: "Cultured Pearl", price: "190", star: "4.7" },
-    { id: 4, img: Joystick, name: "Gemstone Ring", price: "70", star: "4.2" },
-    { id: 5, img: Joystick, name: "Diamond Oval", price: "200", star: "4.6" },
     {
-      id: 6,
+      id: 1002,
+      img: Joystick,
+      name: "Bulova Jewelry",
+      price: "150.00",
+      star: "4",
+    },
+    {
+      id: 1003,
+      img: Joystick,
+      name: "Cultured Pearl",
+      price: "190.00",
+      star: "4.7",
+    },
+    {
+      id: 1004,
+      img: Joystick,
+      name: "Gemstone Ring",
+      price: "70.00",
+      star: "4.2",
+    },
+    {
+      id: 1005,
+      img: Joystick,
+      name: "Diamond Oval",
+      price: "200.00",
+      star: "4.6",
+    },
+    {
+      id: 1006,
       img: Joystick,
       name: "Diamond Octagonal",
       price: "170",
       star: "3.9",
     },
-    { id: 7, img: Joystick, name: "Enchanted Disney", price: "110", star: "4" },
-    { id: 8, img: Joystick, name: "Platinum Oval", price: "90", star: "4.8" },
+    {
+      id: 1007,
+      img: Joystick,
+      name: "Enchanted Disney",
+      price: "110.00",
+      star: "4",
+    },
+    {
+      id: 1008,
+      img: Joystick,
+      name: "Platinum Oval",
+      price: "90.00",
+      star: "4.8",
+    },
   ];
 
   const responsive = {
@@ -281,6 +446,17 @@ export const ComingSoon = () => {
       breakpoint: { max: 425, min: 0 },
       items: 1,
     },
+  };
+
+  const arrayOne = [];
+
+  const handleComingSoonCartClick = (product) => {
+    const isProductInArrayOne = arrayOne.some((item) => item.id === product.id);
+
+    if (!isProductInArrayOne) {
+      arrayOne.push(product);
+      setData(...arrayOne);
+    }
   };
 
   return (
@@ -306,8 +482,8 @@ export const ComingSoon = () => {
             <Card className="card" sx={{ margin: "10px" }}>
               <CardActionArea className="cardActionArea">
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
-                  <span className="product_text">
-                    Electrobot Xtreme Gaming Electrobot Xtreme Gaming
+                  <span className="product_text" style={{ textAlign: "start" }}>
+                    {items.name}
                   </span>
                   <span className="product_descrp-text">TYPE: Electrobot </span>
                 </Box>
@@ -331,11 +507,13 @@ export const ComingSoon = () => {
                       alignItems: "center",
                     }}
                   >
-                    <span className="price_text">468.00</span>
+                    <span className="price_text">{items.price}</span>
+                    <FavoriteIcon sx={{ color: "#FF003A" }} />
                     <ReusableButton
                       buttonName="Add to Cart"
                       size="small"
                       className="addToCart_button"
+                      onClick={() => handleComingSoonCartClick(items)}
                     />
                   </Box>
                 </CardContent>

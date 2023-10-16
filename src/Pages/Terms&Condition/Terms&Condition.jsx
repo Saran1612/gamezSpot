@@ -8,7 +8,7 @@ const TermsCondition = () => {
   return (
     <Box className="cart-bg_img">
       <Box>
-        <Header />
+        {/* <Header /> */}
       </Box>
 
       <Box>

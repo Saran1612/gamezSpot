@@ -5,6 +5,7 @@ import Joystick from "../../assests/joystick.svg";
 import HeadphoneImg from "../../assests/headphones.svg";
 import "./Tabs.css";
 import "react-multi-carousel/lib/styles.css";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -19,18 +20,43 @@ import ReviewOne from "../../assests/Ellipse 13.png";
 import ReviewTwo from "../../assests/Ellipse 20.png";
 import ReviewThree from "../../assests/Ellipse 21.png";
 
-export const Xbox = () => {
+export const Xbox = (props) => {
+  const { setData } = props;
+
   const XboxData = [
     {
-      id: 1,
+      id: 9001,
       img: Joystick,
       name: "Brilliance Bead",
-      price: "130",
+      price: "130.00",
       star: "4.5",
     },
-    { id: 2, img: Joystick, name: "Bulova Jewelry", price: "150", star: "4" },
-    { id: 3, img: Joystick, name: "Cultured Pearl", price: "190", star: "4.7" },
+    {
+      id: 9002,
+      img: Joystick,
+      name: "Bulova Jewelry",
+      price: "150.00",
+      star: "4",
+    },
+    {
+      id: 9003,
+      img: Joystick,
+      name: "Cultured Pearl",
+      price: "190.00",
+      star: "4.7",
+    },
   ];
+
+  const arrayOne = [];
+
+  const handleXboxCart = (product) => {
+    const isProductInArrayOne = arrayOne.some((item) => item.id === product.id);
+
+    if (!isProductInArrayOne) {
+      arrayOne.push(product);
+      setData(...arrayOne);
+    }
+  };
 
   return (
     <>
@@ -39,13 +65,14 @@ export const Xbox = () => {
         {XboxData.map((items) => (
           <Grid item xs={12} sm={4} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
-              <Link to="/singleProducts" style={{ textDecoration: "none" }}>
-                <Card className="card">
-                  <CardActionArea className="cardActionArea">
+              <Card className="card">
+                <CardActionArea className="cardActionArea">
+                  <Link
+                    to="/home/singleProducts"
+                    style={{ textDecoration: "none" }}
+                  >
                     <Box sx={{ display: "flex", flexDirection: "column" }}>
-                      <span className="product_text">
-                        Electrobot Xtreme Gaming Electrobot Xtreme Gaming
-                      </span>
+                      <span className="product_text">{items.name}</span>
                       <span className="product_descrp-text">
                         TYPE: Electrobot{" "}
                       </span>
@@ -57,27 +84,30 @@ export const Xbox = () => {
                       image={items.img}
                       alt={items.name}
                     />
-                    <CardContent className="card_content">
-                      <Box
-                        sx={{
-                          width: "100%",
-                          display: "flex",
-                          justifyContent: "space-between",
-                          marginTop: "5px",
-                          alignItems: "center",
-                        }}
-                      >
-                        <span className="price_text">468.00</span>
-                        <ReusableButton
-                          buttonName="Add to Cart"
-                          size="small"
-                          className="addToCart_button"
-                        />
-                      </Box>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </Link>
+                  </Link>
+                  <CardContent className="card_content">
+                    <Box
+                      sx={{
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        marginTop: "5px",
+                        alignItems: "center",
+                      }}
+                    >
+                      <span className="price_text">{items.price}</span>
+
+                      <FavoriteIcon sx={{ color: "#FF003A" }} />
+                      <ReusableButton
+                        buttonName="Add to Cart"
+                        size="small"
+                        className="addToCart_button"
+                        onClick={() => handleXboxCart(items)}
+                      />
+                    </Box>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
             </div>
           </Grid>
         ))}
@@ -87,30 +117,42 @@ export const Xbox = () => {
   );
 };
 
-export const Headphones = () => {
+export const Headphones = (props) => {
+  const { setData } = props;
   const HeadPhones = [
     {
       id: 1,
       img: HeadphoneImg,
       name: "Gemstone Ring",
-      price: "70",
+      price: "70.00",
       star: "4.2",
     },
     {
       id: 2,
       img: HeadphoneImg,
       name: "Diamond Oval",
-      price: "200",
+      price: "200.00",
       star: "4.6",
     },
     {
       id: 3,
       img: HeadphoneImg,
       name: "Diamond Octagonal",
-      price: "170",
+      price: "170.00",
       star: "3.9",
     },
   ];
+
+  const arrayOne = [];
+
+  const handleHeadPhonesCart = (product) => {
+    const isProductInArrayOne = arrayOne.some((item) => item.id === product.id);
+
+    if (!isProductInArrayOne) {
+      arrayOne.push(product);
+      setData(...arrayOne);
+    }
+  };
 
   return (
     <>
@@ -119,13 +161,14 @@ export const Headphones = () => {
         {HeadPhones.map((items) => (
           <Grid item xs={12} sm={4} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
-              <Link to="/singleProducts" style={{ textDecoration: "none" }}>
-                <Card className="card">
-                  <CardActionArea className="cardActionArea">
+              <Card className="card">
+                <CardActionArea className="cardActionArea">
+                  <Link
+                    to="/home/singleProducts"
+                    style={{ textDecoration: "none" }}
+                  >
                     <Box sx={{ display: "flex", flexDirection: "column" }}>
-                      <span className="product_text">
-                        Electrobot Xtreme Gaming Electrobot Xtreme Gaming
-                      </span>
+                      <span className="product_text">{items.name}</span>
                       <span className="product_descrp-text">
                         TYPE: Electrobot{" "}
                       </span>
@@ -137,27 +180,29 @@ export const Headphones = () => {
                       image={items.img}
                       alt={items.name}
                     />
-                    <CardContent className="card_content">
-                      <Box
-                        sx={{
-                          width: "100%",
-                          display: "flex",
-                          justifyContent: "space-between",
-                          marginTop: "5px",
-                          alignItems: "center",
-                        }}
-                      >
-                        <span className="price_text">468.00</span>
-                        <ReusableButton
-                          buttonName="Add to Cart"
-                          size="small"
-                          className="addToCart_button"
-                        />
-                      </Box>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </Link>
+                  </Link>
+                  <CardContent className="card_content">
+                    <Box
+                      sx={{
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        marginTop: "5px",
+                        alignItems: "center",
+                      }}
+                    >
+                      <span className="price_text">{items.price}</span>
+                      <FavoriteIcon sx={{ color: "#FF003A" }} />
+                      <ReusableButton
+                        buttonName="Add to Cart"
+                        size="small"
+                        className="addToCart_button"
+                        onClick={() => handleHeadPhonesCart(items)}
+                      />
+                    </Box>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
             </div>
           </Grid>
         ))}
@@ -167,12 +212,42 @@ export const Headphones = () => {
   );
 };
 
-export const PlayStation = () => {
+export const PlayStation = (props) => {
+  const { setData } = props;
   const Playstation = [
-    { id: 1, img: Joystick, name: "Enchanted Disney", price: "110", star: "4" },
-    { id: 2, img: Joystick, name: "Platinum Oval", price: "90", star: "4.8" },
-    { id: 3, img: Joystick, name: "Gemstone Ring", price: "70", star: "4.2" },
+    {
+      id: 1,
+      img: Joystick,
+      name: "Enchanted Disney",
+      price: "110.00",
+      star: "4",
+    },
+    {
+      id: 2,
+      img: Joystick,
+      name: "Platinum Oval",
+      price: "90.00",
+      star: "4.8",
+    },
+    {
+      id: 3,
+      img: Joystick,
+      name: "Gemstone Ring",
+      price: "70.00",
+      star: "4.2",
+    },
   ];
+
+  const arrayOne = [];
+
+  const handlePsCart = (product) => {
+    const isProductInArrayOne = arrayOne.some((item) => item.id === product.id);
+
+    if (!isProductInArrayOne) {
+      arrayOne.push(product);
+      setData(...arrayOne);
+    }
+  };
 
   return (
     <>
@@ -181,9 +256,12 @@ export const PlayStation = () => {
         {Playstation.map((items) => (
           <Grid item xs={12} sm={4} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
-              <Link to="/singleProducts" style={{ textDecoration: "none" }}>
-                <Card className="card">
-                  <CardActionArea className="cardActionArea">
+              <Card className="card">
+                <CardActionArea className="cardActionArea">
+                  <Link
+                    to="/home/singleProducts"
+                    style={{ textDecoration: "none" }}
+                  >
                     <Box sx={{ display: "flex", flexDirection: "column" }}>
                       <span className="product_text">
                         Electrobot Xtreme Gaming Electrobot Xtreme Gaming
@@ -199,27 +277,29 @@ export const PlayStation = () => {
                       image={items.img}
                       alt={items.name}
                     />
-                    <CardContent className="card_content">
-                      <Box
-                        sx={{
-                          width: "100%",
-                          display: "flex",
-                          justifyContent: "space-between",
-                          marginTop: "5px",
-                          alignItems: "center",
-                        }}
-                      >
-                        <span className="price_text">468.00</span>
-                        <ReusableButton
-                          buttonName="Add to Cart"
-                          size="small"
-                          className="addToCart_button"
-                        />
-                      </Box>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </Link>
+                  </Link>
+                  <CardContent className="card_content">
+                    <Box
+                      sx={{
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        marginTop: "5px",
+                        alignItems: "center",
+                      }}
+                    >
+                      <span className="price_text">{items.price}</span>
+                      <FavoriteIcon sx={{ color: "#FF003A" }} />
+                      <ReusableButton
+                        buttonName="Add to Cart"
+                        size="small"
+                        className="addToCart_button"
+                        onClick={() => handlePsCart(items)}
+                      />
+                    </Box>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
             </div>
           </Grid>
         ))}
