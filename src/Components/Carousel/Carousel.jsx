@@ -81,7 +81,7 @@ export const PreOrder = () => {
     >
       {featuredProducts.map((items) => (
         <div className="card-div-home-new-product-featured" key={items.id}>
-          <Link to="#" style={{ textDecoration: "none" }}>
+          <Link to="/singleProducts" style={{ textDecoration: "none" }}>
             <Card className="card" sx={{ margin: "10px" }}>
               <CardActionArea className="cardActionArea">
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -190,7 +190,7 @@ export const HotOnSale = () => {
     >
       {featuredProducts.map((items) => (
         <div className="card-div-home-new-product-featured" key={items.id}>
-          <Link to="#" style={{ textDecoration: "none" }}>
+          <Link to="/singleProducts" style={{ textDecoration: "none" }}>
             <Card className="card" sx={{ margin: "10px" }}>
               <CardActionArea className="cardActionArea">
                 <Box sx={{ display: "flex", flexDirection: "column" }}>

@@ -39,7 +39,7 @@ export const Xbox = () => {
         {XboxData.map((items) => (
           <Grid item xs={12} sm={4} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
-              <Link to="#" style={{ textDecoration: "none" }}>
+              <Link to="/singleProducts" style={{ textDecoration: "none" }}>
                 <Card className="card">
                   <CardActionArea className="cardActionArea">
                     <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -119,7 +119,7 @@ export const Headphones = () => {
         {HeadPhones.map((items) => (
           <Grid item xs={12} sm={4} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
-              <Link to="#" style={{ textDecoration: "none" }}>
+              <Link to="/singleProducts" style={{ textDecoration: "none" }}>
                 <Card className="card">
                   <CardActionArea className="cardActionArea">
                     <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -181,7 +181,7 @@ export const PlayStation = () => {
         {Playstation.map((items) => (
           <Grid item xs={12} sm={4} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
-              <Link to="#" style={{ textDecoration: "none" }}>
+              <Link to="/singleProducts" style={{ textDecoration: "none" }}>
                 <Card className="card">
                   <CardActionArea className="cardActionArea">
                     <Box sx={{ display: "flex", flexDirection: "column" }}>
