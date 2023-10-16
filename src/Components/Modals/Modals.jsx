@@ -181,9 +181,7 @@ export const SignUpModals = (props) => {
               <span className="Modal-signIn_text">
                 Already have an account ?
               </span>
-              <span href="#" className="Modal-signIn_text red">
-                Sign In!
-              </span>
+              <span className="Modal-signIn_text red">Sign In!</span>
             </Box>
           </Box>
         </Box>
