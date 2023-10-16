@@ -11,6 +11,10 @@
     color: #FFFFFF;
 }
 
+.product-filter_select .MuiInputBase-root.MuiOutlinedInput-root {
+    color: #FFFFFF;
+}
+
 .product-filter_select svg,
 .remove_product {
     color: #FFFFFF;
@@ -40,7 +44,7 @@
 }
 
 .filter-option_radio .css-hyxlzm {
-    color: #FFFFFF;
+    color: #F11010;
 }
 
 .filter-option-color_radio .red-radio .css-hyxlzm {

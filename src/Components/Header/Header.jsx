@@ -249,8 +249,7 @@ function Header(props) {
           buttonName="VIEW CART"
           size="large"
           className="viewCart_button"
-          href="/cart"
-          // onClick={handleLoginClick}
+          onClick={() => navigate("/cart")}
         />
 
         <ReusableButton
