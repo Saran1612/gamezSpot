@@ -312,7 +312,7 @@ const Products = () => {
                 <Grid item xs={12} sm={6} md={4}>
                   <div className="" key={items.id} style={{ margin: "8px" }}>
                     <Link
-                      to="/singleProducts"
+                      to="/home/singleProducts"
                       style={{ textDecoration: "none" }}
                     >
                       <Card className="product-card">
