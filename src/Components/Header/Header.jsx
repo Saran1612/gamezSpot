@@ -207,8 +207,8 @@ function Header(props) {
         // padding: "20px",
       }}
       role="presentation"
-      // onClick={toggleDrawer(anchor, false)}
-      // onKeyDown={toggleDrawer(anchor, false)}
+    // onClick={toggleDrawer(anchor, false)}
+    // onKeyDown={toggleDrawer(anchor, false)}
     >
       <Box
         sx={{
@@ -586,7 +586,7 @@ function Header(props) {
           position: "static",
         }}
       >
-        <Toolbar sx={{}}>
+        <Toolbar sx={{ flexDirection: { xs: "column" }, alignItems: { xs: "start" } }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -602,19 +602,21 @@ function Header(props) {
             <MenuIcon fontSize="1.8rem" />
           </IconButton>
 
+
           <Box
             sx={{
-              display: { xs: "none", sm: "none", md: "block" },
+
               flexDirection: "column",
               width: "100%",
             }}
           >
+
             <Grid
               container
               spacing={2}
               sx={{
                 padding: "12px 0px",
-                display: { xs: "none", sm: "flex" },
+                display: { xs: "none", sm: "none", md: "flex" },
               }}
             >
               <Grid
@@ -864,7 +866,7 @@ function Header(props) {
               spacing={2}
               sx={{
                 padding: "16px 0px",
-                display: { xs: "none", sm: "flex" },
+                display: { xs: "none", sm: "none", md: "flex" },
                 justifyContent: "center",
                 alignItems: "center",
               }}
@@ -908,7 +910,7 @@ function Header(props) {
               <Outlet />
             </Box>
           </Box>
-
+{/* 
           <Box
             sx={{
               display: { xs: "flex", md: "none" },
@@ -925,7 +927,7 @@ function Header(props) {
               onClick={handleLogoClick}
               style={{ cursor: "pointer" }}
             />
-          </Box>
+          </Box> */}
         </Toolbar>
       </AppBar>
 
