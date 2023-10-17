@@ -30,7 +30,7 @@ const Review = () => {
         </Box>
       </Box>
 
-      <Box>
+      <Box sx={{marginTop:"16px"}}>
         <span>Add a review</span>
         <Divider sx={{ margin: "20px 0px", borderColor: "#9C9C9C" }} />
 
