@@ -245,6 +245,7 @@ function Header(props) {
                   <Avatar
                     alt="Remy Sharp"
                     src={items.img}
+                    sx={{objectFit:"contain"}}
                     className="product_avatar"
                   />
                 </ListItemAvatar>
