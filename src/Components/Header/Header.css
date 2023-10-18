@@ -67,7 +67,7 @@
 
 .product_avatar {
     border-radius: 0px !important;
-    object-fit: contain;
+    object-fit: contain !important;
 }
 
 
