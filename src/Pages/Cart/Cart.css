@@ -178,3 +178,7 @@
     padding: 18px 40px;
     width: 100%;
 }
+
+.cart_table .MuiTablePagination-root{
+    color: #FFFFFF;
+}

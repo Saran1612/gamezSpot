@@ -23,6 +23,7 @@ const Cart = () => {
     useContext(AuthContext);
   const [cartData, setCartData] = useState([]);
 
+
   const uniqueIds = {};
   const filteredData = data.filter((item) => {
     if (!uniqueIds[item.id]) {
@@ -32,7 +33,7 @@ const Cart = () => {
     return false;
   });
 
-  console.log(filteredData, "filteredData IN CART");
+  console.log(data, "datadata");
 
   const getTotalPrice = (data) => {
     let countValue = 0;
@@ -58,14 +59,28 @@ const Cart = () => {
   }, []);
 
   console.log(cartData, "cartData");
-  const handleDelete = () => {};
 
-  const handleQuantityChange = (index, value) => {
-    // const updatedClickedValue = [...clickedValue];
-    // updatedClickedValue[index].quantity = value !== 0 ? value : 1;
-    // setClickedValue(updatedClickedValue);
-    // console.log(updatedClickedValue, "updatedClickedValue");
+  const handleDelete = (id) => {
+    console.log("Deleting product with id:", id);
+    const updatedData = filteredData.filter((item) => item.id !== id);
+    console.log("Updated filteredData:", updatedData);
+  
+    const formattedData = updatedData.map((each) => ({
+      id: each.id,
+      productImg: each.img,
+      productName: each.name,
+      originalPrice: each.price,
+      Quantity: each?.quantity,
+      discountPrice: each.price,
+    }));
+  
+    setData(updatedData);
+    setCartData(formattedData); // Update cartData state with formatted data
   };
+  
+
+
+  
 
   const rows = [
     {
@@ -97,6 +112,10 @@ const Cart = () => {
       discountPrice: "$16.00",
     },
   ];
+
+  const handleQuantityChange = (id, value) => {
+
+  };
 
   const column = [
     {
@@ -154,8 +173,8 @@ const Cart = () => {
               max={5}
               onChange={(value) => handleQuantityChange(params.row.id, value)}
               smooth
-              value={1}
-              class="quality_picker"
+              value={params.row.Quantity} // Assuming params.row.Quantity is the initial value
+              className="quality_picker"
             />
           </div>
         </>
@@ -188,7 +207,7 @@ const Cart = () => {
                 style={{
                   color: "#fff !important",
                 }}
-                onClick={() => handleDelete}
+                onClick={() => handleDelete(params.row.id)}
               />
             </IconButton>
           </span>
@@ -233,9 +252,9 @@ const Cart = () => {
             rowHeight={110}
             pageSize={5}
             rowsPerPageOptions={[5]}
-            hideFooterSelectedRowCount={true}
-            hideFooterPagination={true}
-            hideFooter={true}
+            hideFooterSelectedRowCount={false}
+            hideFooterPagination={false}
+            hideFooter={false}
           />
         </Box>
 
@@ -283,7 +302,7 @@ const Cart = () => {
                         name="RecruitersDesignation"
                         options={Cart}
                         className="details_select"
-                        // onChange={handleInputChangeDropdown}
+                      // onChange={handleInputChangeDropdown}
                       />
                     </Box>
                   </Box>
@@ -301,7 +320,7 @@ const Cart = () => {
                         name="RecruitersDesignation"
                         options={Cart}
                         className="details_select"
-                        // onChange={handleInputChangeDropdown}
+                      // onChange={handleInputChangeDropdown}
                       />
                     </Box>
                   </Box>
