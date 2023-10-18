@@ -42,6 +42,25 @@ const CartItems = () => {
     }
   }, []);
 
+  const handleDelete = (id) => {
+    console.log("Deleting product with id:", id);
+    const updatedData = filteredData.filter((item) => item.id !== id);
+    console.log("Updated filteredData:", updatedData);
+  
+    const formattedData = updatedData.map((each) => ({
+      id: each.id,
+      productImg: each.img,
+      productName: each.name,
+      originalPrice: each.price,
+      Quantity: each?.quantity,
+      discountPrice: each.price,
+    }));
+  
+    setData(updatedData);
+    setCartData(formattedData); // Update cartData state with formatted data
+  };
+  console.log(cartData,"cartData")
+
   const rows = [
     {
       id: 1,
@@ -82,9 +101,9 @@ const CartItems = () => {
                 color="primary"
                 fontSize="inherit"
                 style={{
-                  color: "#fff !important",
+                  color: "#fff",
                 }}
-                // onClick={() => handleDelete}
+                onClick={() => handleDelete(params.row.id)}
               />
             </IconButton>
           </span>
@@ -152,7 +171,7 @@ const CartItems = () => {
             buttonName="Apply Coupon"
             size="large"
             className="coupon_button"
-            // onClick={handleLoginClick}
+          // onClick={handleLoginClick}
           />
         </Box>
       ),
@@ -182,9 +201,9 @@ const CartItems = () => {
           rowHeight={100}
           pageSize={5}
           rowsPerPageOptions={[5]}
-          hideFooterSelectedRowCount={true}
-          hideFooterPagination={true}
-          hideFooter={true}
+          hideFooterSelectedRowCount={false}
+          hideFooterPagination={false}
+          hideFooter={false}
         />
       </Box>
 
