@@ -150,6 +150,15 @@ function Header(props) {
 
   const handleLogoClick = () => {
     navigate("/home");
+  }; 
+
+  const handleViewCartClick = () => {
+    toggleDrawer("right", false)()
+    navigate("/home/cart")
+  };
+  const handleCheckOutClick = () => {
+    toggleDrawer("right", false)()
+    navigate("/home/billing")
   };
 
   const Data = [
@@ -173,16 +182,35 @@ function Header(props) {
     right: false,
   });
 
+  // const toggleDrawer = (anchor, open) => (event) => {
+  //   if (
+  //     event.type === "keydown" &&
+  //     (event.key === "Tab" || event.key === "Shift")
+  //   ) {
+  //     return;
+  //   }
+
+  //   setState({ ...state, [anchor]: open });
+  // };
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (
+      event &&
       event.type === "keydown" &&
       (event.key === "Tab" || event.key === "Shift")
     ) {
       return;
     }
 
-    setState({ ...state, [anchor]: open });
+    if (anchor === "right" && open === false) {
+      // Additional logic to close the drawer when the button is clicked
+      setState({ ...state, [anchor]: open });
+    } else {
+      // Default behavior for opening the drawer
+      setState({ ...state, [anchor]: open });
+    }
   };
+
 
   const getTotalPrice = (data) => {
     let countValue = 0;
@@ -288,14 +316,17 @@ function Header(props) {
           buttonName="VIEW CART"
           size="large"
           className="viewCart_button"
-          onClick={() => navigate("/home/cart")}
+          // onClick={() => navigate("/home/cart")}
+          onClick={handleViewCartClick}
         />
 
         <ReusableButton
           buttonName="CHECKOUT"
           size="large"
           className="checkout_button"
-          onClick={() => navigate("/home/billing")}
+          // onClick={() => navigate("/home/billing")}
+          onClick={handleCheckOutClick}
+
         />
       </Box>
     </Box>

@@ -173,7 +173,7 @@ const Cart = () => {
               max={5}
               onChange={(value) => handleQuantityChange(params.row.id, value)}
               smooth
-              value={params.row.Quantity} // Assuming params.row.Quantity is the initial value
+              value={1} // Assuming params.row.Quantity is the initial value
               className="quality_picker"
             />
           </div>
