@@ -282,7 +282,11 @@
     padding: 10px 20px;
 }
 
+.slider_carousel .react-multi-carousel-track,
+.slider_carousel {
+    width: 100%;
+}
 
-.cardActionArea:hover {
-    /* background-color: red !important; */
+.carousel-indicators{
+    bottom: -25px !important;
 }

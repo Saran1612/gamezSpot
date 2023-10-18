@@ -307,7 +307,7 @@ function Header(props) {
             height: "10vh",
           }}
         >
-          <strong>Cart Empty!</strong>
+          <strong>Cart is empty!</strong>
         </Box>
       )}
 

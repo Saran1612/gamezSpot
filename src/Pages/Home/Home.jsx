@@ -8,6 +8,7 @@ import {
   PreOrder,
   HotOnSale,
   ComingSoon,
+  HomeBannerCarousel
 } from "../../Components/Carousel/Carousel";
 import Tab from "@mui/material/Tab";
 import TabContext from "@material-ui/lab/TabContext";
