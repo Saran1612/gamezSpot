@@ -143,17 +143,10 @@ function Header(props) {
     setAnchorElPages(null);
   };
 
-  // const handleDrawerAccClose = () => {
-  //   setAnchorEl(null);
-  // };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
-  // const handleCartClick = () => {
-  //   navigate("/billing");
-  // };
 
   const handleLogoClick = () => {
     navigate("/home");
@@ -245,7 +238,7 @@ function Header(props) {
                   <Avatar
                     alt="Remy Sharp"
                     src={items.img}
-                    sx={{objectFit:"contain"}}
+                    sx={{ objectFit: "contain" }}
                     className="product_avatar"
                   />
                 </ListItemAvatar>
@@ -310,9 +303,19 @@ function Header(props) {
 
   const drawer = (
     <div>
-      <Toolbar />
+      <Toolbar>
+        <Box sx={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "10px" }}>
+          <img
+            src={Logo}
+            alt="Logo"
+            onClick={handleLogoClick}
+            style={{ cursor: "pointer", width: "100px" }}
+          />
+        </Box>
+      </Toolbar>
       <Divider />
       <List>
+
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -911,7 +914,7 @@ function Header(props) {
               <Outlet />
             </Box>
           </Box>
-{/* 
+          {/* 
           <Box
             sx={{
               display: { xs: "flex", md: "none" },
