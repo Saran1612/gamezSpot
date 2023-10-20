@@ -61,9 +61,9 @@ export const Xbox = (props) => {
   return (
     <>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={0} md={1.5}></Grid>
+        <Grid item xs={12} sm={0} md={1}></Grid>
         {XboxData.map((items) => (
-          <Grid item xs={12} sm={4} md={3}>
+          <Grid item xs={12} sm={6} md={3.5}>
             <div className="card-div-home-new-product-featured" key={items.id}>
               <Card className="card">
                 <CardActionArea className="cardActionArea">
@@ -93,11 +93,21 @@ export const Xbox = (props) => {
                         justifyContent: "space-between",
                         marginTop: "5px",
                         alignItems: "center",
+                        "@media (min-width: 600px) and (max-width:650px)": {
+                          flexDirection: "column",
+                        },
+
+                        "@media (min-width: 900px) and (max-width:1000px)": {
+                          flexDirection: "column",
+                        },
                       }}
                     >
-                      <span className="price_text">{items.price}</span>
-
-                      <FavoriteIcon sx={{ color: "#FF003A" }} />
+                      <Box>
+                        <span className="price_text">{items.price}</span>
+                        <FavoriteIcon
+                          sx={{ color: "#FF003A", marginLeft: "10px" }}
+                        />
+                      </Box>
                       <ReusableButton
                         buttonName="Add to Cart"
                         size="small"
@@ -111,7 +121,7 @@ export const Xbox = (props) => {
             </div>
           </Grid>
         ))}
-        <Grid item xs={12} sm={0} md={1.5}></Grid>
+        <Grid item xs={12} sm={0} md={1}></Grid>
       </Grid>
     </>
   );
@@ -189,10 +199,21 @@ export const Headphones = (props) => {
                         justifyContent: "space-between",
                         marginTop: "5px",
                         alignItems: "center",
+                        "@media (min-width: 600px) and (max-width:650px)": {
+                          flexDirection: "column",
+                        },
+
+                        "@media (min-width: 900px) and (max-width:1000px)": {
+                          flexDirection: "column",
+                        },
                       }}
                     >
-                      <span className="price_text">{items.price}</span>
-                      <FavoriteIcon sx={{ color: "#FF003A" }} />
+                      <Box>
+                        <span className="price_text">{items.price}</span>
+                        <FavoriteIcon
+                          sx={{ color: "#FF003A", marginLeft: "10px" }}
+                        />
+                      </Box>
                       <ReusableButton
                         buttonName="Add to Cart"
                         size="small"
@@ -286,10 +307,21 @@ export const PlayStation = (props) => {
                         justifyContent: "space-between",
                         marginTop: "5px",
                         alignItems: "center",
+                        "@media (min-width: 600px) and (max-width:650px)": {
+                          flexDirection: "column",
+                        },
+
+                        "@media (min-width: 900px) and (max-width:1000px)": {
+                          flexDirection: "column",
+                        },
                       }}
                     >
-                      <span className="price_text">{items.price}</span>
-                      <FavoriteIcon sx={{ color: "#FF003A" }} />
+                      <Box>
+                        <span className="price_text">{items.price}</span>
+                        <FavoriteIcon
+                          sx={{ color: "#FF003A", marginLeft: "10px" }}
+                        />
+                      </Box>
                       <ReusableButton
                         buttonName="Add to Cart"
                         size="small"

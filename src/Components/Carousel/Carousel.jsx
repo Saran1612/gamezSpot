@@ -120,20 +120,6 @@ export const PreOrder = (props) => {
     }
   };
 
-  // const updatedDatsa = data.map((item) => item.product);
-  // console.log(updatedDatsa, "updatedDatsa");
-
-  // const uniqueItems = new Map();
-
-  // updatedDatsa.forEach((item) => {
-  //   uniqueItems.set(item.id, item);
-  // });
-
-  // const uniqueData = [...uniqueItems.values()];
-  // // setData(uniqueData);
-
-  // console.log(data, "dataafterFiltering");
-
   return (
     <Carousel
       additionalTransfrom={0}
@@ -149,7 +135,7 @@ export const PreOrder = (props) => {
       pauseOnHover={false}
       transitionDuration={1000}
       responsive={responsive}
-    // className='slider_carousel'
+      // className='slider_carousel'
     >
       {featuredProducts.map((items) => (
         <div className="card-div-home-new-product-featured" key={items.id}>
@@ -310,7 +296,7 @@ export const HotOnSale = (props) => {
       pauseOnHover={false}
       transitionDuration={1000}
       responsive={responsive}
-    // className='slider_carousel'
+      // className='slider_carousel'
     >
       {featuredProducts.map((items) => (
         <div className="card-div-home-new-product-featured" key={items.id}>
@@ -476,7 +462,7 @@ export const ComingSoon = (props) => {
       pauseOnHover={false}
       transitionDuration={1000}
       responsive={responsive}
-    // className='slider_carousel'
+      // className='slider_carousel'
     >
       {featuredProducts.map((items) => (
         <div className="card-div-home-new-product-featured" key={items.id}>
@@ -532,31 +518,6 @@ export const HomeBannerCarousel = (props) => {
   const { setData } = props;
   const navigate = useNavigate();
 
-  const featuredProducts = [
-    {
-      id: 9001,
-      img: Joystick,
-      name: "Coming Soon",
-      price: "130.00",
-      star: "4.5",
-    },
-    {
-      id: 9002,
-      img: Joystick,
-      name: "Coming Soon",
-      price: "130.00",
-      star: "4.5",
-    },
-    {
-      id: 9003,
-      img: Joystick,
-      name: "Coming Soon",
-      price: "130.00",
-      star: "4.5",
-    },
-
-  ];
-
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1280 },
@@ -595,19 +556,44 @@ export const HomeBannerCarousel = (props) => {
       pauseOnHover={false}
       transitionDuration={1000}
       responsive={responsive}
-      className='slider_carousel'
+      className="slider_carousel"
     >
-
-      <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel" style={{margin:"15px"}}>
+      <div
+        id="carouselExampleCaptions"
+        class="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+        style={{ margin: "15px" }}
+      >
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <Grid container spacing={2}>
-              <Grid item xs={0} sm={0.5} md={1.5}></Grid>
+            <Grid
+              container
+              spacing={2}
+              sx={{ display: "flex", justifyContent: "space-between" }}
+            >
+              <Grid item xs={0} sm={0} md={1.5}></Grid>
 
               <Grid item xs={12} sm={6} md={5}>
                 <Box
@@ -624,70 +610,8 @@ export const HomeBannerCarousel = (props) => {
                   <span className="home-heading_text">Accessories</span>
                   <span className="home-description_text">
                     Gaming accessories include gear such as headsets, extra
-                    controllers, charging station, memory devices, carrying cases
-                    and much more.
-                  </span>
-
-                  <Box
-                    className="home-button_container"
-                    sx={{ display: "flex", marginTop: "15px" }}
-                  >
-                    <ReusableButton
-                      buttonName="Show product"
-                      size="small"
-                      className="show-product_button"
-                      onClick={() => navigate("/home/products")}
-                    />
-                    <ReusableButton
-                      buttonName="Show controllers"
-                      size="small"
-                      className="show-controller_button"
-                    />
-                  </Box>
-                </Box>
-              </Grid>
-
-              <Grid item xs={12} sm={4.5} md={4.5}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    marginTop: "50px",
-                  }}
-                >
-                  <img
-                    src={HomeBanner}
-                    alt="HomeBanner"
-                    width="300"
-                    height="300"
-                  />
-                </Box>
-              </Grid>
-              <Grid item xs={0} sm={1} md={1}></Grid>
-            </Grid>
-          </div>
-
-          <div class="carousel-item">
-            <Grid container spacing={2}>
-              <Grid item xs={0} sm={0.5} md={1.5}></Grid>
-
-              <Grid item xs={12} sm={6} md={5}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "",
-                    flexDirection: "column",
-                    padding: "35px 0px",
-                  }}
-                >
-                  <span className="home-heading_text">
-                    Best <b className="home-heading_redtext">Pro Gaming</b>
-                  </span>
-                  <span className="home-heading_text">Accessories</span>
-                  <span className="home-description_text">
-                    Gaming accessories include gear such as headsets, extra
-                    controllers, charging station, memory devices, carrying cases
-                    and much more.
+                    controllers, charging station, memory devices, carrying
+                    cases and much more.
                   </span>
 
                   <Box
@@ -726,13 +650,84 @@ export const HomeBannerCarousel = (props) => {
                 </Box>
               </Grid>
 
-              <Grid item xs={0} sm={1} md={1}></Grid>
+              <Grid item xs={0} sm={0} md={1}></Grid>
             </Grid>
           </div>
 
           <div class="carousel-item">
-            <Grid container spacing={2}>
-              <Grid item xs={0} sm={0.5} md={1.5}></Grid>
+            <Grid
+              container
+              spacing={2}
+              sx={{ display: "flex", justifyContent: "space-between" }}
+            >
+              <Grid item xs={0} sm={0} md={1.5}></Grid>
+
+              <Grid item xs={12} sm={6} md={5}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "",
+                    flexDirection: "column",
+                    padding: "35px 0px",
+                  }}
+                >
+                  <span className="home-heading_text">
+                    Best <b className="home-heading_redtext">Pro Gaming</b>
+                  </span>
+                  <span className="home-heading_text">Accessories</span>
+                  <span className="home-description_text">
+                    Gaming accessories include gear such as headsets, extra
+                    controllers, charging station, memory devices, carrying
+                    cases and much more.
+                  </span>
+
+                  <Box
+                    className="home-button_container"
+                    sx={{ display: "flex", marginTop: "15px" }}
+                  >
+                    <ReusableButton
+                      buttonName="Show product"
+                      size="small"
+                      className="show-product_button"
+                      onClick={() => navigate("/home/products")}
+                    />
+                    <ReusableButton
+                      buttonName="Show controllers"
+                      size="small"
+                      className="show-controller_button"
+                    />
+                  </Box>
+                </Box>
+              </Grid>
+
+              <Grid item xs={12} sm={4.5} md={4.5}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "50px",
+                  }}
+                >
+                  <img
+                    src={HomeBanner}
+                    alt="HomeBanner"
+                    width="300"
+                    height="300"
+                  />
+                </Box>
+              </Grid>
+
+              <Grid item xs={0} sm={0} md={1}></Grid>
+            </Grid>
+          </div>
+
+          <div class="carousel-item">
+            <Grid
+              container
+              spacing={2}
+              sx={{ display: "flex", justifyContent: "space-between" }}
+            >
+              <Grid item xs={0} sm={0} md={1.5}></Grid>
 
               <Grid item xs={12} sm={6} md={5}>
                 <Box
@@ -749,8 +744,8 @@ export const HomeBannerCarousel = (props) => {
                   <span className="home-heading_text">Accessories</span>
                   <span className="home-description_text">
                     Gaming accessories include gear such as headsets, extra
-                    controllers, charging station, memory devices, carrying cases
-                    and much more.
+                    controllers, charging station, memory devices, carrying
+                    cases and much more.
                   </span>
 
                   <Box
@@ -788,7 +783,7 @@ export const HomeBannerCarousel = (props) => {
                   />
                 </Box>
               </Grid>
-              <Grid item xs={0} sm={1} md={1}></Grid>
+              <Grid item xs={0} sm={0} md={1}></Grid>
             </Grid>
           </div>
         </div>

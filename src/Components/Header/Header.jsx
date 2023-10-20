@@ -135,14 +135,22 @@ function Header(props) {
 
   const handleBlogsClose = () => {
     setAnchorElBlogs(null);
+    setMobileOpen(!mobileOpen);
   };
+
   const handleAccClose = () => {
     setAnchorElAcc(null);
+    setMobileOpen(!mobileOpen);
   };
   const handlePagesClose = () => {
     setAnchorElPages(null);
+    setMobileOpen(!mobileOpen);
   };
 
+  const handleCartClick = () => {
+    setMobileOpen(!mobileOpen);
+    toggleDrawer("right", true);
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -150,48 +158,23 @@ function Header(props) {
 
   const handleLogoClick = () => {
     navigate("/home");
-  }; 
+    setMobileOpen(!mobileOpen);
+  };
 
   const handleViewCartClick = () => {
-    toggleDrawer("right", false)()
-    navigate("/home/cart")
+    toggleDrawer("right", false)();
+    setMobileOpen(false);
+    navigate("/home/cart");
   };
   const handleCheckOutClick = () => {
-    toggleDrawer("right", false)()
-    navigate("/home/billing")
+    toggleDrawer("right", false)();
+    setMobileOpen(false);
+    navigate("/home/billing");
   };
-
-  const Data = [
-    {
-      id: 1,
-      name: "Game Triger Finger New",
-      price: "$12.00",
-      quality: "1",
-      img: ProdOne,
-    },
-    {
-      id: 2,
-      name: "Android Smart Watch XAD0",
-      price: "$59.00",
-      quality: "1",
-      img: ProdTwo,
-    },
-  ];
 
   const [state, setState] = React.useState({
     right: false,
   });
-
-  // const toggleDrawer = (anchor, open) => (event) => {
-  //   if (
-  //     event.type === "keydown" &&
-  //     (event.key === "Tab" || event.key === "Shift")
-  //   ) {
-  //     return;
-  //   }
-
-  //   setState({ ...state, [anchor]: open });
-  // };
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -199,18 +182,21 @@ function Header(props) {
       event.type === "keydown" &&
       (event.key === "Tab" || event.key === "Shift")
     ) {
+      // setMobileOpen(!mobileOpen);
       return;
     }
 
     if (anchor === "right" && open === false) {
       // Additional logic to close the drawer when the button is clicked
       setState({ ...state, [anchor]: open });
+      setMobileOpen(!mobileOpen);
     } else {
       // Default behavior for opening the drawer
       setState({ ...state, [anchor]: open });
+      setMobileOpen(!mobileOpen);
     }
+    setMobileOpen(false);
   };
-
 
   const getTotalPrice = (data) => {
     let countValue = 0;
@@ -228,8 +214,8 @@ function Header(props) {
         // padding: "20px",
       }}
       role="presentation"
-    // onClick={toggleDrawer(anchor, false)}
-    // onKeyDown={toggleDrawer(anchor, false)}
+      // onClick={toggleDrawer(anchor, false)}
+      // onKeyDown={toggleDrawer(anchor, false)}
     >
       <Box
         sx={{
@@ -326,7 +312,6 @@ function Header(props) {
           className="checkout_button"
           // onClick={() => navigate("/home/billing")}
           onClick={handleCheckOutClick}
-
         />
       </Box>
     </Box>
@@ -335,7 +320,15 @@ function Header(props) {
   const drawer = (
     <div>
       <Toolbar>
-        <Box sx={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "10px" }}>
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "10px",
+          }}
+        >
           <img
             src={Logo}
             alt="Logo"
@@ -346,7 +339,6 @@ function Header(props) {
       </Toolbar>
       <Divider />
       <List>
-
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -474,7 +466,10 @@ function Header(props) {
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <Box sx={{ marginRight: "30px", display: "flex" }}>
+              <Box
+                sx={{ marginRight: "30px", display: "flex" }}
+                onClick={() => setMobileOpen(!mobileOpen)}
+              >
                 <Link to="/home/profile" style={{ textDecoration: "none" }}>
                   <img
                     src={Account}
@@ -491,8 +486,11 @@ function Header(props) {
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <Box sx={{ marginRight: "30px" }}>
-                <Link to="/" style={{ textDecoration: "none" }}>
+              <Box
+                sx={{ marginRight: "30px" }}
+                onClick={() => setMobileOpen(!mobileOpen)}
+              >
+                <Link to="#" style={{ textDecoration: "none" }}>
                   <LanguageOutlinedIcon
                     sx={{ color: "#fff", fontSize: "1.8rem" }}
                   />
@@ -564,7 +562,7 @@ function Header(props) {
                 <Box sx={{ display: "flex", alignItems: "end" }}>
                   <IconButton
                     aria-label="cart"
-                    // onClick={handleCartClick
+                    // onClick={handleCartClick}
                     onClick={toggleDrawer("right", true)}
                   >
                     <StyledBadge
@@ -621,7 +619,9 @@ function Header(props) {
           position: "static",
         }}
       >
-        <Toolbar sx={{ flexDirection: { xs: "column" }, alignItems: { xs: "start" } }}>
+        <Toolbar
+          sx={{ flexDirection: { xs: "column" }, alignItems: { xs: "start" } }}
+        >
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -637,15 +637,12 @@ function Header(props) {
             <MenuIcon fontSize="1.8rem" />
           </IconButton>
 
-
           <Box
             sx={{
-
               flexDirection: "column",
               width: "100%",
             }}
           >
-
             <Grid
               container
               spacing={2}
@@ -870,7 +867,7 @@ function Header(props) {
                   <Box sx={{ display: "flex", alignItems: "end" }}>
                     <IconButton
                       aria-label="cart"
-                      // onClick={handleCartClick
+                      // onClick={handleCartClick}
                       onClick={toggleDrawer("right", true)}
                     >
                       <StyledBadge

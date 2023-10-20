@@ -8,7 +8,7 @@ import {
   PreOrder,
   HotOnSale,
   ComingSoon,
-  HomeBannerCarousel
+  HomeBannerCarousel,
 } from "../../Components/Carousel/Carousel";
 import Tab from "@mui/material/Tab";
 import TabContext from "@material-ui/lab/TabContext";
@@ -53,65 +53,8 @@ const Home = () => {
           </>
         ) : null}
         <Box>
-          <Grid container spacing={2}>
-            <Grid item xs={0} sm={0.5} md={1.5}></Grid>
-
-            <Grid item xs={12} sm={6} md={5}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "",
-                  flexDirection: "column",
-                  padding: "35px 0px",
-                }}
-              >
-                <span className="home-heading_text">
-                  Best <b className="home-heading_redtext">Pro Gaming</b>
-                </span>
-                <span className="home-heading_text">Accessories</span>
-                <span className="home-description_text">
-                  Gaming accessories include gear such as headsets, extra
-                  controllers, charging station, memory devices, carrying cases
-                  and much more.
-                </span>
-
-                <Box
-                  className="home-button_container"
-                  sx={{ display: "flex", marginTop: "15px" }}
-                >
-                  <ReusableButton
-                    buttonName="Show product"
-                    size="small"
-                    className="show-product_button"
-                    onClick={() => navigate("/home/products")}
-                  />
-                  <ReusableButton
-                    buttonName="Show controllers"
-                    size="small"
-                    className="show-controller_button"
-                  />
-                </Box>
-              </Box>
-            </Grid>
-
-            <Grid item xs={12} sm={4.5} md={4.5}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  marginTop: "50px",
-                }}
-              >
-                <img
-                  src={HomeBanner}
-                  alt="HomeBanner"
-                  width="300"
-                  height="300"
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={0} sm={1} md={1}></Grid>
-          </Grid>
+          
+          <HomeBannerCarousel />
         </Box>
 
         <Box sx={{ margin: "40px 0px 20px 0px" }}>

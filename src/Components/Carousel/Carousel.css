@@ -1,7 +1,3 @@
-
-
-
-
 /* .banner__description-two {
     font-size: 1.6rem;
     font-weight: 800;
@@ -195,80 +191,10 @@
     object-fit: initial !important;
 }
 
-/* .card-div-home-new-product-featured :hover .card-img-featured {
-    transform: scale(0.8);
-    transition: 0.5s ease-in-out;
-} */
-
-
-
-/* 
-@media (min-width: 768px) and (max-width: 900px) {
-    .carousel-caption-two{
-        bottom: 0rem !important;
-    }
-} */
-
-
-/* @media (min-width: 320px) and (max-width: 767px) {
-    .carousel-caption {
-        bottom: 5rem !important;
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .carousel-caption-two {
-        bottom: 0rem !important;
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .shop-carousel-edit {
-        bottom: 2rem !important;
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .banner__description-three {
-        width: 100% !important;
-    }
-
-    .banner__description,
-    .banner__description-two,
-    .contact-banner__description-three {
-        width: 100% !important;
-        text-align: center !important;
-    }
-
-    .banner_text,
-    .banner_text-three,
-    .banner__description-three,
-    .banner__description,
-    .banner__description-two,
-    .contact-banner__description-three {
-        text-align: center !important;
-    }
-
-    .banner_text-three ,  .banner_text ,
-    .contact-banner_text-three{
-        font-size: 3rem;
-    }
-
-    .banner__description-three,
-    .banner__description,
-    .banner__description-two,
-    .contact-banner__description-three{
-        font-size: 1.3rem;
-    }
-
+.react-multi-carousel-item {
+    display: flex;
+    justify-content: center;
 }
- */
 
 .card_content .addToCart_button {
     text-transform: uppercase;
@@ -287,6 +213,6 @@
     width: 100%;
 }
 
-.carousel-indicators{
+.carousel-indicators {
     bottom: -25px !important;
 }
