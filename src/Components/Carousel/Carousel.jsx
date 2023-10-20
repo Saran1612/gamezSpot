@@ -100,7 +100,7 @@ export const PreOrder = (props) => {
       items: 3,
     },
     tablet: {
-      breakpoint: { max: 768, min: 425 },
+      breakpoint: { max: 900, min: 425 },
       items: 2,
     },
     mobile: {
@@ -261,7 +261,7 @@ export const HotOnSale = (props) => {
       items: 3,
     },
     tablet: {
-      breakpoint: { max: 768, min: 425 },
+      breakpoint: { max: 900, min: 425 },
       items: 2,
     },
     mobile: {
@@ -427,7 +427,7 @@ export const ComingSoon = (props) => {
       items: 3,
     },
     tablet: {
-      breakpoint: { max: 768, min: 425 },
+      breakpoint: { max: 900, min: 425 },
       items: 2,
     },
     mobile: {
