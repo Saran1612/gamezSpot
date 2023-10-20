@@ -53,7 +53,6 @@ const Home = () => {
           </>
         ) : null}
         <Box>
-          
           <HomeBannerCarousel />
         </Box>
 
