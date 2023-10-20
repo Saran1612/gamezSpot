@@ -23,7 +23,6 @@ const Cart = () => {
     useContext(AuthContext);
   const [cartData, setCartData] = useState([]);
 
-
   const uniqueIds = {};
   const filteredData = data.filter((item) => {
     if (!uniqueIds[item.id]) {
@@ -64,7 +63,7 @@ const Cart = () => {
     console.log("Deleting product with id:", id);
     const updatedData = filteredData.filter((item) => item.id !== id);
     console.log("Updated filteredData:", updatedData);
-  
+
     const formattedData = updatedData.map((each) => ({
       id: each.id,
       productImg: each.img,
@@ -73,14 +72,10 @@ const Cart = () => {
       Quantity: each?.quantity,
       discountPrice: each.price,
     }));
-  
+
     setData(updatedData);
     setCartData(formattedData); // Update cartData state with formatted data
   };
-  
-
-
-  
 
   const rows = [
     {
@@ -113,9 +108,7 @@ const Cart = () => {
     },
   ];
 
-  const handleQuantityChange = (id, value) => {
-
-  };
+  const handleQuantityChange = (id, value) => {};
 
   const column = [
     {
@@ -160,14 +153,23 @@ const Cart = () => {
     {
       field: "Quantity",
       headerName: "QTY",
-      flex: 1,
+      // flex: 3,
+      width: 160,
       headerClassName: "super-app-theme--header",
       headerAlign: "center",
       align: "center",
       sortable: false,
       renderCell: (params) => (
         <>
-          <div className="quality-picker_container">
+          <div
+            className="quality-picker_container"
+            sx={{
+              "@media (max-width: 600px)": {
+                display: "block",
+                textAlign: "center",
+              },
+            }}
+          >
             <QuantityPicker
               min={1}
               max={5}
@@ -239,7 +241,7 @@ const Cart = () => {
 
         <Box sx={{ margin: "30px 0px" }}>
           <DataTable
-            disableColumnMenu={true}
+            // disableColumnMenu={true}
             sx={{
               width: "100%",
               marginLeft: "12px",
@@ -302,7 +304,7 @@ const Cart = () => {
                         name="RecruitersDesignation"
                         options={Cart}
                         className="details_select"
-                      // onChange={handleInputChangeDropdown}
+                        // onChange={handleInputChangeDropdown}
                       />
                     </Box>
                   </Box>
@@ -320,7 +322,7 @@ const Cart = () => {
                         name="RecruitersDesignation"
                         options={Cart}
                         className="details_select"
-                      // onChange={handleInputChangeDropdown}
+                        // onChange={handleInputChangeDropdown}
                       />
                     </Box>
                   </Box>
