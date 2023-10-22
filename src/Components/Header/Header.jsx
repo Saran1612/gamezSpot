@@ -93,7 +93,21 @@ function Header(props) {
   const { data, setData, count, setCount, setFilteredData } =
     useContext(AuthContext);
   const { window } = props;
-  console.log(data, "updatedData");
+
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const [anchorElAcc, setAnchorElAcc] = React.useState(null);
+  const [anchorElPages, setAnchorElPages] = React.useState(null);
+  const [anchorElBlogs, setAnchorElBlogs] = React.useState(null);
+  const [cartData, setCartData] = React.useState([]);
+  console.log(cartData, "cartDatacartData")
+  const navigate = useNavigate();
+
+  const GamingAccopen = Boolean(anchorElAcc);
+  const Pagesopen = Boolean(anchorElPages);
+  const Blogsopen = Boolean(anchorElBlogs);
+
+  console.log(data, "updatedDatainHEADER");
 
   const uniqueIds = {};
 
@@ -107,19 +121,18 @@ function Header(props) {
     return false;
   });
 
-  console.log(filteredData, "filteredData");
+  const formattedData = filteredData.map((each) => ({
+    id: each.id,
+    productImg: each.img === undefined ? each.productImg :  each.img ,
+    productName: each.name === undefined ? each.productName : each.name,
+    originalPrice: each.price === undefined ? each.originalPrice : each.price,
+    Quantity: each?.quantity === undefined ? each.Quantity : each.quantity,
+    discountPrice: each.price === undefined ? each.discountPrice : each.price,
+  }));
 
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  console.log(formattedData, "formattedData");
 
-  const [anchorElAcc, setAnchorElAcc] = React.useState(null);
-  const [anchorElPages, setAnchorElPages] = React.useState(null);
-  const [anchorElBlogs, setAnchorElBlogs] = React.useState(null);
 
-  const navigate = useNavigate();
-
-  const GamingAccopen = Boolean(anchorElAcc);
-  const Pagesopen = Boolean(anchorElPages);
-  const Blogsopen = Boolean(anchorElBlogs);
 
   const handleAccClick = (event) => {
     setAnchorElAcc(event.currentTarget);
@@ -200,9 +213,12 @@ function Header(props) {
 
   const getTotalPrice = (data) => {
     let countValue = 0;
-    data.forEach((items) => {
-      countValue = countValue + Number(items.price);
+    data.forEach((item) => {
+      const quantity = item.Quantity !== undefined ? Number(item.Quantity) : 1;
+      const price = item.originalPrice !== undefined ? Number(item.originalPrice) : 0;
+      countValue += quantity * price;
     });
+    console.log(countValue,"sduhdjdsndsn")
     setCount(countValue);
     return `$${countValue}`;
   };
@@ -214,8 +230,8 @@ function Header(props) {
         // padding: "20px",
       }}
       role="presentation"
-      // onClick={toggleDrawer(anchor, false)}
-      // onKeyDown={toggleDrawer(anchor, false)}
+    // onClick={toggleDrawer(anchor, false)}
+    // onKeyDown={toggleDrawer(anchor, false)}
     >
       <Box
         sx={{
@@ -243,25 +259,25 @@ function Header(props) {
 
       <Divider sx={{ borderTop: "1px solid #D2D2D2" }} />
 
-      {filteredData?.length !== 0 ? (
+      {formattedData?.length !== 0 ? (
         <>
           <List className="header-drawer_list">
-            {filteredData.map((items) => (
+            {formattedData.map((items) => (
               <ListItem alignItems="flex-start">
                 <ListItemAvatar>
                   <Avatar
                     alt="Remy Sharp"
-                    src={items.img}
+                    src={items.productImg}
                     sx={{ objectFit: "contain" }}
                     className="product_avatar"
                   />
                 </ListItemAvatar>
                 <ListItemText
                   className="list-primary_text"
-                  primary={items.name}
+                  primary={items.productName}
                   secondary={
                     <span className="list-secondary_text">
-                      {`1*${items.price}`}
+                      {`${items?.Quantity ? items.Quantity : 1}*${items.originalPrice}`}
                     </span>
                   }
                 />
@@ -280,7 +296,7 @@ function Header(props) {
           >
             <span className="subtotal_text">Subtotal:</span>
             <span className="subtotal_price-text">
-              {getTotalPrice(filteredData)}
+              {getTotalPrice(formattedData)}
             </span>
           </Box>
         </>

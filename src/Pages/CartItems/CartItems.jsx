@@ -31,11 +31,11 @@ const CartItems = () => {
     if (filteredData.length > 0) {
       const formattedData = filteredData.map((each) => ({
         id: each.id,
-        productImg: each.img,
-        productName: each.name,
-        unitPrice: each.price,
-        Quantity: each?.quantity,
-        discountPrice: each.price,
+        productImg: each?.img ? each.img : each.productImg,
+        productName: each?.name ? each.name : each.productName,
+        originalPrice: each?.price ? each.price : each.originalPrice,
+        Quantity: each?.quantity ? each.quantity : each.Quantity,
+        discountPrice: each?.price ? each.price : each.discountPrice,
         stockStatus: "Active",
       }));
       setCartData(formattedData);
@@ -49,11 +49,11 @@ const CartItems = () => {
   
     const formattedData = updatedData.map((each) => ({
       id: each.id,
-      productImg: each.img,
-      productName: each.name,
-      originalPrice: each.price,
-      Quantity: each?.quantity,
-      discountPrice: each.price,
+      productImg: each?.img ? each.img : each.productImg,
+      productName: each?.name ? each.name : each.productName,
+      originalPrice: each?.price ? each.price : each.originalPrice,
+      Quantity: each?.quantity ? each.quantity : each.Quantity,
+      discountPrice: each?.price ? each.price : each.discountPrice,
     }));
   
     setData(updatedData);

@@ -34,11 +34,17 @@ const Cart = () => {
 
   console.log(data, "datadata");
 
+
+
   const getTotalPrice = (data) => {
+    console.log(data, "ingrandtotal")
     let countValue = 0;
-    data.forEach((items) => {
-      countValue = countValue + Number(items.price);
+    data.forEach((item) => {
+      const quantity = item.Quantity !== undefined ? Number(item.Quantity) : 1;
+      const price = item.originalPrice !== undefined ? Number(item.originalPrice) : 0;
+      countValue += quantity * price;
     });
+    console.log(countValue,"sduhdjdsndsn")
     setCount(countValue);
     return `$${countValue}`;
   };
@@ -47,11 +53,11 @@ const Cart = () => {
     if (filteredData.length > 0) {
       const formattedData = filteredData.map((each) => ({
         id: each.id,
-        productImg: each.img,
-        productName: each.name,
-        originalPrice: each.price,
-        Quantity: each?.quantity,
-        discountPrice: each.price,
+        productImg: each?.img ? each.img : each.productImg,
+        productName: each?.name ? each.name : each.productName,
+        originalPrice: each?.price ? each.price : each.originalPrice,
+        Quantity: each?.quantity ? each.quantity : each.Quantity,
+        discountPrice: each?.price ? each.price : each.discountPrice,
       }));
       setCartData(formattedData);
     }
@@ -66,15 +72,15 @@ const Cart = () => {
 
     const formattedData = updatedData.map((each) => ({
       id: each.id,
-      productImg: each.img,
-      productName: each.name,
-      originalPrice: each.price,
-      Quantity: each?.quantity,
-      discountPrice: each.price,
+      productImg: each?.img ? each.img : each.productImg,
+      productName: each?.name ? each.name : each.productName,
+      originalPrice: each?.price ? each.price : each.originalPrice,
+      Quantity: each?.quantity ? each.quantity : each.Quantity,
+      discountPrice: each?.price ? each.price : each.discountPrice,
     }));
 
     setData(updatedData);
-    setCartData(formattedData); // Update cartData state with formatted data
+    setCartData(formattedData);
   };
 
   const rows = [
@@ -108,7 +114,28 @@ const Cart = () => {
     },
   ];
 
-  const handleQuantityChange = (id, value) => {};
+  const handleQuantityChange = (id, value) => {
+    // console.log(id, value, "quantity");
+    const updatedData = filteredData.map(item => {
+      if (item.id === id) {
+        return { ...item, quantity: value };
+      }
+      return item;
+    });
+    console.log(updatedData, "updatedDataquNTITJ");
+
+    const formattedCartData = updatedData.map(each => ({
+      id: each.id,
+      productImg: each?.img ? each.img : each.productImg,
+      productName: each?.name ? each.name : each.productName,
+      originalPrice: each?.price ? each.price : each.originalPrice,
+      Quantity: each?.quantity ? each.quantity : each.Quantity,
+      discountPrice: each?.price ? each.price : each.discountPrice,
+    }));
+    console.log(formattedCartData, "formattedCartDataformattedCartData");
+    setCartData(formattedCartData);
+    setData(formattedCartData);
+  };
 
   const column = [
     {
@@ -120,7 +147,6 @@ const Cart = () => {
       align: "center",
       renderCell: (params) => (
         <>
-          {console.log(params, "paramshs")}
           <span className="delete-button">
             <img
               src={params.row.productImg}
@@ -175,7 +201,7 @@ const Cart = () => {
               max={5}
               onChange={(value) => handleQuantityChange(params.row.id, value)}
               smooth
-              value={1} // Assuming params.row.Quantity is the initial value
+              value={params.row?.quantity ? params.row.quantity :  params.row.Quantity === undefined ? 1 : params.row.Quantity} // Assuming params.row.Quantity is the initial value
               className="quality_picker"
             />
           </div>
@@ -304,7 +330,7 @@ const Cart = () => {
                         name="RecruitersDesignation"
                         options={Cart}
                         className="details_select"
-                        // onChange={handleInputChangeDropdown}
+                      // onChange={handleInputChangeDropdown}
                       />
                     </Box>
                   </Box>
@@ -322,7 +348,7 @@ const Cart = () => {
                         name="RecruitersDesignation"
                         options={Cart}
                         className="details_select"
-                        // onChange={handleInputChangeDropdown}
+                      // onChange={handleInputChangeDropdown}
                       />
                     </Box>
                   </Box>
@@ -457,7 +483,7 @@ const Cart = () => {
                   >
                     <span className="total-shipping_text">Grand Total</span>
                     <span className="total-price_text">
-                      {getTotalPrice(filteredData)}
+                      {getTotalPrice(cartData)}
                     </span>
                   </Box>
 
