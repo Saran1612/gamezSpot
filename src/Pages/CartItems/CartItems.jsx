@@ -204,7 +204,7 @@ const CartItems = () => {
           <Triangle
             height="60"
             width="60"
-            color="#777777"
+            color="#ffffff"
             ariaLabel="triangle-loading"
             wrapperStyle={{}}
             wrapperClassName=""

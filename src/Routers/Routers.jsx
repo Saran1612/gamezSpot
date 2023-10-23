@@ -22,7 +22,7 @@ const Routers = () => {
   const [data, setData] = useState([]);
 
   return (
-    <Box>
+    <Box className="in_routes">
       <AuthContext.Provider
         value={{
           cartedData,

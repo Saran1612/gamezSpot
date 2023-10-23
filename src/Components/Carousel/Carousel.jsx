@@ -18,10 +18,7 @@ import {
   CardMedia,
   Grid,
 } from "@mui/material";
-import { Handshake } from "@mui/icons-material";
 import { useState } from "react";
-import { useEffect } from "react";
-import { useMemo } from "react";
 
 export const PreOrder = (props) => {
   const { setData } = props;
@@ -142,7 +139,6 @@ export const PreOrder = (props) => {
       showDots={true}
       arrows={false}
       renderDotsOutside={true}
-      // renderButtonGroupOutside={true}
       shouldResetAutoplay
       slidesToSlide={1}
       autoPlay
@@ -209,7 +205,7 @@ export const PreOrder = (props) => {
 export const HotOnSale = (props) => {
   const { setData } = props;
 
-  const featuredProducts = [
+  const [featuredProducts, setFeaturedProducts] = useState([
     {
       id: 2001,
       img: Joystick,
@@ -266,7 +262,7 @@ export const HotOnSale = (props) => {
       price: "90.00",
       star: "4.8",
     },
-  ];
+  ]);
 
   const responsive = {
     superLargeDesktop: {
@@ -299,6 +295,14 @@ export const HotOnSale = (props) => {
     if (!isProductInArrayOne) {
       arrayOne.push(product);
       setData(...arrayOne);
+
+      const updatedProducts = featuredProducts.map((item) => {
+        if (item.id === product.id && !item.inCart) {
+          return { ...item, inCart: true };
+        }
+        return item;
+      });
+      setFeaturedProducts(updatedProducts);
     }
   };
 
@@ -360,8 +364,10 @@ export const HotOnSale = (props) => {
                   <span className="price_text">{items.price}</span>
                   <FavoriteIcon sx={{ color: "#FF003A" }} />
                   <ReusableButton
-                    buttonName="Add to Cart"
+                    buttonName={items.inCart ? "Added" : "Add to Cart"}
                     size="small"
+                    startIcon={items.inCart ? <TaskAltIcon /> : null}
+                    disabled={items.inCart}
                     className="addToCart_button"
                     onClick={() => handleHotSaleCartClick(items)}
                   />
@@ -378,7 +384,7 @@ export const HotOnSale = (props) => {
 export const ComingSoon = (props) => {
   const { setData } = props;
 
-  const featuredProducts = [
+  const [featuredProducts, setFeaturedProducts] = useState([
     {
       id: 1001,
       img: Joystick,
@@ -435,7 +441,7 @@ export const ComingSoon = (props) => {
       price: "90.00",
       star: "4.8",
     },
-  ];
+  ]);
 
   const responsive = {
     superLargeDesktop: {
@@ -468,6 +474,14 @@ export const ComingSoon = (props) => {
     if (!isProductInArrayOne) {
       arrayOne.push(product);
       setData(...arrayOne);
+
+      const updatedProducts = featuredProducts.map((item) => {
+        if (item.id === product.id && !item.inCart) {
+          return { ...item, inCart: true };
+        }
+        return item;
+      });
+      setFeaturedProducts(updatedProducts);
     }
   };
 
@@ -525,9 +539,11 @@ export const ComingSoon = (props) => {
                     <span className="price_text">{items.price}</span>
                     <FavoriteIcon sx={{ color: "#FF003A" }} />
                     <ReusableButton
-                      buttonName="Add to Cart"
+                      buttonName={items.inCart ? "Added" : "Add to Cart"}
                       size="small"
                       className="addToCart_button"
+                      startIcon={items.inCart ? <TaskAltIcon /> : null}
+                      disabled={items.inCart}
                       onClick={() => handleComingSoonCartClick(items)}
                     />
                   </Box>

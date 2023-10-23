@@ -100,7 +100,7 @@ const Products = () => {
           <Triangle
             height="60"
             width="60"
-            color="#777777"
+            color="#ffffff"
             ariaLabel="triangle-loading"
             wrapperStyle={{}}
             wrapperClassName=""
@@ -356,33 +356,37 @@ const Products = () => {
                         key={items.id}
                         style={{ margin: "8px" }}
                       >
-                        <Link
+                        {/* <Link
                           to="/home/singleProducts"
                           style={{ textDecoration: "none" }}
-                        >
-                          <Card className="product-card">
-                            <CardActionArea className="cardActionArea">
-                              <Box className="product-img">
-                                <IconButton
-                                  aria-label="favorite"
-                                  onClick={() => toggleFavorite(index)}
-                                >
-                                  {isFavorited[index] ? (
-                                    <FavoriteIcon
-                                      sx={{
-                                        color: "#FF003A",
-                                        margin: "15px 20px",
-                                      }}
-                                    />
-                                  ) : (
-                                    <FavoriteBorderIcon
-                                      sx={{
-                                        color: "#FF003A",
-                                        margin: "15px 20px",
-                                      }}
-                                    />
-                                  )}
-                                </IconButton>
+                        > */}
+                        <Card className="product-card">
+                          <CardActionArea className="cardActionArea">
+                            <Box className="product-img">
+                              <IconButton
+                                aria-label="favorite"
+                                onClick={() => toggleFavorite(index)}
+                              >
+                                {isFavorited[index] ? (
+                                  <FavoriteIcon
+                                    sx={{
+                                      color: "#FF003A",
+                                      margin: "15px 20px",
+                                    }}
+                                  />
+                                ) : (
+                                  <FavoriteBorderIcon
+                                    sx={{
+                                      color: "#FF003A",
+                                      margin: "15px 20px",
+                                    }}
+                                  />
+                                )}
+                              </IconButton>
+                              <Link
+                                to="/home/singleProducts"
+                                style={{ textDecoration: "none" }}
+                              >
                                 <CardMedia
                                   component="img"
                                   className="product-card-img-featured"
@@ -390,7 +394,12 @@ const Products = () => {
                                   image={items.img}
                                   alt={items.name}
                                 />
-                              </Box>
+                              </Link>
+                            </Box>
+                            <Link
+                              to="/home/singleProducts"
+                              style={{ textDecoration: "none" }}
+                            >
                               <CardContent
                                 className="card_content"
                                 sx={{ marginTop: "6px" }}
@@ -441,9 +450,10 @@ const Products = () => {
                                   </Box>
                                 </Box>
                               </CardContent>
-                            </CardActionArea>
-                          </Card>
-                        </Link>
+                            </Link>
+                          </CardActionArea>
+                        </Card>
+                        {/* </Link> */}
                       </div>
                     </Grid>
                   ))}

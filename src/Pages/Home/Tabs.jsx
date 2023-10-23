@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Carousel from "react-multi-carousel";
 import ReusableButton from "../../Components/Button/Button";
 import Joystick from "../../assests/joystick.svg";
@@ -7,6 +7,7 @@ import "./Tabs.css";
 import "react-multi-carousel/lib/styles.css";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link } from "react-router-dom";
+import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import {
   Box,
   Card,
@@ -23,7 +24,7 @@ import ReviewThree from "../../assests/Ellipse 21.png";
 export const Xbox = (props) => {
   const { setData } = props;
 
-  const XboxData = [
+  const [featuredProducts, setFeaturedProducts] = useState([
     {
       id: 9001,
       img: Joystick,
@@ -45,7 +46,7 @@ export const Xbox = (props) => {
       price: "190.00",
       star: "4.7",
     },
-  ];
+  ]);
 
   const arrayOne = [];
 
@@ -55,6 +56,14 @@ export const Xbox = (props) => {
     if (!isProductInArrayOne) {
       arrayOne.push(product);
       setData(...arrayOne);
+
+      const updatedProducts = featuredProducts.map((item) => {
+        if (item.id === product.id && !item.inCart) {
+          return { ...item, inCart: true };
+        }
+        return item;
+      });
+      setFeaturedProducts(updatedProducts);
     }
   };
 
@@ -62,7 +71,7 @@ export const Xbox = (props) => {
     <>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={0} md={1}></Grid>
-        {XboxData.map((items) => (
+        {featuredProducts.map((items) => (
           <Grid item xs={12} sm={6} md={3.5}>
             <div className="card-div-home-new-product-featured" key={items.id}>
               <Card className="card">
@@ -109,9 +118,11 @@ export const Xbox = (props) => {
                         />
                       </Box>
                       <ReusableButton
-                        buttonName="Add to Cart"
+                        buttonName={items.inCart ? "Added" : "Add to Cart"}
                         size="small"
                         className="addToCart_button"
+                        startIcon={items.inCart ? <TaskAltIcon /> : null}
+                        disabled={items.inCart}
                         onClick={() => handleXboxCart(items)}
                       />
                     </Box>
@@ -129,7 +140,7 @@ export const Xbox = (props) => {
 
 export const Headphones = (props) => {
   const { setData } = props;
-  const HeadPhones = [
+  const [featuredProducts, setFeaturedProducts] = useState([
     {
       id: 1,
       img: HeadphoneImg,
@@ -151,7 +162,7 @@ export const Headphones = (props) => {
       price: "170.00",
       star: "3.9",
     },
-  ];
+  ]);
 
   const arrayOne = [];
 
@@ -161,6 +172,14 @@ export const Headphones = (props) => {
     if (!isProductInArrayOne) {
       arrayOne.push(product);
       setData(...arrayOne);
+
+      const updatedProducts = featuredProducts.map((item) => {
+        if (item.id === product.id && !item.inCart) {
+          return { ...item, inCart: true };
+        }
+        return item;
+      });
+      setFeaturedProducts(updatedProducts);
     }
   };
 
@@ -168,7 +187,7 @@ export const Headphones = (props) => {
     <>
       <Grid container spacing={2}>
         <Grid itemxs={12} sm={0} md={1.5}></Grid>
-        {HeadPhones.map((items) => (
+        {featuredProducts.map((items) => (
           <Grid item xs={12} sm={4} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
               <Card className="card">
@@ -215,9 +234,11 @@ export const Headphones = (props) => {
                         />
                       </Box>
                       <ReusableButton
-                        buttonName="Add to Cart"
+                        buttonName={items.inCart ? "Added" : "Add to Cart"}
                         size="small"
                         className="addToCart_button"
+                        startIcon={items.inCart ? <TaskAltIcon /> : null}
+                        disabled={items.inCart}
                         onClick={() => handleHeadPhonesCart(items)}
                       />
                     </Box>
@@ -235,7 +256,7 @@ export const Headphones = (props) => {
 
 export const PlayStation = (props) => {
   const { setData } = props;
-  const Playstation = [
+  const [featuredProducts, setFeaturedProducts] = useState([
     {
       id: 1,
       img: Joystick,
@@ -257,7 +278,7 @@ export const PlayStation = (props) => {
       price: "70.00",
       star: "4.2",
     },
-  ];
+  ]);
 
   const arrayOne = [];
 
@@ -267,6 +288,14 @@ export const PlayStation = (props) => {
     if (!isProductInArrayOne) {
       arrayOne.push(product);
       setData(...arrayOne);
+
+      const updatedProducts = featuredProducts.map((item) => {
+        if (item.id === product.id && !item.inCart) {
+          return { ...item, inCart: true };
+        }
+        return item;
+      });
+      setFeaturedProducts(updatedProducts);
     }
   };
 
@@ -274,7 +303,7 @@ export const PlayStation = (props) => {
     <>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={0} md={1.5}></Grid>
-        {Playstation.map((items) => (
+        {featuredProducts.map((items) => (
           <Grid item xs={12} sm={4} md={3}>
             <div className="card-div-home-new-product-featured" key={items.id}>
               <Card className="card">
@@ -323,9 +352,11 @@ export const PlayStation = (props) => {
                         />
                       </Box>
                       <ReusableButton
-                        buttonName="Add to Cart"
+                        buttonName={items.inCart ? "Added" : "Add to Cart"}
                         size="small"
                         className="addToCart_button"
+                        startIcon={items.inCart ? <TaskAltIcon /> : null}
+                        disabled={items.inCart}
                         onClick={() => handlePsCart(items)}
                       />
                     </Box>

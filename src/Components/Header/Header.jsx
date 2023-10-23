@@ -40,6 +40,7 @@ import { AuthContext } from "../useContext/useContext";
 import { useContext } from "react";
 import { useEffect } from "react";
 import ResuableDropdown from "../DropDown/DropDown";
+import ParticleBackground from "../Particles/Particles";
 
 const drawerWidth = 240;
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -569,11 +570,11 @@ function Header(props) {
   return (
     <Box
       sx={{ overflowY: "scroll" }}
-      className={
-        location.pathname === "/home"
-          ? "app-bg_img-home header-box"
-          : "app-bg_img header-box"
-      }
+      // className={
+      //   location.pathname === "/home"
+      //     ? "app-bg_img-home header-box"
+      //     : "app-bg_img header-box"
+      // }
     >
       <CssBaseline />
       <AppBar
@@ -610,8 +611,11 @@ function Header(props) {
             sx={{
               flexDirection: "column",
               width: "100%",
+              position: "relative",
             }}
           >
+            <ParticleBackground />
+            
             <Grid
               container
               spacing={2}
