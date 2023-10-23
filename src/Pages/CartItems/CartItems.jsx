@@ -15,7 +15,7 @@ import { useEffect } from "react";
 import { Triangle } from "react-loader-spinner";
 
 const CartItems = () => {
-  const { data, setData, count, setCount, setFilteredData } =
+  const { data, setData, count, setCount, setCartedData } =
     useContext(AuthContext);
   const [cartData, setCartData] = useState([]);
   const [stopped, setStopped] = useState(false);

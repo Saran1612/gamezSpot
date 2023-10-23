@@ -46,17 +46,20 @@ export default function ResuableDropdown(props) {
       >
         <MenuItem
           value=""
-          sx={{ opacity: "0.5" }}
+          sx={{ opacity: "0.5", color: "#ffffff" }}
           selected
           hidden
           disabled="disabled"
-        ></MenuItem>
+        >
+          {placeholder}
+        </MenuItem>
 
         {options.map((item) => (
           <MenuItem key={item.id} value={item.id}>
             <span style={{ textTransform: "capitalize" }}>
               {item.full_name}
-            </span>{" "}
+            </span>
+
             {item.title}
           </MenuItem>
         ))}

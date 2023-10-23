@@ -9,6 +9,7 @@ import HomeBanner from "../../assests/homeBanner.svg";
 import "./Carousel.css";
 import "react-multi-carousel/lib/styles.css";
 import { Link, useNavigate } from "react-router-dom";
+import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import {
   Box,
   Card,
@@ -25,15 +26,14 @@ import { useMemo } from "react";
 export const PreOrder = (props) => {
   const { setData } = props;
 
-  const [selectedProducts, setSelectedProducts] = useState([]);
-
-  const featuredProducts = [
+  const [featuredProducts, setFeaturedProducts] = useState([
     {
       id: 3001,
       img: Joystick,
       name: "Electrobot Xtreme Gaming One",
       price: "130.00",
       star: "4.5",
+      inCart: false,
     },
     {
       id: 3002,
@@ -41,6 +41,7 @@ export const PreOrder = (props) => {
       name: "Electrobot Xtreme Gaming Two",
       price: "150.00",
       star: "4",
+      inCart: false,
     },
     {
       id: 3003,
@@ -48,6 +49,7 @@ export const PreOrder = (props) => {
       name: "Electrobot Xtreme Gaming Three",
       price: "190.00",
       star: "4.7",
+      inCart: false,
     },
     {
       id: 3004,
@@ -55,6 +57,7 @@ export const PreOrder = (props) => {
       name: "Electrobot Xtreme Gaming Four",
       price: "70.00",
       star: "4.2",
+      inCart: false,
     },
     {
       id: 3005,
@@ -62,6 +65,7 @@ export const PreOrder = (props) => {
       name: "Electrobot Xtreme Gaming Five",
       price: "200.00",
       star: "4.6",
+      inCart: false,
     },
     {
       id: 3006,
@@ -69,6 +73,7 @@ export const PreOrder = (props) => {
       name: "Electrobot Xtreme Gaming Six",
       price: "170.00",
       star: "3.9",
+      inCart: false,
     },
     {
       id: 3007,
@@ -76,6 +81,7 @@ export const PreOrder = (props) => {
       name: "Electrobot Xtreme Gaming Seven",
       price: "110.00",
       star: "4",
+      inCart: false,
     },
     {
       id: 3008,
@@ -83,8 +89,9 @@ export const PreOrder = (props) => {
       name: "Electrobot Xtreme Gaming Eight",
       price: "90.00",
       star: "4.8",
+      inCart: false,
     },
-  ];
+  ]);
 
   const responsive = {
     superLargeDesktop: {
@@ -117,6 +124,14 @@ export const PreOrder = (props) => {
     if (!isProductInArrayOne) {
       arrayOne.push(product);
       setData(...arrayOne);
+
+      const updatedProducts = featuredProducts.map((item) => {
+        if (item.id === product.id && !item.inCart) {
+          return { ...item, inCart: true };
+        }
+        return item;
+      });
+      setFeaturedProducts(updatedProducts);
     }
   };
 
@@ -131,7 +146,7 @@ export const PreOrder = (props) => {
       shouldResetAutoplay
       slidesToSlide={1}
       autoPlay
-      autoPlaySpeed={1000}
+      autoPlaySpeed={100000000000}
       infinite={true}
       customTransition="transform 1000ms ease-in-out"
       pauseOnHover={false}
@@ -172,10 +187,13 @@ export const PreOrder = (props) => {
                 >
                   <span className="price_text">{items.price}</span>
                   <FavoriteIcon sx={{ color: "#FF003A" }} />
+                  {console.log(items, "incarousel")}
                   <ReusableButton
-                    buttonName="Add to Cart"
+                    buttonName={items.inCart ? "Added" : "Add to Cart"}
                     size="small"
                     className="addToCart_button"
+                    startIcon={items.inCart ? <TaskAltIcon /> : null}
+                    disabled={items.inCart}
                     onClick={() => handlePreOrderCartClick(items)}
                   />
                 </Box>
@@ -400,7 +418,7 @@ export const ComingSoon = (props) => {
       id: 1006,
       img: Joystick,
       name: "Diamond Octagonal",
-      price: "170",
+      price: "170.00",
       star: "3.9",
     },
     {

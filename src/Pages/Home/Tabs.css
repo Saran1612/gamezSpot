@@ -52,11 +52,13 @@
 .product_text {
     color: #FFFFFF;
     font-family: 'Poppins', sans-serif;
-    line-height: 33.6px;
     font-weight: 700;
     font-size: 1.125rem;
     max-width: 300px;
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Limit the text to two lines */
+    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }

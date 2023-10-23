@@ -274,7 +274,7 @@ const SingleProduct = () => {
                         />
                       </Box>
 
-                      <Box>
+                      {/* <Box>
                         <ReusableButton
                           startIcon={
                             <CompareArrowsOutlinedIcon className="single-icon" />
@@ -283,7 +283,7 @@ const SingleProduct = () => {
                           size="Medium"
                           className="single-icon-text"
                         />
-                      </Box>
+                      </Box> */}
                     </Box>
 
                     <Divider
@@ -403,9 +403,13 @@ const SingleProduct = () => {
                     <span className="preOrder_text">Related Products</span>
                   </Box>
                 </Box>
-                <Grid container spacing={2}>
+                <Grid
+                  container
+                  spacing={2}
+                  sx={{ display: "flex", justifyContent: "center" }}
+                >
                   {featuredProducts.map((items, index) => (
-                    <Grid item xs={12} sm={6} md={3}>
+                    <Grid item xs={12} sm={6} md={4} lg={3}>
                       <div
                         className=""
                         key={items.id}

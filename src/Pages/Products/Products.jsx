@@ -44,7 +44,7 @@ const featuredProducts = [
     id: 6,
     img: Joystick,
     name: "Diamond Octagonal",
-    price: "170",
+    price: "170.00",
     star: "3.9",
   },
   { id: 7, img: Joystick, name: "Enchanted Disney", price: "110", star: "4" },
@@ -156,7 +156,7 @@ const Products = () => {
             </Grid>
 
             <Grid container spacing={3}>
-              <Grid item xs={12} md={3}>
+              <Grid item xs={12} md={4} lg={3}>
                 <Box>
                   <Box>
                     <Accordion className="product_accordion">
@@ -347,10 +347,10 @@ const Products = () => {
                 </Box>
               </Grid>
 
-              <Grid item xs={12} md={9}>
+              <Grid item xs={12} md={8} lg={9}>
                 <Grid container spacing={2} sx={{}}>
                   {featuredProducts.map((items, index) => (
-                    <Grid item xs={12} sm={6} md={4}>
+                    <Grid item xs={12} sm={6} md={6} lg={4}>
                       <div
                         className=""
                         key={items.id}

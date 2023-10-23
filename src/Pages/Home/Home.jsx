@@ -100,7 +100,7 @@ const Home = () => {
                   <PreOrder
                     setData={(product) =>
                       setData((prevData) => [...prevData, product])
-                    }
+                    } 
                   />
                 </Box>
               </Box>

@@ -39,6 +39,7 @@ import ReusableButton from "../Button/Button";
 import { AuthContext } from "../useContext/useContext";
 import { useContext } from "react";
 import { useEffect } from "react";
+import ResuableDropdown from "../DropDown/DropDown";
 
 const drawerWidth = 240;
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -90,7 +91,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 function Header(props) {
-  const { data, setData, count, setCount, setFilteredData } =
+  const { data, setData, count, setCount, setCartedData } =
     useContext(AuthContext);
   const { window } = props;
 
@@ -191,7 +192,6 @@ function Header(props) {
       event.type === "keydown" &&
       (event.key === "Tab" || event.key === "Shift")
     ) {
-      // setMobileOpen(!mobileOpen);
       return;
     }
 
@@ -331,6 +331,12 @@ function Header(props) {
     </Box>
   );
 
+  const Cart = [
+    { id: "Ps5", full_name: "Ps5" },
+    { id: "XBox", full_name: "XBox" },
+    { id: "Nitendo Switch", full_name: "Nitendo Switch" },
+  ];
+
   const drawer = (
     <div>
       <Toolbar>
@@ -354,41 +360,23 @@ function Header(props) {
       <Divider />
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <Box sx={{ marginRight: "15px" }}>
-                <Button
-                  id="basic-button"
-                  aria-controls={GamingAccopen ? "basic-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={GamingAccopen ? "true" : undefined}
-                  onClick={handleAccClick}
-                  sx={{
-                    color: "#ffffff",
-                    fontFamily: "Poppins ,sans-serif",
-                    lineHeight: "24px",
-                    fontWeight: "400",
-                    fontSize: "1rem",
-                    textTransform: "capitalize",
-                  }}
-                  endIcon={<KeyboardArrowDownIcon />}
-                >
-                  Gaming Accessories
-                </Button>
-                <Menu
-                  id="basic-menu"
-                  anchorEl={anchorElAcc}
-                  open={GamingAccopen}
-                  onClose={handleAccClose}
-                  MenuListProps={{
-                    "aria-labelledby": "basic-button",
-                  }}
-                >
-                  <MenuItem onClick={handleAccClose}>XBox</MenuItem>
-                  <MenuItem onClick={handleAccClose}>PS5</MenuItem>
-                  <MenuItem onClick={handleAccClose}>PS4</MenuItem>
-                  <MenuItem onClick={handleAccClose}>Nintendo Switch</MenuItem>
-                </Menu>
+          <ListItemButton sx={{ display: "block" }}>
+            <ListItemIcon sx={{ width: "100%" }}>
+              <Box sx={{ marginRight: "15px", width: "100%" }}>
+                <span className="details-text-mob">Gaming Accessories</span>
+
+                <Box sx={{ marginTop: "14px", width: "100%" }}>
+                  <ResuableDropdown
+                    size="small"
+                    type="text"
+                    style={{ width: "100%" }}
+                    name="gamingAcc"
+                    options={Cart}
+                    className="game_acc-dropdown details_select"
+                    placeholder="select"
+                    onChange={handleAccClose}
+                  />
+                </Box>
               </Box>
             </ListItemIcon>
             <ListItemText />
@@ -396,40 +384,23 @@ function Header(props) {
         </ListItem>
 
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <Box sx={{ marginRight: "15px" }}>
-                <Button
-                  id="basic-button"
-                  aria-controls={Pagesopen ? "basic-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={Pagesopen ? "true" : undefined}
-                  onClick={handlePagesClick}
-                  sx={{
-                    color: "#FFFFFF",
-                    fontFamily: "Poppins ,sans-serif",
-                    lineHeight: "24px",
-                    fontWeight: "400",
-                    fontSize: "1rem",
-                    textTransform: "capitalize",
-                  }}
-                  endIcon={<KeyboardArrowDownIcon />}
-                >
-                  Pages
-                </Button>
-                <Menu
-                  id="basic-menu"
-                  anchorEl={anchorElPages}
-                  open={Pagesopen}
-                  onClose={handlePagesClose}
-                  MenuListProps={{
-                    "aria-labelledby": "basic-button",
-                  }}
-                >
-                  <MenuItem onClick={handlePagesClose}>Pages One</MenuItem>
-                  <MenuItem onClick={handlePagesClose}>Pages Two</MenuItem>
-                  <MenuItem onClick={handlePagesClose}>Pages Three</MenuItem>
-                </Menu>
+          <ListItemButton sx={{ display: "block" }}>
+            <ListItemIcon sx={{ width: "100%" }}>
+              <Box sx={{ marginRight: "15px", width: "100%" }}>
+                <span className="details-text-mob">Pages</span>
+
+                <Box sx={{ marginTop: "14px", width: "100%" }}>
+                  <ResuableDropdown
+                    size="small"
+                    type="text"
+                    style={{ width: "100%" }}
+                    name="Pages"
+                    options={Cart}
+                    className="game_acc-dropdown details_select"
+                    placeholder="select gameing"
+                    onChange={handlePagesClose}
+                  />
+                </Box>
               </Box>
             </ListItemIcon>
             <ListItemText />
@@ -437,40 +408,23 @@ function Header(props) {
         </ListItem>
 
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <Box sx={{ marginRight: "15px" }}>
-                <Button
-                  id="basic-button"
-                  aria-controls={Blogsopen ? "basic-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={Blogsopen ? "true" : undefined}
-                  onClick={handleBlogsClick}
-                  sx={{
-                    color: "#FFFFFF",
-                    fontFamily: "Poppins ,sans-serif",
-                    lineHeight: "24px",
-                    fontWeight: "400",
-                    fontSize: "1rem",
-                    textTransform: "capitalize",
-                  }}
-                  endIcon={<KeyboardArrowDownIcon />}
-                >
-                  Blogs
-                </Button>
-                <Menu
-                  id="basic-menu"
-                  anchorEl={anchorElBlogs}
-                  open={Blogsopen}
-                  onClose={handleBlogsClose}
-                  MenuListProps={{
-                    "aria-labelledby": "basic-button",
-                  }}
-                >
-                  <MenuItem onClick={handleBlogsClose}>Blogs One</MenuItem>
-                  <MenuItem onClick={handleBlogsClose}>Blogs Two</MenuItem>
-                  <MenuItem onClick={handleBlogsClose}>Blogs Three</MenuItem>
-                </Menu>
+          <ListItemButton sx={{ display: "block" }}>
+            <ListItemIcon sx={{ width: "100%" }}>
+              <Box sx={{ marginRight: "15px", width: "100%" }}>
+                <span className="details-text-mob">Blogs</span>
+
+                <Box sx={{ marginTop: "14px", width: "100%" }}>
+                  <ResuableDropdown
+                    size="small"
+                    type="text"
+                    style={{ width: "100%" }}
+                    name="Blogs"
+                    options={Cart}
+                    className="game_acc-dropdown details_select"
+                    placeholder="select Blogs"
+                    onChange={handleBlogsClose}
+                  />
+                </Box>
               </Box>
             </ListItemIcon>
             <ListItemText />
@@ -614,7 +568,7 @@ function Header(props) {
 
   return (
     <Box
-      sx={{}}
+      sx={{ overflowY: "scroll" }}
       className={
         location.pathname === "/home"
           ? "app-bg_img-home header-box"
@@ -824,7 +778,7 @@ function Header(props) {
                 </Box>
 
                 <Box sx={{ marginRight: "30px" }}>
-                  <Link to="/" style={{ textDecoration: "none" }}>
+                  <Link to="#" style={{ textDecoration: "none" }}>
                     <LanguageOutlinedIcon
                       sx={{ color: "#fff", fontSize: "1.8rem" }}
                     />
@@ -909,7 +863,7 @@ function Header(props) {
             <Divider sx={{ borderTop: "1px solid #5B5969" }} />
 
             {location.pathname === "/home" ||
-            location.pathname === "/home/products" ? (
+            location.pathname === "/home/singleProducts" ? (
               <Grid
                 container
                 spacing={2}
@@ -956,31 +910,10 @@ function Header(props) {
               </Grid>
             ) : null}
 
-            <Box
-              className="outletBox"
-             
-            >
+            <Box className="outletBox">
               <Outlet />
             </Box>
           </Box>
-          {/* 
-          <Box
-            sx={{
-              display: { xs: "flex", md: "none" },
-              width: "100%",
-              justifyContent: "center",
-              marginRight: "50px",
-              marginTop: "10px",
-            }}
-          >
-            <img
-              src={Logo}
-              alt="Logo"
-              height="70px"
-              onClick={handleLogoClick}
-              style={{ cursor: "pointer" }}
-            />
-          </Box> */}
         </Toolbar>
       </AppBar>
 

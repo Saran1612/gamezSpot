@@ -125,3 +125,15 @@
     width: 100%;
     margin-top: 20px;
 }
+
+.details-text-mob {
+
+    font-weight: 500;
+    line-height: 19.2px;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+}
+
+.game_acc-dropdown .MuiSelect-select {
+    color: #FFFFFF;
+}

@@ -17,7 +17,7 @@ import { useState } from "react";
 import Header from "../Components/Header/Header";
 
 const Routers = () => {
-  const [filteredData, setFilteredData] = useState([]);
+  const [cartedData, setCartedData] = useState([]);
   const [count, setCount] = useState(0);
   const [data, setData] = useState([]);
 
@@ -25,8 +25,8 @@ const Routers = () => {
     <Box>
       <AuthContext.Provider
         value={{
-          filteredData,
-          setFilteredData,
+          cartedData,
+          setCartedData,
           count,
           setCount,
           data,
