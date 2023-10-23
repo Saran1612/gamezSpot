@@ -569,12 +569,12 @@ function Header(props) {
 
   return (
     <Box
-      sx={{ overflowY: "scroll" }}
-      // className={
-      //   location.pathname === "/home"
-      //     ? "app-bg_img-home header-box"
-      //     : "app-bg_img header-box"
-      // }
+    // sx={{ overflowY: "scroll" }}
+    // className={
+    //   location.pathname === "/home"
+    //     ? "app-bg_img-home header-box"
+    //     : "app-bg_img header-box"
+    // }
     >
       <CssBaseline />
       <AppBar
@@ -615,7 +615,7 @@ function Header(props) {
             }}
           >
             <ParticleBackground />
-            
+
             <Grid
               container
               spacing={2}
