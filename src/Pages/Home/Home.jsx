@@ -21,6 +21,7 @@ import { SignUpModals, LoginModals } from "../../Components/Modals/Modals";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../../Components/useContext/useContext";
 import { useContext } from "react";
+import { Triangle } from "react-loader-spinner";
 
 const Home = () => {
   const { data, setData, count, setCount } = useContext(AuthContext);
@@ -32,145 +33,188 @@ const Home = () => {
   };
   const [callSignModal, setCallSignModal] = useState(false);
   const [loginInModalopen, setLoginModalOpen] = useState(false);
+  const [stopped, setStopped] = useState(false);
 
   useEffect(() => {
     // setCallSignModal(true);
     // setLoginModalOpen(true);
+
+    //loader
+    setStopped(true);
+    const interval = setInterval(() => {
+      setStopped(false);
+    }, 2000);
+    return () => clearInterval(interval);
   }, []);
 
   console.log(data, "data");
 
   return (
-    <Box>
-      <Box className="home_wrapper" sx={{ padding: { xs: "30px", md: "0px" } }}>
-        {loginInModalopen ? (
-          <>
-            <LoginModals
-              setOpen={setLoginModalOpen}
-              open={loginInModalopen}
-              setCallSignModal={setCallSignModal}
-            />
-          </>
-        ) : null}
-        <Box>
-          <HomeBannerCarousel />
-        </Box>
-
-        <Box sx={{ margin: "40px 0px 20px 0px" }}>
-          <span className="newestProduct_text">
-            Be the first to try our newest product
-          </span>
-          <Box sx={{ textAlign: "center", marginTop: "10px" }}>
-            <span className="preOrder_text">Pre Order</span>
-            <Box sx={{ marginTop: "20px" }}>
-              <PreOrder
-                setData={(product) =>
-                  setData((prevData) => [...prevData, product])
-                }
-              />
-            </Box>
-          </Box>
-        </Box>
-
-        <Box sx={{ margin: "40px 0px 20px 0px" }}>
-          <span className="newestProduct_text">
-            Hurry before stock runs out
-          </span>
-          <Box sx={{ textAlign: "center", marginTop: "10px" }}>
-            <span className="preOrder_text">Hot On Sale</span>
-            <Box sx={{ marginTop: "20px" }}>
-              <HotOnSale
-                setData={(product) =>
-                  setData((prevData) => [...prevData, product])
-                }
-              />
-            </Box>
-          </Box>
-        </Box>
-
-        <Box sx={{ margin: "40px 0px 20px 0px" }}>
-          <span className="newestProduct_text">The wait is almost over</span>
-          <Box sx={{ textAlign: "center", marginTop: "10px" }}>
-            <span className="preOrder_text">Coming Soon</span>
-            <Box sx={{ marginTop: "20px" }}>
-              <ComingSoon
-                setData={(product) =>
-                  setData((prevData) => [...prevData, product])
-                }
-              />
-            </Box>
-          </Box>
-        </Box>
-
+    <Box sx={{ border: "none" }}>
+      {stopped === true ? (
         <Box
           sx={{
-            width: "100%",
-            typography: "body1",
-            margin: "40px 0px 0px 0px",
+            height: "60vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            border: "none",
           }}
         >
-          <TabContext value={value}>
-            <Box className="home_tabs-box" sx={{ padding: { xs: "20px" } }}>
-              <TabList
-                onChange={handleChange}
-                aria-label="lab API tabs example"
-                centered
-              >
-                <Tab label="Xbox" className="tab-heading_text" value="1" />
-                <Tab label="Headphone" className="tab-heading_text" value="2" />
-                <Tab
-                  label="Playstation"
-                  className="tab-heading_text"
-                  value="3"
+          <Triangle
+            height="60"
+            width="60"
+            color="#777777"
+            ariaLabel="triangle-loading"
+            wrapperStyle={{}}
+            wrapperClassName=""
+            visible={true}
+          />
+        </Box>
+      ) : (
+        <>
+          <Box
+            className="home_wrapper"
+            sx={{ padding: { xs: "30px", md: "0px" } }}
+          >
+            {loginInModalopen ? (
+              <>
+                <LoginModals
+                  setOpen={setLoginModalOpen}
+                  open={loginInModalopen}
+                  setCallSignModal={setCallSignModal}
                 />
-              </TabList>
+              </>
+            ) : null}
+            <Box>
+              <HomeBannerCarousel />
             </Box>
 
-            <TabPanel value="1">
-              <Xbox
-                setData={(product) =>
-                  setData((prevData) => [...prevData, product])
-                }
-              />
-            </TabPanel>
-
-            <TabPanel value="2">
-              <Headphones
-                setData={(product) =>
-                  setData((prevData) => [...prevData, product])
-                }
-              />
-            </TabPanel>
-
-            <TabPanel value="3">
-              <PlayStation
-                setData={(product) =>
-                  setData((prevData) => [...prevData, product])
-                }
-              />
-            </TabPanel>
-          </TabContext>
-        </Box>
-
-        <Box className="people-trust-us_conatiner" sx={{}}>
-          <span className="newestProduct_text">What people say about us</span>
-          <span className="preOrder_text">PEOPLE TRUST US</span>
-
-          <Grid container spacing={2}>
-            <Grid item xs={0} md={1.5}></Grid>
-            <Grid item xs={12} md={9}>
-              <Box className="trust-us_carousel-wrapper">
-                <TrustUsData />
+            <Box sx={{ margin: "40px 0px 20px 0px" }}>
+              <span className="newestProduct_text">
+                Be the first to try our newest product
+              </span>
+              <Box sx={{ textAlign: "center", marginTop: "10px" }}>
+                <span className="preOrder_text">Pre Order</span>
+                <Box sx={{ marginTop: "20px" }}>
+                  <PreOrder
+                    setData={(product) =>
+                      setData((prevData) => [...prevData, product])
+                    }
+                  />
+                </Box>
               </Box>
-            </Grid>
-            <Grid item xs={0} md={1.5}></Grid>
-          </Grid>
-        </Box>
-      </Box>
+            </Box>
 
-      <Box>
-        <Footer />
-      </Box>
+            <Box sx={{ margin: "40px 0px 20px 0px" }}>
+              <span className="newestProduct_text">
+                Hurry before stock runs out
+              </span>
+              <Box sx={{ textAlign: "center", marginTop: "10px" }}>
+                <span className="preOrder_text">Hot On Sale</span>
+                <Box sx={{ marginTop: "20px" }}>
+                  <HotOnSale
+                    setData={(product) =>
+                      setData((prevData) => [...prevData, product])
+                    }
+                  />
+                </Box>
+              </Box>
+            </Box>
+
+            <Box sx={{ margin: "40px 0px 20px 0px" }}>
+              <span className="newestProduct_text">
+                The wait is almost over
+              </span>
+              <Box sx={{ textAlign: "center", marginTop: "10px" }}>
+                <span className="preOrder_text">Coming Soon</span>
+                <Box sx={{ marginTop: "20px" }}>
+                  <ComingSoon
+                    setData={(product) =>
+                      setData((prevData) => [...prevData, product])
+                    }
+                  />
+                </Box>
+              </Box>
+            </Box>
+
+            <Box
+              sx={{
+                width: "100%",
+                typography: "body1",
+                margin: "40px 0px 0px 0px",
+              }}
+            >
+              <TabContext value={value}>
+                <Box className="home_tabs-box" sx={{ padding: { xs: "20px" } }}>
+                  <TabList
+                    onChange={handleChange}
+                    aria-label="lab API tabs example"
+                    centered
+                  >
+                    <Tab label="Xbox" className="tab-heading_text" value="1" />
+                    <Tab
+                      label="Headphone"
+                      className="tab-heading_text"
+                      value="2"
+                    />
+                    <Tab
+                      label="Playstation"
+                      className="tab-heading_text"
+                      value="3"
+                    />
+                  </TabList>
+                </Box>
+
+                <TabPanel value="1">
+                  <Xbox
+                    setData={(product) =>
+                      setData((prevData) => [...prevData, product])
+                    }
+                  />
+                </TabPanel>
+
+                <TabPanel value="2">
+                  <Headphones
+                    setData={(product) =>
+                      setData((prevData) => [...prevData, product])
+                    }
+                  />
+                </TabPanel>
+
+                <TabPanel value="3">
+                  <PlayStation
+                    setData={(product) =>
+                      setData((prevData) => [...prevData, product])
+                    }
+                  />
+                </TabPanel>
+              </TabContext>
+            </Box>
+
+            <Box className="people-trust-us_conatiner" sx={{}}>
+              <span className="newestProduct_text">
+                What people say about us
+              </span>
+              <span className="preOrder_text">PEOPLE TRUST US</span>
+
+              <Grid container spacing={2}>
+                <Grid item xs={0} md={1.5}></Grid>
+                <Grid item xs={12} md={9}>
+                  <Box className="trust-us_carousel-wrapper">
+                    <TrustUsData />
+                  </Box>
+                </Grid>
+                <Grid item xs={0} md={1.5}></Grid>
+              </Grid>
+            </Box>
+          </Box>
+
+          <Box>
+            <Footer />
+          </Box>
+        </>
+      )}
     </Box>
   );
 };

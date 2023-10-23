@@ -100,7 +100,7 @@ function Header(props) {
   const [anchorElPages, setAnchorElPages] = React.useState(null);
   const [anchorElBlogs, setAnchorElBlogs] = React.useState(null);
   const [cartData, setCartData] = React.useState([]);
-  console.log(cartData, "cartDatacartData")
+  console.log(cartData, "cartDatacartData");
   const navigate = useNavigate();
 
   const GamingAccopen = Boolean(anchorElAcc);
@@ -110,8 +110,6 @@ function Header(props) {
   console.log(data, "updatedDatainHEADER");
 
   const uniqueIds = {};
-
-  // useEffect(()=>{},[])
 
   const filteredData = data.filter((item) => {
     if (!uniqueIds[item.id]) {
@@ -123,7 +121,7 @@ function Header(props) {
 
   const formattedData = filteredData.map((each) => ({
     id: each.id,
-    productImg: each.img === undefined ? each.productImg :  each.img ,
+    productImg: each.img === undefined ? each.productImg : each.img,
     productName: each.name === undefined ? each.productName : each.name,
     originalPrice: each.price === undefined ? each.originalPrice : each.price,
     Quantity: each?.quantity === undefined ? each.Quantity : each.quantity,
@@ -131,8 +129,6 @@ function Header(props) {
   }));
 
   console.log(formattedData, "formattedData");
-
-
 
   const handleAccClick = (event) => {
     setAnchorElAcc(event.currentTarget);
@@ -215,12 +211,12 @@ function Header(props) {
     let countValue = 0;
     data.forEach((item) => {
       const quantity = item.Quantity !== undefined ? Number(item.Quantity) : 1;
-      const price = item.originalPrice !== undefined ? Number(item.originalPrice) : 0;
+      const price =
+        item.originalPrice !== undefined ? Number(item.originalPrice) : 0;
       countValue += quantity * price;
     });
-    console.log(countValue,"sduhdjdsndsn")
     setCount(countValue);
-    return `$${countValue}`;
+    return `Rs.${countValue}`;
   };
 
   const list = (anchor) => (
@@ -230,8 +226,8 @@ function Header(props) {
         // padding: "20px",
       }}
       role="presentation"
-    // onClick={toggleDrawer(anchor, false)}
-    // onKeyDown={toggleDrawer(anchor, false)}
+      // onClick={toggleDrawer(anchor, false)}
+      // onKeyDown={toggleDrawer(anchor, false)}
     >
       <Box
         sx={{
@@ -277,7 +273,9 @@ function Header(props) {
                   primary={items.productName}
                   secondary={
                     <span className="list-secondary_text">
-                      {`${items?.Quantity ? items.Quantity : 1}*${items.originalPrice}`}
+                      {`${items?.Quantity ? items.Quantity : 1}*${
+                        items.originalPrice
+                      }`}
                     </span>
                   }
                 />
@@ -572,7 +570,7 @@ function Header(props) {
                   }}
                 >
                   <span className="my-cart_text">My Cart:</span>
-                  <span className="my-cart-value_text">0.00USD</span>
+                  <span className="my-cart-value_text">0.00INR</span>
                 </Box>
 
                 <Box sx={{ display: "flex", alignItems: "end" }}>
@@ -612,6 +610,7 @@ function Header(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   const location = useLocation();
+  console.log(location.pathname, "pathname");
 
   return (
     <Box
@@ -629,7 +628,7 @@ function Header(props) {
         sx={{
           background: "transparent",
           // ml: { sm: `${drawerWidth}px` },
-          borderBottom: "1px solid #5B5969",
+          // borderBottom: "1px solid #5B5969",
           boxShadow: "none",
           padding: "0px",
           position: "static",
@@ -877,7 +876,7 @@ function Header(props) {
                     }}
                   >
                     <span className="my-cart_text">My Cart:</span>
-                    <span className="my-cart-value_text">0.00USD</span>
+                    <span className="my-cart-value_text">0.00INR</span>
                   </Box>
 
                   <Box sx={{ display: "flex", alignItems: "end" }}>
@@ -909,52 +908,58 @@ function Header(props) {
 
             <Divider sx={{ borderTop: "1px solid #5B5969" }} />
 
-            <Grid
-              container
-              spacing={2}
-              sx={{
-                padding: "16px 0px",
-                display: { xs: "none", sm: "none", md: "flex" },
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            {location.pathname === "/home" ||
+            location.pathname === "/home/products" ? (
               <Grid
-                item
-                xs={12}
+                container
+                spacing={2}
                 sx={{
-                  display: "flex",
+                  padding: "16px 0px",
+                  display: { xs: "none", sm: "none", md: "flex" },
                   justifyContent: "center",
                   alignItems: "center",
                 }}
               >
-                <Search
-                  className="header-search_bar"
+                <Grid
+                  item
+                  xs={12}
                   sx={{
-                    borderRadius: "0px 16px 0px 16px",
-                    border: "1px solid #A0A0A4",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
-                  <SearchIconWrapper sx={{ color: "#FFFFFF" }}>
-                    <SearchIcon />
-                  </SearchIconWrapper>
-                  <StyledInputBase
-                    className="search-bar_text"
-                    placeholder="Search Product…"
-                    inputProps={{ "aria-label": "search" }}
+                  <Search
+                    className="header-search_bar"
                     sx={{
-                      fontFamily: "Poppins ,sans-serif",
-                      lineHeight: "24px",
-                      fontWeight: "400",
-                      fontSize: "1rem",
-                      color: "#FFFFFF",
+                      borderRadius: "0px 16px 0px 16px",
+                      border: "1px solid #A0A0A4",
                     }}
-                  />
-                </Search>
+                  >
+                    <SearchIconWrapper sx={{ color: "#FFFFFF" }}>
+                      <SearchIcon />
+                    </SearchIconWrapper>
+                    <StyledInputBase
+                      className="search-bar_text"
+                      placeholder="Search Product…"
+                      inputProps={{ "aria-label": "search" }}
+                      sx={{
+                        fontFamily: "Poppins ,sans-serif",
+                        lineHeight: "24px",
+                        fontWeight: "400",
+                        fontSize: "1rem",
+                        color: "#FFFFFF",
+                      }}
+                    />
+                  </Search>
+                </Grid>
               </Grid>
-            </Grid>
+            ) : null}
 
-            <Box className="outletBox">
+            <Box
+              className="outletBox"
+             
+            >
               <Outlet />
             </Box>
           </Box>

@@ -12,11 +12,22 @@ import { AuthContext } from "../../Components/useContext/useContext";
 import { useContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Triangle } from "react-loader-spinner";
 
 const CartItems = () => {
   const { data, setData, count, setCount, setFilteredData } =
     useContext(AuthContext);
   const [cartData, setCartData] = useState([]);
+  const [stopped, setStopped] = useState(false);
+
+  useEffect(() => {
+    //loader
+    setStopped(true);
+    const interval = setInterval(() => {
+      setStopped(false);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   const uniqueIds = {};
   const filteredData = data.filter((item) => {
@@ -46,7 +57,7 @@ const CartItems = () => {
     console.log("Deleting product with id:", id);
     const updatedData = filteredData.filter((item) => item.id !== id);
     console.log("Updated filteredData:", updatedData);
-  
+
     const formattedData = updatedData.map((each) => ({
       id: each.id,
       productImg: each?.img ? each.img : each.productImg,
@@ -55,35 +66,35 @@ const CartItems = () => {
       Quantity: each?.quantity ? each.quantity : each.Quantity,
       discountPrice: each?.price ? each.price : each.discountPrice,
     }));
-  
+
     setData(updatedData);
     setCartData(formattedData); // Update cartData state with formatted data
   };
-  console.log(cartData,"cartData")
+  console.log(cartData, "cartData");
 
-  const rows = [
-    {
-      id: 1,
-      // productImg: "Snow",
-      productName: "D-Phone Android",
-      unitPrice: "$120.00",
-      stockStatus: "In Stock",
-    },
-    {
-      id: 2,
-      // productImg: "Lannister",
-      productName: "Digital Lens Camera",
-      unitPrice: "$120.00",
-      stockStatus: "In Stock",
-    },
-    {
-      id: 3,
-      // productImg: "Lannister",
-      productName: "Headphone Supersonic",
-      unitPrice: "$120.00",
-      stockStatus: "In Stock",
-    },
-  ];
+  // const rows = [
+  //   {
+  //     id: 1,
+  //     // productImg: "Snow",
+  //     productName: "D-Phone Android",
+  //     unitPrice: "Rs.120.00",
+  //     stockStatus: "In Stock",
+  //   },
+  //   {
+  //     id: 2,
+  //     // productImg: "Lannister",
+  //     productName: "Digital Lens Camera",
+  //     unitPrice: "Rs.120.00",
+  //     stockStatus: "In Stock",
+  //   },
+  //   {
+  //     id: 3,
+  //     // productImg: "Lannister",
+  //     productName: "Headphone Supersonic",
+  //     unitPrice: "Rs.120.00",
+  //     stockStatus: "In Stock",
+  //   },
+  // ];
 
   const column = [
     {
@@ -171,7 +182,7 @@ const CartItems = () => {
             buttonName="Apply Coupon"
             size="large"
             className="coupon_button"
-          // onClick={handleLoginClick}
+            // onClick={handleLoginClick}
           />
         </Box>
       ),
@@ -180,36 +191,61 @@ const CartItems = () => {
 
   return (
     <Box className="cart-bg_img">
-      <Box>{/* <Header /> */}</Box>
-
-      <Box
-        sx={{
-          margin: "30px 0px",
-          padding: { xs: "25px 50px 20px 40px", md: "50px 100px 40px 80px" },
-        }}
-      >
-        <DataTable
-          disableColumnMenu={true}
+      {stopped === true ? (
+        <Box
           sx={{
-            marginLeft: "12px",
-            marginRight: "12px",
+            height: "60vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            border: "none",
           }}
-          className="cart_table"
-          rows={cartData}
-          columns={column}
-          autoHeight
-          rowHeight={100}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          hideFooterSelectedRowCount={false}
-          hideFooterPagination={false}
-          hideFooter={false}
-        />
-      </Box>
+        >
+          <Triangle
+            height="60"
+            width="60"
+            color="#777777"
+            ariaLabel="triangle-loading"
+            wrapperStyle={{}}
+            wrapperClassName=""
+            visible={true}
+          />
+        </Box>
+      ) : (
+        <>
+          <Box
+            sx={{
+              margin: "30px 0px",
+              padding: {
+                xs: "25px 50px 20px 40px",
+                md: "50px 100px 40px 80px",
+              },
+            }}
+          >
+            <DataTable
+              disableColumnMenu={true}
+              sx={{
+                marginLeft: "12px",
+                marginRight: "12px",
+              }}
+              className="cart_table"
+              rows={cartData}
+              columns={column}
+              autoHeight
+              rowHeight={100}
+              pageSize={5}
+              rowsPerPageOptions={[5]}
+              hideFooterSelectedRowCount={false}
+              hideFooterPagination={false}
+              hideFooter={false}
+            />
+          </Box>
 
-      <Box>
-        <Footer />
-      </Box>
+          <Box>
+            <Footer />
+          </Box>
+        </>
+      )}
     </Box>
   );
 };

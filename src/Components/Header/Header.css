@@ -65,11 +65,15 @@
     padding-bottom: 10px;
 }
 
-.product_avatar img{
+.product_avatar img {
     border-radius: 0px !important;
     object-fit: contain !important;
 }
 
+
+.outletBox {
+    border: none !important;
+}
 
 .subtotal_text {
     font-family: 'Poppins', sans-serif;

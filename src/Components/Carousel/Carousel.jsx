@@ -123,18 +123,21 @@ export const PreOrder = (props) => {
   return (
     <Carousel
       additionalTransfrom={0}
-      // arrows
+      ssr={true}
+      showDots={true}
+      arrows={false}
+      renderDotsOutside={true}
+      // renderButtonGroupOutside={true}
       shouldResetAutoplay
       slidesToSlide={1}
       autoPlay
-      customLeftArrow={<ChevronLeftIcon />}
-      customRightArrow={<ChevronRightIcon />}
       autoPlaySpeed={1000}
       infinite={true}
       customTransition="transform 1000ms ease-in-out"
       pauseOnHover={false}
       transitionDuration={1000}
       responsive={responsive}
+      dotListClass="custom-dot-list-style"
       // className='slider_carousel'
     >
       {featuredProducts.map((items) => (
@@ -284,7 +287,9 @@ export const HotOnSale = (props) => {
   return (
     <Carousel
       additionalTransfrom={0}
-      // arrows
+      showDots={true}
+      arrows={false}
+      renderDotsOutside={true}
       shouldResetAutoplay
       slidesToSlide={1}
       autoPlay
@@ -296,6 +301,7 @@ export const HotOnSale = (props) => {
       pauseOnHover={false}
       transitionDuration={1000}
       responsive={responsive}
+      dotListClass="custom-dot-list-style"
       // className='slider_carousel'
     >
       {featuredProducts.map((items) => (
@@ -450,7 +456,9 @@ export const ComingSoon = (props) => {
   return (
     <Carousel
       additionalTransfrom={0}
-      // arrows
+      showDots={true}
+      arrows={false}
+      renderDotsOutside={true}
       shouldResetAutoplay
       slidesToSlide={1}
       autoPlay
@@ -462,6 +470,7 @@ export const ComingSoon = (props) => {
       pauseOnHover={false}
       transitionDuration={1000}
       responsive={responsive}
+      dotListClass="custom-dot-list-style"
       // className='slider_carousel'
     >
       {featuredProducts.map((items) => (
@@ -560,7 +569,7 @@ export const HomeBannerCarousel = (props) => {
     >
       <div
         id="carouselExampleCaptions"
-        class="carousel slide carousel-fade"
+        class="carousel slide"
         data-bs-ride="carousel"
         style={{ margin: "15px" }}
       >
