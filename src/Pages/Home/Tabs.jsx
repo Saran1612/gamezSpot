@@ -185,10 +185,14 @@ export const Headphones = (props) => {
 
   return (
     <>
-      <Grid container spacing={2}>
-        <Grid itemxs={12} sm={0} md={1.5}></Grid>
+      <Grid
+        container
+        spacing={2}
+        sx={{ display: "flex", justifyContent: "center" }}
+      >
+        <Grid itemxs={12} sm={0} md={1}></Grid>
         {featuredProducts.map((items) => (
-          <Grid item xs={12} sm={4} md={3}>
+          <Grid item xs={12} sm={6} md={3.5}>
             <div className="card-div-home-new-product-featured" key={items.id}>
               <Card className="card">
                 <CardActionArea className="cardActionArea">
@@ -248,7 +252,7 @@ export const Headphones = (props) => {
             </div>
           </Grid>
         ))}
-        <Grid item xs={12} sm={0} md={1.5}></Grid>
+        <Grid item xs={12} sm={0} md={1}></Grid>
       </Grid>
     </>
   );
@@ -301,10 +305,14 @@ export const PlayStation = (props) => {
 
   return (
     <>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={0} md={1.5}></Grid>
+      <Grid
+        container
+        spacing={2}
+        sx={{ display: "flex", justifyContent: "center" }}
+      >
+        <Grid item xs={12} sm={0} md={1}></Grid>
         {featuredProducts.map((items) => (
-          <Grid item xs={12} sm={4} md={3}>
+          <Grid item xs={12} sm={6} md={3.5}>
             <div className="card-div-home-new-product-featured" key={items.id}>
               <Card className="card">
                 <CardActionArea className="cardActionArea">
@@ -366,7 +374,7 @@ export const PlayStation = (props) => {
             </div>
           </Grid>
         ))}
-        <Grid item xs={12} sm={0} md={1.5}></Grid>
+        <Grid item xs={12} sm={0} md={1}></Grid>
       </Grid>
     </>
   );
